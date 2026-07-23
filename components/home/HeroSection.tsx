@@ -5,6 +5,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { CtaButton } from "@/components/shared/CtaButton";
 import { StarField } from "@/components/home/StarField";
+import { SocialProof } from "@/components/shared/SocialProof";
 import { RULES } from "@/lib/challenges";
 
 /**
@@ -126,39 +127,9 @@ export function HeroSection() {
           </CtaButton>
         </motion.div>
 
-        {/* community proof + round social buttons */}
-        <motion.div
-          variants={rise}
-          className="mt-9 flex flex-col items-center gap-3 sm:flex-row"
-        >
-          <div className="flex items-center gap-2">
-            {SOCIALS.map((s) => (
-              <a
-                key={s.name}
-                href={s.href}
-                aria-label={s.name}
-                title={s.name}
-                className="grid size-9 place-items-center rounded-full border border-white/12 bg-white/[0.05] text-[var(--text-secondary)] backdrop-blur-md transition-colors duration-[var(--dur-fast)] hover:border-[var(--border-accent)] hover:text-[var(--text-primary)]"
-              >
-                <svg viewBox="0 0 24 24" className="size-4 fill-current" aria-hidden>
-                  {s.icon}
-                </svg>
-              </a>
-            ))}
-          </div>
-          <p className="text-sm text-[var(--text-secondary)]">
-            {/* NEEDS CLIENT INPUT — verified member count (§4). */}
-            <span className="tabular font-semibold text-[var(--text-primary)]">
-              10K+
-            </span>{" "}
-            community members ·{" "}
-            <Link
-              href="/community"
-              className="font-medium text-[var(--accent)] hover:text-[var(--accent-hover)]"
-            >
-              Join community
-            </Link>
-          </p>
+        {/* community proof — avatar stack + rating card */}
+        <motion.div variants={rise} className="mt-10">
+          <SocialProof />
         </motion.div>
 
         <motion.p variants={rise} className="mt-8 text-xs text-[var(--text-muted)]">

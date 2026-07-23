@@ -36,7 +36,7 @@ export function Intro() {
           transition={{ duration: 0.6, ease: EASE }}
         >
           <div className="px-6 text-center">
-            <span className="relative inline-block font-display text-4xl font-semibold tracking-tight sm:text-6xl lg:text-7xl">
+            <span className="relative inline-block font-display font-semibold tracking-tight text-[clamp(3rem,11vw,10rem)] leading-none">
               {/* base (dim) */}
               <span className="text-white/12">Game of Forex</span>
               {/* white fill overlay */}
@@ -51,7 +51,7 @@ export function Intro() {
               </motion.span>
             </span>
             <motion.p
-              className="mt-3 text-sm tracking-wide text-white/45 sm:text-base"
+              className="mt-4 text-base tracking-wide text-white/45 sm:text-xl"
               initial={{ opacity: reduce ? 1 : 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, ease: EASE, delay: reduce ? 0 : 1.1 }}

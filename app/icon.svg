@@ -1,11 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <defs>
-    <linearGradient id="gf-fav" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#6D86FF"/>
-      <stop offset="1" stop-color="#2F52E6"/>
+    <linearGradient id="gf-g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3D74FF"/>
+      <stop offset="1" stop-color="#1B45D8"/>
     </linearGradient>
   </defs>
-  <circle cx="256" cy="256" r="256" fill="url(#gf-fav)"/>
-  <path d="M128 312 L256 168 L384 312" fill="none" stroke="#fff" stroke-width="44" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M184 368 L256 280 L328 368" fill="none" stroke="#fff" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+  <circle cx="50" cy="50" r="50" fill="url(#gf-g)"/>
+  <text x="50" y="51" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="66" fill="#fff">G</text>
 </svg>

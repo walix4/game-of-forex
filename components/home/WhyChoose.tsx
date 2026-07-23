@@ -225,20 +225,35 @@ function InsightsPanel() {
 }
 
 function FlagTiles() {
-  // NEEDS CLIENT INPUT — regions the client actually serves.
-  const flags = ["🇬🇧", "🇺🇸", "🇩🇪", "🇵🇰", "🇮🇳", "🇧🇷", "🇵🇭", "🇦🇪", "🇿🇦"];
-  return (
-    <div className="mt-6 flex flex-1 flex-col justify-center">
-      <div className="grid grid-cols-3 gap-2.5">
-        {flags.map((f) => (
-          <span
-            key={f}
-            className="grid aspect-square place-items-center rounded-[var(--radius)] border border-[var(--border-subtle)] bg-[var(--bg-base)]/60 text-2xl"
-          >
-            {f}
+  // Real flags (flagcdn) in a right-to-left marquee. NEEDS CLIENT INPUT — the
+  // actual regions the client serves.
+  const rowA = ["gb", "us", "de", "pk", "in", "br", "ph", "ae"];
+  const rowB = ["za", "ng", "fr", "jp", "ca", "au", "sa", "id"];
+  const tile =
+    "grid size-16 shrink-0 place-items-center rounded-[var(--radius)] border border-[var(--border-subtle)] bg-[var(--bg-base)]/60";
+  const Row = ({ codes }: { codes: string[] }) => (
+    <div className="overflow-hidden">
+      <div className="anim-marquee flex w-max gap-2.5">
+        {[...codes, ...codes].map((c, i) => (
+          <span key={`${c}-${i}`} className={tile}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`https://flagcdn.com/w80/${c}.png`}
+              alt=""
+              width={36}
+              height={27}
+              loading="lazy"
+              className="h-7 w-10 rounded-[3px] object-cover shadow-[0_2px_6px_-2px_rgb(0_0_0/0.6)]"
+            />
           </span>
         ))}
       </div>
+    </div>
+  );
+  return (
+    <div className="mt-6 flex flex-1 flex-col justify-center gap-3 [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]">
+      <Row codes={rowA} />
+      <Row codes={rowB} />
     </div>
   );
 }
