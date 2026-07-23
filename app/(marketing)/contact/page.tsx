@@ -43,7 +43,7 @@ export default async function ContactPage({
           </Reveal>
 
           <Reveal delay={0.06} className="space-y-8">
-            <div className="rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-raised)] p-6">
+            <div className="rounded-[var(--radius-lg)] glass-card p-6">
               <h2 className="font-display text-base font-semibold text-[var(--text-primary)]">
                 Prefer the community?
               </h2>

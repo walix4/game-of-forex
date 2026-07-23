@@ -3,7 +3,7 @@ import type { Faq } from "@/lib/faq";
 // Native <details> accordion — accessible and JS-free.
 export function FaqAccordion({ items }: { items: Faq[] }) {
   return (
-    <div className="divide-y divide-[var(--border-subtle)] overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-raised)]">
+    <div className="divide-y divide-[var(--border-subtle)] overflow-hidden rounded-[var(--radius-lg)] glass-card">
       {items.map((f) => (
         <details key={f.q} className="group">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 text-[var(--text-primary)] transition-colors hover:bg-[var(--bg-frame-alt)]/20 [&::-webkit-details-marker]:hidden">

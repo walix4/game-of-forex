@@ -50,7 +50,7 @@ export function EnquiryForm({
     return (
       <div
         role="status"
-        className="rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-raised)] p-8 text-center"
+        className="rounded-[var(--radius-lg)] glass-card p-8 text-center"
       >
         <div className="mx-auto grid size-11 place-items-center rounded-full bg-[var(--success-bg)] text-[var(--market-up)]">
           ✓

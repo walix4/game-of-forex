@@ -32,14 +32,14 @@ export function BehindTheScenes() {
         <ul className="flex gap-4 pb-2">
           {TILES.map((t, i) => (
             <Reveal as="li" key={t.caption} delay={i * 0.06}>
-              <figure className="group relative aspect-[3/4] w-56 shrink-0 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-raised)] sm:w-64">
+              <figure className="group relative aspect-[3/4] w-56 shrink-0 overflow-hidden rounded-[var(--radius-lg)] glass-card sm:w-64">
                 {/* placeholder — NEEDS CLIENT PHOTOS (client-owned) */}
                 <div
                   aria-hidden
                   className="absolute inset-0 opacity-70"
                   style={{
                     background:
-                      "linear-gradient(160deg, var(--color-indigo-900), var(--color-ink-900) 60%, var(--color-teal-900))",
+                      "linear-gradient(160deg, var(--color-blue-900), var(--color-ink-950) 55%, var(--color-blue-950))",
                   }}
                 />
                 <div className="glow-hero absolute inset-0 opacity-30" aria-hidden />

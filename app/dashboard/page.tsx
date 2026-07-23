@@ -44,7 +44,7 @@ function Bar({
 
 function StatTile({ label, value, sub }: { label: string; value: string; sub?: string }) {
   return (
-    <div className="rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-raised)] p-5">
+    <div className="rounded-[var(--radius-lg)] glass-card p-5">
       <p className="text-xs uppercase tracking-[0.1em] text-[var(--text-muted)]">{label}</p>
       <p className="tabular mt-2 font-display text-2xl font-semibold text-[var(--text-primary)]">
         {value}
@@ -146,7 +146,7 @@ export default function DashboardPage() {
 
       {/* credentials + rules */}
       <div className="grid gap-6 lg:grid-cols-2">
-        <section className="rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-raised)] p-6">
+        <section className="rounded-[var(--radius-lg)] glass-card p-6">
           <h2 className="font-display text-lg font-semibold text-[var(--text-primary)]">
             Account credentials
           </h2>
@@ -170,7 +170,7 @@ export default function DashboardPage() {
           </button>
         </section>
 
-        <section id="rules" className="rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-raised)] p-6">
+        <section id="rules" className="rounded-[var(--radius-lg)] glass-card p-6">
           <h2 className="font-display text-lg font-semibold text-[var(--text-primary)]">
             Your rules
           </h2>

@@ -22,7 +22,7 @@ export function ChallengeCard({
         "relative flex h-full flex-col rounded-[var(--radius-lg)] p-7",
         popular
           ? "ring-accent glass glow-mint"
-          : "border border-[var(--border-subtle)] bg-[var(--bg-raised)]",
+          : "glass-card",
       )}
     >
       {popular && (

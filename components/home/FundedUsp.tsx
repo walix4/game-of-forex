@@ -60,7 +60,7 @@ export function FundedUsp() {
                 ))}
               </ul>
             </div>
-            <div className="rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-raised)] p-6">
+            <div className="rounded-[var(--radius-lg)] glass-card p-6">
               <h3 className="font-display text-base font-semibold text-[var(--text-muted)]">
                 Typical prop firms
               </h3>

@@ -23,9 +23,12 @@ The project pivoted. Where sections 1–8 conflict with this, **this wins**.
   with clearly-fake data. The unresolved blockers (payment provider for Pakistan,
   broker/MT5, prop-firm legal advice — old §8 Q2/Q4/Q5) are NOT resolved; we are
   only designing the UI, not taking money or provisioning accounts.
-- **Visual direction: FundingPips-flashy**, not FTMO-calm. Bold gradients, real
-  visuals/3D art, more motion — but still on the token system (mint = one primary,
-  teal = light only, indigo = frame). Design tokens in §3 and gof-tokens.css stand.
+- **Visual direction: Alpha Capital (alphacapitalgroup.uk).** Near-black surfaces,
+  vivid ROYAL-BLUE accent (`--color-blue-500` #3B63FF), bold gradients, real
+  visuals, more motion. ⚠️ This REPLACES the client's brand mint/lime green
+  (`#82DC7C`) as the interactive accent — a deliberate client call, reversible via
+  the accent tokens in globals.css. Green/red stay for market up/down only.
+  One primary CTA per viewport still holds; teal glow is now a blue glow.
 - **Page set:** Home, Challenges, Challenge details, Pricing, Rules, Community,
   FAQ, Contact, Login (mock), Dashboard (mock), About (founder).
 - Risk disclosure stays first-class on every purchase path (§4 still applies).

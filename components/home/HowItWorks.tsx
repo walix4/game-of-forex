@@ -32,7 +32,7 @@ export function HowItWorks() {
       <ol className="mt-14 grid gap-6 md:grid-cols-3">
         {STEPS.map((s, i) => (
           <Reveal as="li" key={s.n} delay={i * 0.08}>
-            <div className="relative h-full rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-raised)] p-8">
+            <div className="relative h-full rounded-[var(--radius-lg)] glass-card p-8">
               <span
                 aria-hidden
                 className="text-gradient font-display text-5xl font-semibold"

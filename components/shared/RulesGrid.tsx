@@ -19,7 +19,7 @@ export function RulesGrid() {
       {ITEMS.map((it) => (
         <div
           key={it.label}
-          className="rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-raised)] p-5"
+          className="rounded-[var(--radius-lg)] glass-card p-5"
         >
           <dt className="text-xs uppercase tracking-[0.1em] text-[var(--text-muted)]">
             {it.label}

@@ -56,7 +56,7 @@ export default function RulesPage() {
         <ul className="mt-14 grid gap-5 md:grid-cols-2">
           {EXPLAINED.map((e, i) => (
             <Reveal as="li" key={e.title} delay={i * 0.05}>
-              <div className="h-full rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-raised)] p-6">
+              <div className="h-full rounded-[var(--radius-lg)] glass-card p-6">
                 <h2 className="font-display text-lg font-semibold text-[var(--text-primary)]">
                   {e.title}
                 </h2>

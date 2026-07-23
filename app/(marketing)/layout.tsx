@@ -1,6 +1,7 @@
 import { SiteNav } from "@/components/layout/SiteNav";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { BackgroundFX } from "@/components/layout/BackgroundFX";
+import { Intro } from "@/components/layout/Intro";
 import { LenisProvider } from "@/components/motion/LenisProvider";
 
 // Marketing route group: shared indigo chrome + smooth scroll.
@@ -11,6 +12,7 @@ export default function MarketingLayout({
 }) {
   return (
     <>
+      <Intro />
       <LenisProvider />
       <BackgroundFX />
       <a

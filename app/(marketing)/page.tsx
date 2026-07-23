@@ -14,9 +14,9 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <WhyChoose />
       <ChallengeSizes />
       <HowItWorks />
-      <WhyChoose />
       <FundedUsp />
       <RulesPreview />
       <BehindTheScenes />

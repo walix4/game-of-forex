@@ -25,7 +25,7 @@ export default function CommunityPage() {
             <Reveal as="li" key={c.platform} delay={i * 0.05}>
               <a
                 href={c.href}
-                className="flex h-full flex-col items-start gap-3 rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-raised)] p-6 transition-colors duration-[var(--dur-base)] hover:border-[var(--border-accent)]"
+                className="flex h-full flex-col items-start gap-3 rounded-[var(--radius-lg)] glass-card p-6 transition-colors duration-[var(--dur-base)] hover:border-[var(--border-accent)]"
               >
                 <span className="text-sm font-semibold text-[var(--text-primary)]">
                   {c.platform}

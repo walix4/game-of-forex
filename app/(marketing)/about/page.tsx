@@ -55,7 +55,7 @@ export default function AboutPage() {
           </Reveal>
 
           <Reveal delay={0.06}>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-raised)]">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-lg)] glass-card">
               <div className="glow-hero absolute inset-0 opacity-40" aria-hidden />
               <div className="absolute inset-0 grid place-items-center">
                 <span className="font-display text-6xl font-semibold text-[var(--text-disabled)]">
@@ -75,7 +75,7 @@ export default function AboutPage() {
         <ul className="grid gap-5 md:grid-cols-3">
           {PRINCIPLES.map((p, i) => (
             <Reveal as="li" key={p.title} delay={i * 0.06}>
-              <div className="h-full rounded-[var(--radius-lg)] border border-[var(--border-subtle)] bg-[var(--bg-raised)] p-6">
+              <div className="h-full rounded-[var(--radius-lg)] glass-card p-6">
                 <h2 className="font-display text-lg font-semibold text-[var(--text-primary)]">
                   {p.title}
                 </h2>
