@@ -1,0 +1,284 @@
+/* ============================================================
+   GAME OF FOREX — DESIGN TOKENS v1
+   Derived from the live site. Client's exact colors preserved:
+     #0E1148 indigo · #82DC7C mint · #2C484C teal
+     #181A20 ink   · #00A53F signal
+   Model: indigo frames · ink holds · teal glows · mint acts
+   Tailwind v4 — this IS app/globals.css (copied from gof-tokens.css)
+   ============================================================ */
+
+@import "tailwindcss";
+
+@theme {
+  /* --- indigo — the frame (nav, footer, modals, overlays) --- */
+  --color-indigo-50:  #F2F5FF;
+  --color-indigo-100: #E0E7FF;
+  --color-indigo-200: #C8D1F1;
+  --color-indigo-300: #AFB9DD;
+  --color-indigo-400: #96A1C8;
+  --color-indigo-500: #808CB5;
+  --color-indigo-600: #6A76A3;
+  --color-indigo-700: #535F8E;
+  --color-indigo-800: #3B4678;
+  --color-indigo-900: #232C60;
+  --color-indigo-950: #0E1148;  /* client's exact nav color */
+
+  /* --- mint — the only accent. CTAs, links, brand marks --- */
+  --color-mint-50:  #E1FFDE;
+  --color-mint-100: #B2FFAC;
+  --color-mint-200: #95EC8F;
+  --color-mint-300: #82DC7C;    /* client's exact accent */
+  --color-mint-400: #69B964;
+  --color-mint-500: #58A254;
+  --color-mint-600: #488B44;
+  --color-mint-700: #367232;
+  --color-mint-800: #235821;
+  --color-mint-900: #0E3C0D;
+  --color-mint-950: #002100;
+
+  /* --- teal — light source. glows and gradients only, never a fill --- */
+  --color-teal-50:  #E9F9FB;
+  --color-teal-100: #DBECEE;
+  --color-teal-200: #C4D7D9;
+  --color-teal-300: #ABBFC2;
+  --color-teal-400: #92A8AB;
+  --color-teal-500: #7C9396;
+  --color-teal-600: #667E82;
+  --color-teal-700: #4D676B;
+  --color-teal-800: #2C484C;    /* client's exact hero glow */
+  --color-teal-900: #1C363A;
+  --color-teal-950: #061D20;
+
+  /* --- ink — surfaces and text --- */
+  --color-ink-50:  #F4F5F8;
+  --color-ink-100: #E6E8EB;
+  --color-ink-200: #D1D2D6;
+  --color-ink-300: #B9BABF;
+  --color-ink-400: #A1A3A8;
+  --color-ink-500: #8C8D92;
+  --color-ink-600: #77797E;
+  --color-ink-700: #606267;
+  --color-ink-800: #484A50;
+  --color-ink-900: #2F3137;
+  --color-ink-950: #181A20;     /* client's exact page bg */
+
+  /* --- signal — success semantic ONLY. never a CTA. --- */
+  --color-signal-300: #6BD67D;
+  --color-signal-500: #00A53F;  /* client's exact green */
+  --color-signal-700: #00772B;  /* use this when text on top is white */
+
+  /* --- typefaces — mapped from next/font (lib/fonts.ts). PROVISIONAL. --- */
+  --font-sans:    var(--ff-body);
+  --font-display: var(--ff-display);
+  --font-mono:    var(--ff-mono);
+}
+
+:root {
+  /* ---------- surfaces (depth ladder) ---------- */
+  --bg-base:      var(--color-ink-950);    /* page floor */
+  --bg-raised:    var(--color-ink-900);    /* cards, panels */
+  --bg-inset:     #202937;                 /* inputs — site's existing field bg */
+  --bg-frame:     var(--color-indigo-950); /* nav, footer, modals, overlays */
+  --bg-frame-alt: var(--color-indigo-900); /* nav hover, dropdown panels */
+
+  /* ---------- text ---------- */
+  --text-primary:   #FFFFFF;
+  --text-secondary: var(--color-ink-200);
+  --text-muted:     var(--color-ink-400);  /* 6.9:1 on base — AA */
+  --text-disabled:  var(--color-ink-600);
+  --text-on-accent: var(--color-mint-900); /* dark text on mint. 12.5:1 */
+  --text-on-frame:  var(--color-indigo-200);
+
+  /* ---------- borders ---------- */
+  --border-subtle:  rgb(255 255 255 / 0.07);
+  --border-default: rgb(255 255 255 / 0.12);
+  --border-strong:  var(--color-ink-800);
+  --border-accent:  var(--color-mint-300);
+  --border-frame:   var(--color-indigo-800);
+
+  /* ---------- interactive ---------- */
+  --accent:         var(--color-mint-300);
+  --accent-hover:   var(--color-mint-200);
+  --accent-active:  var(--color-mint-400);
+  --accent-subtle:  rgb(130 220 124 / 0.12); /* tinted chips, badges */
+  --focus-ring:     var(--color-mint-300);
+
+  /* ---------- market data — NOT the brand green ---------- */
+  --market-up:      #16C784;   /* 7.9:1 on base */
+  --market-down:    #FF5A6E;   /* 5.8:1 on base */
+  --market-flat:    var(--color-ink-500);
+  --market-up-bg:   rgb(22 199 132 / 0.14);
+  --market-down-bg: rgb(255 90 110 / 0.14);
+
+  /* ---------- semantic ---------- */
+  --success:     var(--color-signal-500);
+  --success-bg:  rgb(0 165 63 / 0.14);
+  --warning:     #F5B843;
+  --warning-bg:  rgb(245 184 67 / 0.14);
+  --danger:      #FF5A6E;
+  --danger-bg:   rgb(255 90 110 / 0.14);
+
+  /* ---------- glow — teal's only job ----------
+     Hero backdrop. Use as a fixed radial layer, not a section background. */
+  --glow-hero:  radial-gradient(
+                  ellipse 70% 55% at 50% 42%,
+                  rgb(44 72 76 / 0.85) 0%,
+                  rgb(44 72 76 / 0.35) 45%,
+                  transparent 75%);
+  --glow-accent: radial-gradient(
+                  circle at 50% 50%,
+                  rgb(130 220 124 / 0.20) 0%,
+                  transparent 65%);
+  --glow-frame:  radial-gradient(
+                  ellipse 60% 100% at 50% 0%,
+                  rgb(14 17 72 / 0.9) 0%,
+                  transparent 70%);
+
+  /* ---------- radius / motion ---------- */
+  --radius-sm: 6px;
+  --radius:    10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --ease-out:      cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast:  140ms;
+  --dur-base:  260ms;
+  --dur-slow:  520ms;
+}
+
+/* ============================================================
+   RULES — read before building
+   ------------------------------------------------------------
+   1. Mint is the ONLY accent. One primary CTA per viewport.
+      Everything else is ghost or outline.
+   2. Teal never fills a surface. It is light, not paint.
+      Radial gradients and glows only.
+   3. Indigo is the frame, not a section background. If a section
+      body is indigo, the depth model breaks.
+   4. Market up/down never uses mint or signal. A trader must be
+      able to tell "profit" from "button" without reading.
+   5. Never put white text on --color-signal-500 (3.25:1, fails AA).
+      Use --color-signal-700, or dark text on 500.
+   6. Text on mint is always --text-on-accent, never white or black.
+   7. Every animation respects prefers-reduced-motion.
+   ============================================================ */
+
+/* ---------- base ---------- */
+@layer base {
+  html {
+    color-scheme: dark; /* dark is the only theme (CLAUDE.md §6) */
+  }
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  /* All prices/percentages/countdowns/figures are tabular (CLAUDE.md §3). */
+  .tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Hero teal glow — a radial light layer, never a fill (rule 2). */
+.glow-hero {
+  background: var(--glow-hero);
+}
+
+/* ---------- flashy vocabulary (FundingPips energy + Draygo lime-on-dark) ----------
+   Still on-token: mint is the accent, teal is light, indigo frames. */
+
+/* Gradient display text — mint into teal light. */
+.text-gradient {
+  background: linear-gradient(
+    100deg,
+    var(--color-mint-200) 0%,
+    var(--color-mint-300) 40%,
+    var(--color-teal-300) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Glass surface — translucent raised panel with blur and a hairline. */
+.glass {
+  background: rgb(47 49 55 / 0.55);
+  border: 1px solid var(--border-default);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Mint glow ring — for featured cards / primary emphasis. */
+.glow-mint {
+  box-shadow:
+    0 0 0 1px rgb(130 220 124 / 0.35),
+    0 20px 60px -20px rgb(130 220 124 / 0.35);
+}
+
+/* Animated conic accent border for the "popular" challenge. */
+.ring-accent {
+  position: relative;
+}
+.ring-accent::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    140deg,
+    var(--color-mint-300),
+    transparent 40%,
+    transparent 60%,
+    var(--color-teal-500)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ---------- looping animations (bento "why choose" cards) ----------
+   All infinite; the reduced-motion block below freezes them globally. */
+@keyframes gof-orbit { to { transform: rotate(360deg); } }
+@keyframes gof-orbit-rev { to { transform: rotate(-360deg); } }
+@keyframes gof-marquee { to { transform: translateX(-50%); } }
+@keyframes gof-bar {
+  0%, 100% { transform: scaleY(var(--h-from, 0.5)); }
+  50% { transform: scaleY(var(--h-to, 1)); }
+}
+@keyframes gof-float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes gof-ping-ring {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.anim-orbit { animation: gof-orbit 32s linear infinite; }
+.anim-orbit-rev { animation: gof-orbit-rev 32s linear infinite; }
+.anim-marquee { animation: gof-marquee 18s linear infinite; }
+.anim-bar { transform-origin: bottom; animation: gof-bar 2.4s ease-in-out infinite; }
+.anim-float-slow { animation: gof-float-slow 6s ease-in-out infinite; }
+.anim-ping-ring { animation: gof-ping-ring 2.4s ease-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
