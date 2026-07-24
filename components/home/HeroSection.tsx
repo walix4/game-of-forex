@@ -69,7 +69,7 @@ export function HeroSection() {
         <StarField />
       </div>
 
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-10 lg:grid-cols-[1.05fr_0.85fr]">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-8 lg:grid-cols-[1fr_1fr]">
         {/* content */}
         <motion.div
           variants={container}
@@ -104,6 +104,8 @@ export function HeroSection() {
             <Rotator
               phrases={HEAD_PHRASES}
               reduce={reduce}
+              slow
+              boxClassName="justify-items-center lg:justify-items-start"
               className="text-gradient"
               srLabel="real capital."
             />
@@ -139,16 +141,16 @@ export function HeroSection() {
           </motion.p>
         </motion.div>
 
-        {/* founder figure — own column, right side */}
+        {/* founder figure — own column, right side, grounded */}
         <motion.div
           initial={reduce ? { opacity: 1 } : { opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: EASE, delay: 0.4 }}
-          className="relative hidden justify-self-center lg:block"
+          className="relative hidden justify-self-end self-end lg:block"
         >
           <div
             aria-hidden
-            className="absolute inset-x-[-18%] bottom-[-6%] top-[6%] -z-10 rounded-full opacity-70 blur-3xl"
+            className="absolute inset-x-[-14%] bottom-[-4%] top-[8%] -z-10 rounded-full opacity-75 blur-3xl"
             style={{ background: "var(--glow-accent)" }}
           />
           <div className="anim-float-slow">
@@ -156,7 +158,7 @@ export function HeroSection() {
             <img
               src="/waqas-hero.png"
               alt="Waqas Ahmed, founder of Game of Forex"
-              className="h-auto w-[330px] max-w-full [mask-image:linear-gradient(to_bottom,#000_86%,transparent)]"
+              className="h-auto w-[440px] max-w-full xl:w-[500px] [mask-image:linear-gradient(to_bottom,#000_88%,transparent)]"
             />
           </div>
         </motion.div>
@@ -167,7 +169,11 @@ export function HeroSection() {
 
 /* Typewriter rotation: erases the phrase, then retypes the next. A grid of
    invisible sizers reserves the widest box so nothing reflows while typing. */
-function useTypewriter(phrases: string[], reduce: boolean | null) {
+function useTypewriter(
+  phrases: string[],
+  reduce: boolean | null,
+  { typeMs = 58, delMs = 30, holdMs = 1600 }: { typeMs?: number; delMs?: number; holdMs?: number } = {},
+) {
   const [text, setText] = useState(phrases[0]);
   const [i, setI] = useState(0);
   const [del, setDel] = useState(false);
@@ -177,18 +183,18 @@ function useTypewriter(phrases: string[], reduce: boolean | null) {
     const cur = phrases[i];
     let t: ReturnType<typeof setTimeout>;
     if (!del && text === cur) {
-      t = setTimeout(() => setDel(true), 1600); // hold, then erase
+      t = setTimeout(() => setDel(true), holdMs); // hold, then erase
     } else if (del && text === "") {
       setDel(false);
       setI((v) => (v + 1) % phrases.length);
     } else {
       t = setTimeout(
         () => setText(cur.substring(0, del ? text.length - 1 : text.length + 1)),
-        del ? 30 : 58,
+        del ? delMs : typeMs,
       );
     }
     return () => clearTimeout(t);
-  }, [text, del, i, phrases, reduce]);
+  }, [text, del, i, phrases, reduce, typeMs, delMs, holdMs]);
 
   return reduce ? phrases[0] : text;
 }
@@ -199,16 +205,24 @@ function Rotator({
   className = "",
   srLabel,
   cursor = "var(--accent)",
+  slow = false,
+  boxClassName = "justify-items-center",
 }: {
   phrases: string[];
   reduce: boolean | null;
   className?: string;
   srLabel?: string;
   cursor?: string;
+  slow?: boolean;
+  boxClassName?: string;
 }) {
-  const text = useTypewriter(phrases, reduce);
+  const text = useTypewriter(
+    phrases,
+    reduce,
+    slow ? { typeMs: 100, delMs: 50, holdMs: 2200 } : {},
+  );
   return (
-    <span className="relative inline-grid justify-items-center align-bottom">
+    <span className={`relative inline-grid align-bottom ${boxClassName}`}>
       <span aria-hidden className="contents">
         {phrases.map((p, k) => (
           <span
