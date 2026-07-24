@@ -7,7 +7,7 @@ import { CtaButton } from "@/components/shared/CtaButton";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Game of Forex is a prop firm built on real funded accounts, founded by Waqas Hamad.",
+    "Game of Forex is a prop firm built on real funded accounts, founded by Waqas Ahmed.",
 };
 
 const PRINCIPLES = [
@@ -31,7 +31,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About"
         title="Built on real funding."
-        intro="Game of Forex is a prop trading firm founded by Waqas Hamad, built around a model of real funded accounts and transparent rules."
+        intro="Game of Forex is a prop trading firm founded by Waqas Ahmed, built around a model of real funded accounts and transparent rules."
       />
 
       <Section>
@@ -40,7 +40,7 @@ export default function AboutPage() {
             {/* NEEDS CLIENT INPUT — verified founder bio. No net-worth / income
                 claims (§4). Placeholder copy below. */}
             <p>
-              This page will carry a verified account of Waqas Hamad and why he
+              This page will carry a verified account of Waqas Ahmed and why he
               built Game of Forex — the gap he saw between prop firms that
               &ldquo;fund&rdquo; on demo infrastructure and a model built on real
               capital. The text here is placeholder and will be replaced with
@@ -59,11 +59,11 @@ export default function AboutPage() {
               <div className="glow-hero absolute inset-0 opacity-40" aria-hidden />
               <div className="absolute inset-0 grid place-items-center">
                 <span className="font-display text-6xl font-semibold text-[var(--text-disabled)]">
-                  WH
+                  WA
                 </span>
               </div>
               <p className="absolute bottom-3 left-0 right-0 text-center text-[0.7rem] text-[var(--text-muted)]">
-                {/* NEEDS CLIENT PHOTOS — client-owned portrait of Waqas Hamad */}
+                {/* NEEDS CLIENT PHOTOS — client-owned portrait of Waqas Ahmed */}
                 Photo to be supplied
               </p>
             </div>

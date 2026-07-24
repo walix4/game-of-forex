@@ -13,7 +13,7 @@ The project pivoted. Where sections 1–8 conflict with this, **this wins**.
   The **core product is selling trading challenges** ($10K/$25K/$50K/$100K/$200K)
   that lead to a funded account after a two-phase evaluation. Community stays.
   Courses/blog/news are dropped from the pivot.
-- **Founder is Waqas Hamad** (NOT "Waqas Ahmed" — every earlier mention is wrong).
+- **Founder is Waqas Ahmed** (confirmed 2026-07-24; an earlier note said "Hamad" — that was wrong).
 - **USP:** marketed as focused on **real funded (A-Book) accounts**, vs competitors
   who fund on demo/simulated infrastructure. ⚠️ "World's first" / "real funded"
   is an unverifiable superlative under §4 — ships marked `NEEDS LEGAL SIGN-OFF`

@@ -41,7 +41,7 @@ export function SiteFooter() {
             <Logo />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--text-on-frame)]">
               A prop trading firm built on real funded accounts. Founded by Waqas
-              Hamad. Trade a challenge, prove your edge, get funded.
+              Ahmed. Trade a challenge, prove your edge, get funded.
             </p>
           </div>
 

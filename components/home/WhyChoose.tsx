@@ -1,5 +1,6 @@
 import { Section, SectionHeading } from "@/components/layout/Section";
 import { Reveal } from "@/components/shared/Reveal";
+import { MedalsImage } from "@/components/home/MedalsImage";
 import { RULES, usd } from "@/lib/challenges";
 
 /**
@@ -32,9 +33,10 @@ export function WhyChoose() {
 
         <Reveal as="div" delay={0.08}>
           <Card>
+            {/* NEEDS CLIENT INPUT — "100+" is an unverified count (§4). */}
             <CardHead
-              title="A global community"
-              sub="Trade alongside people, not on your own."
+              title="100+ Qualified Analysts"
+              sub="Traders in the community, every day."
             />
             <CommunityOrbit />
           </Card>
@@ -97,36 +99,35 @@ function CardHead({ title, sub }: { title: string; sub: string }) {
 /* ----- card visuals ----- */
 function AnalyticsChart() {
   const bars = [0.5, 0.68, 0.44, 0.86, 0.6, 1, 0.56, 0.8, 0.66, 0.94];
-  const months = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O"];
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"];
   return (
-    <div className="mt-6 flex flex-1 flex-col justify-end">
-      <div className="mb-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-[var(--accent-subtle)] px-2.5 py-1 text-xs font-medium text-[var(--accent)]">
-        <span aria-hidden>↗</span> Live tracking
-      </div>
-      <div className="relative overflow-hidden rounded-[var(--radius)] border border-[var(--border-subtle)] bg-[var(--bg-base)]/60 p-4">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-6 bottom-0 h-24"
-          style={{ background: "var(--glow-accent)" }}
-        />
-        <p className="relative mb-3 text-xs text-[var(--text-muted)]">Performance</p>
-        <div className="relative flex h-24 items-end gap-1.5" aria-hidden>
+    <div className="mt-8 flex flex-1 flex-col justify-end">
+      <div className="relative rounded-[var(--radius)] border border-[var(--border-subtle)] bg-[var(--bg-base)]/60 p-4">
+        {/* blue "increase" pill, overhanging the top-right */}
+        <div className="absolute -top-3.5 right-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-[var(--accent)] px-3 py-1.5 text-xs font-semibold text-white shadow-[0_10px_28px_-6px_rgb(59_99_255/0.85)]">
+          {/* NEEDS CLIENT INPUT — performance figure (§4). */}
+          <span aria-hidden>↗</span> 28% increase
+        </div>
+        <p className="mb-3 text-xs text-[var(--text-muted)]">Performance</p>
+        {/* dark/monochrome bars, slow gentle animation */}
+        <div className="flex h-24 items-end gap-1.5" aria-hidden>
           {bars.map((h, i) => (
             <span
               key={i}
-              className="anim-bar flex-1 rounded-t-sm bg-gradient-to-t from-[var(--color-blue-700)] via-[var(--color-blue-500)] to-[var(--color-blue-300)]"
+              className="anim-bar flex-1 rounded-t-sm bg-gradient-to-t from-white/[0.05] to-white/[0.18]"
               style={
                 {
                   height: `${h * 100}%`,
-                  ["--h-from" as string]: h * 0.72,
+                  ["--h-from" as string]: h * 0.9,
                   ["--h-to" as string]: 1,
-                  animationDelay: `${i * 0.12}s`,
+                  animationDelay: `${i * 0.3}s`,
+                  animationDuration: "5s",
                 } as React.CSSProperties
               }
             />
           ))}
         </div>
-        <div className="relative mt-2 flex gap-1.5 text-[0.6rem] text-[var(--text-disabled)]">
+        <div className="mt-2 flex gap-0.5 text-[0.55rem] text-[var(--text-disabled)]">
           {months.map((m, i) => (
             <span key={i} className="flex-1 text-center">
               {m}
@@ -139,7 +140,15 @@ function AnalyticsChart() {
 }
 
 function CommunityOrbit() {
-  const people = ["A", "R", "S", "M", "K", "J"];
+  // Stock placeholders (randomuser.me) — NEEDS CLIENT PHOTOS before launch (§4).
+  const photos = [
+    "https://randomuser.me/api/portraits/men/32.jpg",
+    "https://randomuser.me/api/portraits/women/44.jpg",
+    "https://randomuser.me/api/portraits/men/54.jpg",
+    "https://randomuser.me/api/portraits/women/68.jpg",
+    "https://randomuser.me/api/portraits/men/76.jpg",
+    "https://randomuser.me/api/portraits/women/12.jpg",
+  ];
   const radius = 88;
   return (
     <div className="grid flex-1 place-items-center pt-4">
@@ -152,23 +161,32 @@ function CommunityOrbit() {
         <span className="absolute inset-0 rounded-full border border-[var(--border-subtle)]" />
         <span className="absolute inset-10 rounded-full border border-[var(--border-subtle)]" />
         <span className="anim-spin-slow absolute inset-4 rounded-full border border-dashed border-[var(--accent)]/25" />
-        <span className="absolute left-1/2 top-1/2 grid size-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-gradient-to-br from-[var(--color-blue-400)] to-[var(--color-blue-600)] font-display text-sm font-bold text-white shadow-[0_0_30px_-4px_rgb(59_99_255/0.8)]">
-          GF
+        {/* website icon (blue circle + white G) in the middle */}
+        <span className="absolute left-1/2 top-1/2 grid size-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-gradient-to-br from-[#3D74FF] to-[#1B45D8] shadow-[0_0_34px_-4px_rgb(59_99_255/0.85)]">
+          <span className="font-[Arial,Helvetica,sans-serif] text-2xl font-black leading-none text-white">
+            G
+          </span>
         </span>
         <div className="anim-orbit absolute inset-0">
-          {people.map((p, i) => {
-            const angle = (i / people.length) * 2 * Math.PI;
+          {photos.map((src, i) => {
+            const angle = (i / photos.length) * 2 * Math.PI;
             const x = Math.cos(angle) * radius;
             const y = Math.sin(angle) * radius;
             return (
               <span
-                key={p}
+                key={i}
                 className="absolute left-1/2 top-1/2"
                 style={{ transform: `translate(-50%, -50%) translate(${x}px, ${y}px)` }}
               >
-                <span className="anim-orbit-rev grid size-10 place-items-center rounded-full bg-gradient-to-br from-[var(--bg-frame-alt)] to-[var(--bg-frame)] text-xs font-semibold text-[var(--text-primary)] shadow-[0_0_0_1px_rgb(255_255_255/0.12)] ring-1 ring-[var(--accent)]/20">
-                  {p}
-                </span>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={src}
+                  alt=""
+                  width={40}
+                  height={40}
+                  loading="lazy"
+                  className="anim-orbit-rev size-10 rounded-full object-cover shadow-[0_0_0_1px_rgb(255_255_255/0.12)] ring-1 ring-[var(--accent)]/25"
+                />
               </span>
             );
           })}
@@ -185,26 +203,48 @@ function InsightsPanel() {
     "Screener",
     "Market overview",
   ];
-  const candles = [
-    { up: true, h: 40 }, { up: false, h: 55 }, { up: true, h: 35 },
-    { up: true, h: 60 }, { up: false, h: 45 }, { up: true, h: 70 },
-    { up: false, h: 50 }, { up: true, h: 65 },
-  ];
+  // Proper candlesticks (wick + body) on a rising trend — the faint backdrop.
+  const N = 13;
+  const candles = Array.from({ length: N }, (_, i) => {
+    const base = 150 - i * 7.5; // rising trend
+    const up = i % 3 !== 1;
+    const bodyH = 14 + (i % 4) * 6;
+    const wickH = bodyH + 20;
+    return { x: 16 + i * 24, base, bodyH, wickH, up };
+  });
   return (
     <div className="relative mt-6 flex-1 overflow-hidden rounded-[var(--radius)] border border-[var(--border-subtle)] bg-[var(--bg-base)]/60 p-4">
-      {/* faint candles */}
-      <div aria-hidden className="absolute inset-0 flex items-center justify-around opacity-30">
-        {candles.map((c, i) => (
-          <span
-            key={i}
-            className="w-2 rounded-sm"
-            style={{
-              height: `${c.h}%`,
-              background: c.up ? "var(--market-up)" : "var(--market-down)",
-            }}
-          />
-        ))}
-      </div>
+      {/* faint candlestick chart */}
+      <svg
+        aria-hidden
+        viewBox="0 0 320 190"
+        preserveAspectRatio="xMidYMid slice"
+        className="absolute inset-0 h-full w-full opacity-40"
+      >
+        {candles.map((c, i) => {
+          const color = c.up ? "var(--market-up)" : "var(--market-down)";
+          return (
+            <g key={i}>
+              <line
+                x1={c.x}
+                y1={c.base - c.wickH / 2}
+                x2={c.x}
+                y2={c.base + c.wickH / 2}
+                stroke={color}
+                strokeWidth="1.5"
+              />
+              <rect
+                x={c.x - 4.5}
+                y={c.base - c.bodyH / 2}
+                width="9"
+                height={c.bodyH}
+                rx="2"
+                fill={color}
+              />
+            </g>
+          );
+        })}
+      </svg>
       {/* dropdown menu */}
       <div className="relative w-fit rounded-[var(--radius)] border border-[var(--border-default)] bg-[var(--bg-raised)]/90 p-1.5 backdrop-blur-md">
         {menu.map((m, i) => (
@@ -259,22 +299,28 @@ function FlagTiles() {
 }
 
 function SymbolGrid() {
-  const symbols = [
-    "EUR/USD", "GBP/USD", "USD/JPY", "XAU/USD",
-    "NAS100", "US500", "GER40", "BTC/USD",
+  const rows = [
+    ["EUR/USD", "GBP/USD", "USD/JPY", "AUD/CHF", "USD/CAD"],
+    ["XAU/USD", "NAS100", "US500", "JPN/225", "GER30"],
+    ["BTC/USD", "US30", "US/OIL", "USD/CHF", "ETH/USD"],
   ];
+  // row 1 → right-to-left, row 2 → left-to-right, row 3 → right-to-left
+  const dirs = ["anim-marquee", "anim-marquee-rev", "anim-marquee"];
+  const pill =
+    "tabular shrink-0 rounded-full border border-[var(--border-subtle)] bg-gradient-to-b from-[var(--bg-raised)] to-[var(--bg-base)]/60 px-5 py-2.5 text-sm text-[var(--text-secondary)]";
   return (
-    <div className="mt-6 flex flex-1 flex-col justify-center">
-      <div className="grid grid-cols-2 gap-2.5">
-        {symbols.map((s) => (
-          <span
-            key={s}
-            className="tabular rounded-full border border-[var(--border-subtle)] bg-gradient-to-b from-[var(--bg-raised)] to-[var(--bg-base)]/60 px-4 py-2.5 text-center text-sm text-[var(--text-secondary)]"
-          >
-            {s}
-          </span>
-        ))}
-      </div>
+    <div className="mt-6 flex flex-1 flex-col justify-center gap-2.5 [mask-image:linear-gradient(90deg,transparent,#000_6%,#000_94%,transparent)]">
+      {rows.map((r, ri) => (
+        <div key={ri} className="overflow-hidden">
+          <div className={`${dirs[ri]} flex w-max gap-2.5`}>
+            {[...r, ...r].map((s, i) => (
+              <span key={`${ri}-${s}-${i}`} className={pill}>
+                {s}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
@@ -287,8 +333,9 @@ function RealFundingCard() {
         className="pointer-events-none absolute -right-10 -top-10 size-40 rounded-full bg-white/15 blur-2xl"
       />
       <div className="relative">
-        <span className="text-4xl" aria-hidden>🏆</span>
-        <h3 className="mt-4 font-display text-xl font-semibold">
+        {/* gold medals if supplied (public/medals.png), else a visible trophy */}
+        <MedalsImage className="w-20 lg:w-24" />
+        <h3 className="mt-5 font-display text-xl font-semibold">
           Trade real funded capital
         </h3>
         <p className="mt-2 text-sm text-white/80">

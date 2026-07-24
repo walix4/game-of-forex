@@ -37,7 +37,7 @@ const container: Variants = {
 const BADGE_PHRASES = [
   "Real funded accounts · A-Book",
   "The world's first real-funded prop firm",
-  "Founded by Waqas Hamad",
+  "Founded by Waqas Ahmed",
 ];
 
 const HEAD_PHRASES = [
@@ -55,7 +55,7 @@ export function HeroSection() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative isolate flex min-h-[86vh] flex-col items-center justify-center overflow-hidden px-6 py-24 text-center"
+      className="relative isolate flex min-h-[88vh] items-center overflow-hidden px-6 py-20"
     >
       {/* space background */}
       <div aria-hidden className="absolute inset-0 -z-10">
@@ -69,73 +69,98 @@ export function HeroSection() {
         <StarField />
       </div>
 
-      <motion.div
-        variants={container}
-        initial={initial}
-        animate="show"
-        className="flex max-w-3xl flex-col items-center"
-      >
-        {/* rotating GREEN glass badge */}
-        <motion.p
-          variants={rise}
-          className="relative mb-8 inline-flex items-center gap-2.5 rounded-full border border-[rgb(130_220_124/0.4)] bg-[rgb(130_220_124/0.16)] px-4 py-2 text-xs font-medium tracking-wide text-[#DDF9D9] shadow-[0_0_44px_-8px_rgb(130_220_124/0.6)] backdrop-blur-xl"
-        >
-          <span
-            aria-hidden
-            className="size-1.5 shrink-0 rounded-full bg-[#82DC7C] shadow-[0_0_10px_2px_rgb(130_220_124/0.7)]"
-          />
-          <Rotator
-            phrases={BADGE_PHRASES}
-            reduce={reduce}
-            cursor="#82DC7C"
-            srLabel="Real funded accounts, A-Book"
-          />
-        </motion.p>
-
-        <motion.h1
-          id="hero-heading"
-          variants={headline}
-          className="font-display text-4xl font-semibold leading-[1.02] tracking-[-0.02em] text-[var(--text-primary)] sm:text-6xl lg:text-[4.5rem]"
-        >
-          Get funded to trade
-          <br />
-          <Rotator
-            phrases={HEAD_PHRASES}
-            reduce={reduce}
-            className="text-gradient"
-            srLabel="real capital."
-          />
-        </motion.h1>
-
-        <motion.p
-          variants={rise}
-          className="mt-6 max-w-xl text-base leading-relaxed text-[var(--text-secondary)] sm:text-lg"
-        >
-          Pass a two-phase evaluation, trade real funded capital, and keep up to{" "}
-          {RULES.profitSplit}% of the profit.
-        </motion.p>
-
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-10 lg:grid-cols-[1.05fr_0.85fr]">
+        {/* content */}
         <motion.div
-          variants={rise}
-          className="mt-9 flex flex-col items-center gap-3 sm:flex-row"
+          variants={container}
+          initial={initial}
+          animate="show"
+          className="flex flex-col items-center text-center lg:items-start lg:text-left"
         >
-          <CtaButton href="/challenges" variant="primary">
-            Buy challenge
-          </CtaButton>
-          <CtaButton href="/#how-it-works" variant="secondary">
-            How it works
-          </CtaButton>
+          {/* rotating GREEN glass badge */}
+          <motion.p
+            variants={rise}
+            className="relative mb-8 inline-flex items-center gap-2.5 rounded-full border border-[rgb(130_220_124/0.4)] bg-[rgb(130_220_124/0.16)] px-4 py-2 text-xs font-medium tracking-wide text-[#DDF9D9] shadow-[0_0_44px_-8px_rgb(130_220_124/0.6)] backdrop-blur-xl"
+          >
+            <span
+              aria-hidden
+              className="size-1.5 shrink-0 rounded-full bg-[#82DC7C] shadow-[0_0_10px_2px_rgb(130_220_124/0.7)]"
+            />
+            <Rotator
+              phrases={BADGE_PHRASES}
+              reduce={reduce}
+              cursor="#82DC7C"
+              srLabel="Real funded accounts, A-Book"
+            />
+          </motion.p>
+
+          <motion.h1
+            id="hero-heading"
+            variants={headline}
+            className="font-display text-4xl font-semibold leading-[1.03] tracking-[-0.02em] text-[var(--text-primary)] sm:text-5xl lg:text-[3.6rem]"
+          >
+            Get funded to trade
+            <br />
+            <Rotator
+              phrases={HEAD_PHRASES}
+              reduce={reduce}
+              className="text-gradient"
+              srLabel="real capital."
+            />
+          </motion.h1>
+
+          <motion.p
+            variants={rise}
+            className="mt-6 max-w-xl text-base leading-relaxed text-[var(--text-secondary)] sm:text-lg"
+          >
+            Pass a two-phase evaluation, trade real funded capital, and keep up to{" "}
+            {RULES.profitSplit}% of the profit.
+          </motion.p>
+
+          <motion.div
+            variants={rise}
+            className="mt-9 flex flex-col items-center gap-3 sm:flex-row"
+          >
+            <CtaButton href="/challenges" variant="primary">
+              Buy challenge
+            </CtaButton>
+            <CtaButton href="/#how-it-works" variant="secondary">
+              How it works
+            </CtaButton>
+          </motion.div>
+
+          {/* community proof — avatar stack + rating card */}
+          <motion.div variants={rise} className="mt-10">
+            <SocialProof className="lg:justify-start" />
+          </motion.div>
+
+          <motion.p variants={rise} className="mt-8 text-xs text-[var(--text-muted)]">
+            Trading carries risk. Challenges evaluate skill — not an investment.
+          </motion.p>
         </motion.div>
 
-        {/* community proof — avatar stack + rating card */}
-        <motion.div variants={rise} className="mt-10">
-          <SocialProof />
+        {/* founder figure — own column, right side */}
+        <motion.div
+          initial={reduce ? { opacity: 1 } : { opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: EASE, delay: 0.4 }}
+          className="relative hidden justify-self-center lg:block"
+        >
+          <div
+            aria-hidden
+            className="absolute inset-x-[-18%] bottom-[-6%] top-[6%] -z-10 rounded-full opacity-70 blur-3xl"
+            style={{ background: "var(--glow-accent)" }}
+          />
+          <div className="anim-float-slow">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/waqas-hero.png"
+              alt="Waqas Ahmed, founder of Game of Forex"
+              className="h-auto w-[330px] max-w-full [mask-image:linear-gradient(to_bottom,#000_86%,transparent)]"
+            />
+          </div>
         </motion.div>
-
-        <motion.p variants={rise} className="mt-8 text-xs text-[var(--text-muted)]">
-          Trading carries risk. Challenges evaluate skill — not an investment.
-        </motion.p>
-      </motion.div>
+      </div>
     </section>
   );
 }
@@ -183,7 +208,7 @@ function Rotator({
 }) {
   const text = useTypewriter(phrases, reduce);
   return (
-    <span className="relative grid justify-items-center">
+    <span className="relative inline-grid justify-items-center align-bottom">
       <span aria-hidden className="contents">
         {phrases.map((p, k) => (
           <span

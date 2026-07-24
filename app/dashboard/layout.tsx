@@ -34,7 +34,7 @@ export default function DashboardLayout({
               aria-hidden
               className="grid size-9 place-items-center rounded-full bg-[var(--bg-frame-alt)] text-sm font-semibold text-[var(--text-primary)]"
             >
-              WH
+              WA
             </span>
           </div>
         </div>
