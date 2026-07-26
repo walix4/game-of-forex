@@ -1,5 +1,5 @@
 import { HeroSection } from "@/components/home/HeroSection";
-import { ChallengeSizes } from "@/components/home/ChallengeSizes";
+import { ChallengeMatrix } from "@/components/home/ChallengeMatrix";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { WhyChoose } from "@/components/home/WhyChoose";
 import { FundedUsp } from "@/components/home/FundedUsp";
@@ -19,7 +19,7 @@ export default function HomePage() {
       <HeroSection />
       <WhyChoose />
       <InstrumentsMarquee />
-      <ChallengeSizes />
+      <ChallengeMatrix />
       <HowItWorks />
       <DashboardPreview />
       <FundedUsp />
