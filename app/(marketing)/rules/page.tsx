@@ -4,6 +4,9 @@ import { Section } from "@/components/layout/Section";
 import { Reveal } from "@/components/shared/Reveal";
 import { RulesGrid } from "@/components/shared/RulesGrid";
 import { RiskDisclosure } from "@/components/shared/RiskDisclosure";
+import { CtaButton } from "@/components/shared/CtaButton";
+import { DrawdownVisual } from "@/components/rules/DrawdownVisual";
+import { PassFail } from "@/components/rules/PassFail";
 import { RULES } from "@/lib/challenges";
 
 export const metadata: Metadata = {
@@ -53,11 +56,18 @@ export default function RulesPage() {
           <RulesGrid />
         </Reveal>
 
-        <ul className="mt-14 grid gap-5 md:grid-cols-2">
+        <Reveal className="mt-14">
+          <DrawdownVisual />
+        </Reveal>
+
+        <ul className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {EXPLAINED.map((e, i) => (
             <Reveal as="li" key={e.title} delay={i * 0.05}>
               <div className="h-full rounded-[var(--radius-lg)] glass-card p-6">
-                <h2 className="font-display text-lg font-semibold text-[var(--text-primary)]">
+                <span className="tabular text-xs font-medium text-[var(--text-muted)]">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h2 className="mt-2 font-display text-lg font-semibold text-[var(--text-primary)]">
                   {e.title}
                 </h2>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--text-secondary)]">
@@ -68,12 +78,25 @@ export default function RulesPage() {
           ))}
         </ul>
 
-        <p className="mt-8 text-xs text-[var(--text-muted)]">
+        <Reveal className="mt-14">
+          <PassFail />
+        </Reveal>
+
+        <Reveal className="mt-12 flex flex-col items-center gap-3 text-center">
+          <p className="text-[var(--text-secondary)]">
+            Know the rules? Pick your account size.
+          </p>
+          <CtaButton href="/challenges" variant="secondary">
+            View challenges
+          </CtaButton>
+        </Reveal>
+
+        <p className="mt-10 text-xs text-[var(--text-muted)]">
           {/* NEEDS CLIENT INPUT — confirm all rule values and payout terms. */}
           Rule values are placeholders pending client confirmation.
         </p>
 
-        <Reveal className="mt-10">
+        <Reveal className="mt-6">
           <RiskDisclosure />
         </Reveal>
       </Section>

@@ -7,6 +7,7 @@ import { Logo } from "@/components/shared/Logo";
 import { cn } from "@/lib/utils";
 
 const NAV = [
+  { label: "Home", href: "/" },
   { label: "Challenges", href: "/challenges" },
   { label: "Pricing", href: "/pricing" },
   { label: "Rules", href: "/rules" },

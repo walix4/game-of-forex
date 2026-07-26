@@ -3,6 +3,9 @@ import { ChallengeSizes } from "@/components/home/ChallengeSizes";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { WhyChoose } from "@/components/home/WhyChoose";
 import { FundedUsp } from "@/components/home/FundedUsp";
+import { InstrumentsMarquee } from "@/components/home/InstrumentsMarquee";
+import { DashboardPreview } from "@/components/home/DashboardPreview";
+import { PayoutFlow } from "@/components/home/PayoutFlow";
 import { RulesPreview } from "@/components/home/RulesPreview";
 import { BehindTheScenes } from "@/components/home/BehindTheScenes";
 import { CommunityRow } from "@/components/home/CommunityRow";
@@ -15,9 +18,12 @@ export default function HomePage() {
     <>
       <HeroSection />
       <WhyChoose />
+      <InstrumentsMarquee />
       <ChallengeSizes />
       <HowItWorks />
+      <DashboardPreview />
       <FundedUsp />
+      <PayoutFlow />
       <RulesPreview />
       <BehindTheScenes />
       <CommunityRow />

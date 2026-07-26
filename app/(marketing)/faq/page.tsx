@@ -3,8 +3,7 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { Section } from "@/components/layout/Section";
 import { Reveal } from "@/components/shared/Reveal";
 import { CtaButton } from "@/components/shared/CtaButton";
-import { FaqAccordion } from "@/components/shared/FaqAccordion";
-import { faqs } from "@/lib/faq";
+import { FaqExplorer } from "@/components/faq/FaqExplorer";
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -18,20 +17,28 @@ export default function FaqPage() {
       <PageHeader
         eyebrow="FAQ"
         title="Questions, answered."
-        intro="The essentials on how challenges, phases and funded accounts work."
+        intro="Search or browse the essentials on how challenges, phases and funded accounts work."
       />
 
       <Section>
         <div className="mx-auto max-w-3xl">
           <Reveal>
-            <FaqAccordion items={faqs} />
+            <FaqExplorer />
           </Reveal>
 
-          <Reveal className="mt-12 flex flex-col items-center gap-4 text-center">
-            <p className="text-[var(--text-secondary)]">Still have a question?</p>
-            <CtaButton href="/contact" variant="primary">
-              Contact us
-            </CtaButton>
+          <Reveal className="mt-16">
+            <div className="glass-card flex flex-col items-center gap-4 rounded-[var(--radius-xl)] p-10 text-center">
+              <h2 className="font-display text-xl font-semibold text-[var(--text-primary)]">
+                Still have a question?
+              </h2>
+              <p className="max-w-md text-sm text-[var(--text-secondary)]">
+                Ask in the community or send us a message — we reply to every
+                enquiry.
+              </p>
+              <CtaButton href="/contact" variant="primary" className="mt-2">
+                Contact us
+              </CtaButton>
+            </div>
           </Reveal>
         </div>
       </Section>

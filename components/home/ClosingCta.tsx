@@ -4,29 +4,101 @@ import { CtaButton } from "@/components/shared/CtaButton";
 import { RiskDisclosure } from "@/components/shared/RiskDisclosure";
 
 /**
- * Single closing CTA (§5.8): one action, risk disclosure adjacent. The mint FILL
- * here is never on screen with the hero's, so §3 rule 1 holds.
+ * Single closing CTA (§5.8): one action, risk disclosure adjacent. The accent
+ * FILL here is never on screen with the hero's, so §3 rule 1 holds. Account-size
+ * chips reflect the real offer structure (§0) — outline pills, never a second
+ * fill that could read as a competing primary. Figures use `.tabular` (§3).
  */
+const ACCOUNT_SIZES = ["$10K", "$25K", "$50K", "$100K", "$200K"];
+
 export function ClosingCta() {
   return (
     <section className="relative isolate overflow-hidden py-24 sm:py-32">
-      <div className="glow-hero pointer-events-none absolute inset-0 -z-10 opacity-80" aria-hidden />
+      <div
+        className="glow-hero pointer-events-none absolute inset-0 -z-10 opacity-80"
+        aria-hidden
+      />
       <Container>
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-3xl font-semibold tracking-[-0.02em] text-[var(--text-primary)] sm:text-5xl">
-            Prove your edge. <span className="text-gradient">Get funded.</span>
-          </h2>
-          <p className="mx-auto mt-5 max-w-xl text-[var(--text-secondary)] sm:text-lg">
-            Choose an account size, pass two phases, and trade real funded capital
-            with a profit split from your first payout.
-          </p>
-          <div className="mt-9 flex justify-center">
-            <CtaButton href="/challenges" variant="primary">
-              Buy challenge
-            </CtaButton>
-          </div>
-          <div className="mx-auto mt-10 max-w-xl text-left">
-            <RiskDisclosure />
+        <Reveal>
+          <div className="ring-accent glass relative mx-auto max-w-4xl overflow-hidden rounded-[var(--radius-xl)] px-6 py-14 text-center sm:px-14 sm:py-20">
+            {/* faint grid, faded toward the edges */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 -z-10"
+              style={{
+                backgroundImage:
+                  "linear-gradient(rgb(255 255 255 / 0.045) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / 0.045) 1px, transparent 1px)",
+                backgroundSize: "46px 46px",
+                maskImage:
+                  "radial-gradient(120% 80% at 50% 0%, #000 25%, transparent 72%)",
+                WebkitMaskImage:
+                  "radial-gradient(120% 80% at 50% 0%, #000 25%, transparent 72%)",
+              }}
+            />
+            {/* accent glow pooling from the top edge */}
+            <div
+              aria-hidden
+              className="glow-hero pointer-events-none absolute inset-x-0 -top-1/2 -z-10 h-3/4 opacity-70"
+            />
+
+            <span className="inline-flex items-center gap-2 rounded-full border border-[var(--border-default)] bg-[var(--bg-frame)]/50 px-3.5 py-1.5 text-xs font-medium uppercase tracking-[0.12em] text-[var(--text-secondary)]">
+              <span
+                aria-hidden
+                className="h-1.5 w-1.5 rounded-full bg-[var(--accent)]"
+              />
+              Two-phase evaluation
+            </span>
+
+            <h2 className="mt-6 font-display text-4xl font-semibold tracking-[-0.02em] text-[var(--text-primary)] sm:text-5xl">
+              Prove your edge. <span className="text-gradient">Get funded.</span>
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl text-[var(--text-secondary)] sm:text-lg">
+              Choose an account size, pass two phases, and trade real funded
+              capital with a profit split from your first payout.
+            </p>
+
+            <div
+              className="mt-8 flex flex-wrap items-center justify-center gap-2.5"
+              aria-label="Available account sizes"
+            >
+              {ACCOUNT_SIZES.map((size) => (
+                <span
+                  key={size}
+                  className="tabular rounded-full border border-[var(--border-default)] bg-[var(--bg-frame)]/30 px-3.5 py-1.5 text-sm text-[var(--text-secondary)]"
+                >
+                  {size}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-9 flex justify-center">
+              <CtaButton href="/challenges" variant="primary" className="group">
+                Buy challenge
+                <svg
+                  aria-hidden
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  className="h-4 w-4 transition-transform duration-[var(--dur-fast)] ease-[var(--ease-out)] group-hover:translate-x-0.5 motion-reduce:transition-none"
+                >
+                  <path
+                    d="M3 8h10M9 4l4 4-4 4"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </CtaButton>
+            </div>
+
+            <p className="mt-6 text-sm text-[var(--text-muted)]">
+              Profit split from your first payout · Transparent rules, shown
+              before you buy
+            </p>
+
+            <div className="mx-auto mt-10 max-w-2xl border-t border-[var(--border-subtle)] pt-8 text-left">
+              <RiskDisclosure />
+            </div>
           </div>
         </Reveal>
       </Container>

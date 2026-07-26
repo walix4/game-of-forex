@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Section } from "@/components/layout/Section";
-import { Reveal } from "@/components/shared/Reveal";
-import { community } from "@/lib/content";
+import { PlatformCards } from "@/components/community/PlatformCards";
+import { InsideCommunity } from "@/components/community/InsideCommunity";
+import { WeekCadence } from "@/components/community/WeekCadence";
+import { JoinCta } from "@/components/community/JoinCta";
 
 export const metadata: Metadata = {
   title: "Community",
@@ -20,34 +22,19 @@ export default function CommunityPage() {
       />
 
       <Section>
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {community.map((c, i) => (
-            <Reveal as="li" key={c.platform} delay={i * 0.05}>
-              <a
-                href={c.href}
-                className="flex h-full flex-col items-start gap-3 rounded-[var(--radius-lg)] glass-card p-6 transition-colors duration-[var(--dur-base)] hover:border-[var(--border-accent)]"
-              >
-                <span className="text-sm font-semibold text-[var(--text-primary)]">
-                  {c.platform}
-                </span>
-                <span className="text-xs text-[var(--text-muted)]">{c.handle}</span>
-                <span className="mt-auto pt-3 text-sm font-medium text-[var(--accent)]">
-                  {c.count === null ? (
-                    "Join →"
-                  ) : (
-                    <>
-                      <span className="tabular">{c.count.toLocaleString()}</span> members
-                    </>
-                  )}
-                </span>
-              </a>
-            </Reveal>
-          ))}
-        </ul>
-        <p className="mt-6 text-xs text-[var(--text-muted)]">
-          {/* NEEDS CLIENT INPUT — verified member counts and real invite links. */}
-          Member counts and invite links shown once confirmed.
-        </p>
+        <PlatformCards />
+      </Section>
+
+      <Section className="pt-0">
+        <InsideCommunity />
+      </Section>
+
+      <Section className="pt-0">
+        <WeekCadence />
+      </Section>
+
+      <Section className="pt-0">
+        <JoinCta />
       </Section>
     </>
   );

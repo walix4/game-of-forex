@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHeader } from "@/components/layout/PageHeader";
-import { Section } from "@/components/layout/Section";
+import { Section, SectionHeading } from "@/components/layout/Section";
 import { Reveal } from "@/components/shared/Reveal";
+import { ArrowLink } from "@/components/shared/ArrowLink";
+import { CtaButton } from "@/components/shared/CtaButton";
+import { FaqAccordion } from "@/components/shared/FaqAccordion";
 import { RiskDisclosure } from "@/components/shared/RiskDisclosure";
-import {
-  challenges,
-  RULES,
-  usd,
-  amountOf,
-  pct,
-} from "@/lib/challenges";
+import { PricingTable } from "@/components/pricing/PricingTable";
+import { IncludedStrip } from "@/components/pricing/IncludedStrip";
+import { faqs } from "@/lib/faq";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -18,7 +16,16 @@ export const metadata: Metadata = {
     "Challenge pricing from $10K to $200K. Fees, profit targets and loss limits compared side by side.",
 };
 
+// The 3 questions buyers ask before paying — pulled from the shared FAQ.
+const PRICING_QS = new Set([
+  "Do I get my fee back?",
+  "What is the profit split?",
+  "Is there a time limit?",
+]);
+
 export default function PricingPage() {
+  const pricingFaqs = faqs.filter((f) => PRICING_QS.has(f.q));
+
   return (
     <>
       <PageHeader
@@ -29,81 +36,57 @@ export default function PricingPage() {
 
       <Section>
         <Reveal>
-          <div className="overflow-x-auto rounded-[var(--radius-lg)] border border-[var(--border-subtle)]">
-            <table className="w-full min-w-[640px] text-sm">
-              <thead>
-                <tr className="border-b border-[var(--border-subtle)] bg-[var(--bg-raised)]/50 text-left">
-                  <th className="px-5 py-4 font-medium text-[var(--text-muted)]">
-                    Account size
-                  </th>
-                  <th className="px-5 py-4 font-medium text-[var(--text-muted)]">Fee</th>
-                  <th className="px-5 py-4 font-medium text-[var(--text-muted)]">
-                    Phase 1 target
-                  </th>
-                  <th className="px-5 py-4 font-medium text-[var(--text-muted)]">
-                    Phase 2 target
-                  </th>
-                  <th className="px-5 py-4 font-medium text-[var(--text-muted)]">
-                    Max total loss
-                  </th>
-                  <th className="px-5 py-4 font-medium text-[var(--text-muted)]">Split</th>
-                  <th className="px-5 py-4" />
-                </tr>
-              </thead>
-              <tbody>
-                {challenges.map((c) => (
-                  <tr
-                    key={c.slug}
-                    className="border-b border-[var(--border-subtle)] last:border-0"
-                  >
-                    <th
-                      scope="row"
-                      className="tabular px-5 py-4 text-left font-semibold text-[var(--text-primary)]"
-                    >
-                      {usd(c.size)}
-                      {c.popular && (
-                        <span className="ml-2 rounded-full bg-[var(--accent-subtle)] px-2 py-0.5 text-[0.65rem] font-medium text-[var(--accent)]">
-                          Popular
-                        </span>
-                      )}
-                    </th>
-                    <td className="tabular px-5 py-4 font-medium text-[var(--accent)]">
-                      {usd(c.price)}
-                    </td>
-                    <td className="tabular px-5 py-4 text-[var(--text-secondary)]">
-                      {usd(amountOf(c.size, RULES.phase1Target))}
-                    </td>
-                    <td className="tabular px-5 py-4 text-[var(--text-secondary)]">
-                      {usd(amountOf(c.size, RULES.phase2Target))}
-                    </td>
-                    <td className="tabular px-5 py-4 text-[var(--text-secondary)]">
-                      {usd(amountOf(c.size, RULES.maxTotalLoss))}
-                    </td>
-                    <td className="tabular px-5 py-4 text-[var(--text-secondary)]">
-                      {pct(RULES.profitSplit)}
-                    </td>
-                    <td className="px-5 py-4 text-right">
-                      <Link
-                        href={`/challenges/${c.slug}`}
-                        className="text-sm font-medium text-[var(--accent)] hover:text-[var(--accent-hover)]"
-                      >
-                        View →
-                      </Link>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <PricingTable />
         </Reveal>
-
         <p className="mt-5 text-xs text-[var(--text-muted)]">
           {/* NEEDS CLIENT INPUT — confirm all pricing and targets. */}
           Illustrative pricing — pending client confirmation.
         </p>
+      </Section>
 
-        <Reveal className="mt-10">
-          <RiskDisclosure />
+      <Section className="pt-0">
+        <SectionHeading
+          eyebrow="Included"
+          title="Included in every challenge."
+          intro="The same terms at every account size — nothing unlocked later, nothing buried in fine print."
+        />
+        <div className="mt-10">
+          <IncludedStrip />
+        </div>
+      </Section>
+
+      <Section className="pt-0">
+        <div className="mx-auto max-w-3xl">
+          <SectionHeading
+            eyebrow="Before you buy"
+            title="Pricing questions."
+          />
+          <Reveal className="mt-8">
+            <FaqAccordion items={pricingFaqs} />
+          </Reveal>
+          <Reveal className="mt-6">
+            <ArrowLink href="/faq">All questions</ArrowLink>
+          </Reveal>
+        </div>
+      </Section>
+
+      <Section className="pt-0">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <h2 className="font-display text-3xl font-semibold tracking-[-0.02em] text-[var(--text-primary)]">
+            Pick a size. Start the evaluation.
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-[var(--text-secondary)]">
+            Every price, target and limit above is shown again before checkout —
+            no surprises after you pay.
+          </p>
+          <div className="mt-8 flex justify-center">
+            <CtaButton href="/challenges" variant="primary">
+              Buy challenge
+            </CtaButton>
+          </div>
+          <div className="mt-10 text-left">
+            <RiskDisclosure />
+          </div>
         </Reveal>
       </Section>
     </>

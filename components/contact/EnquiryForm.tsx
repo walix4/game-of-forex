@@ -19,9 +19,9 @@ const schema = z.object({
 type Values = z.infer<typeof schema>;
 
 const field =
-  "w-full rounded-[var(--radius)] border border-[var(--border-default)] bg-[var(--bg-inset)] px-4 py-3 text-[var(--text-primary)] placeholder:text-[var(--text-disabled)] transition-colors duration-[var(--dur-fast)] focus:border-[var(--border-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]";
+  "w-full rounded-[var(--radius)] border border-[var(--border-default)] bg-white/[0.04] px-4 py-3 text-[var(--text-primary)] placeholder:text-[var(--text-disabled)] transition-colors duration-[var(--dur-fast)] hover:border-[var(--border-strong)] focus:border-[var(--border-accent)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]";
 const labelCls = "mb-2 block text-sm font-medium text-[var(--text-secondary)]";
-const errCls = "mt-1.5 text-xs text-[var(--danger)]";
+const errCls = "mt-1.5 text-xs text-[var(--market-down)]";
 
 export function EnquiryForm({
   defaultTopic = "general",
@@ -102,11 +102,31 @@ export function EnquiryForm({
         <label htmlFor="topic" className={labelCls}>
           What&apos;s this about?
         </label>
-        <select id="topic" className={cn(field, "appearance-none")} {...register("topic")}>
-          <option value="challenge">Buying a challenge</option>
-          <option value="funded-account">Funded accounts</option>
-          <option value="general">Something else</option>
-        </select>
+        <div className="relative">
+          <select
+            id="topic"
+            className={cn(field, "appearance-none pr-10")}
+            {...register("topic")}
+          >
+            <option value="challenge">Buying a challenge</option>
+            <option value="funded-account">Funded accounts</option>
+            <option value="general">Something else</option>
+          </select>
+          <svg
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden
+            className="pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-[var(--text-muted)]"
+          >
+            <path
+              d="m4 6 4 4 4-4"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
       </div>
 
       <div>
@@ -132,13 +152,13 @@ export function EnquiryForm({
         {errors.consent && <p className={errCls}>{errors.consent.message}</p>}
       </div>
 
-      {/* One mint primary in this viewport (§3 rule 1). */}
+      {/* One accent primary in this viewport (§3 rule 1). */}
       <button
         type="submit"
         disabled={isSubmitting}
-        className="inline-flex h-12 items-center justify-center gap-2 rounded-[var(--radius)] bg-[var(--accent)] px-6 font-medium text-[var(--text-on-accent)] transition-colors duration-[var(--dur-fast)] hover:bg-[var(--accent-hover)] active:bg-[var(--accent-active)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)] disabled:opacity-60"
+        className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-[var(--radius)] bg-[var(--accent)] px-6 font-medium text-[var(--text-on-accent)] transition-colors duration-[var(--dur-fast)] hover:bg-[var(--accent-hover)] active:bg-[var(--accent-active)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)] disabled:opacity-60 sm:w-auto"
       >
-        {isSubmitting ? "Sending…" : "Send enquiry"}
+        {isSubmitting ? "Sending…" : "Send message"}
       </button>
     </form>
   );
