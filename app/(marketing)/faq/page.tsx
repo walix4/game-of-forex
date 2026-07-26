@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { PageHeader } from "@/components/layout/PageHeader";
 import { Section } from "@/components/layout/Section";
+import { Container } from "@/components/layout/Container";
 import { Reveal } from "@/components/shared/Reveal";
 import { CtaButton } from "@/components/shared/CtaButton";
-import { FaqExplorer } from "@/components/faq/FaqExplorer";
+import { FaqDirectory } from "@/components/faq/FaqDirectory";
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -11,36 +11,51 @@ export const metadata: Metadata = {
     "Answers about challenges, phases, funded accounts, rules and profit splits.",
 };
 
+// FTMO-style FAQ directory: centred hero + search, category cards linking to
+// per-question detail pages, and a support closer.
 export default function FaqPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="FAQ"
-        title="Questions, answered."
-        intro="Search or browse the essentials on how challenges, phases and funded accounts work."
-      />
+      <header className="relative isolate overflow-hidden pt-16 text-center sm:pt-24">
+        <div
+          className="glow-hero pointer-events-none absolute inset-x-0 top-0 -z-10 h-72 opacity-70"
+          aria-hidden
+        />
+        <Container>
+          <p className="mb-3 text-xs font-medium uppercase tracking-[0.14em] text-[var(--accent)]">
+            FAQ
+          </p>
+          <h1 className="font-display text-4xl font-semibold tracking-[-0.02em] text-[var(--text-primary)] sm:text-5xl">
+            Frequently asked questions
+          </h1>
+          <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-[var(--text-secondary)]">
+            The essentials on how challenges, phases and funded accounts work.
+          </p>
+        </Container>
+      </header>
 
-      <Section>
-        <div className="mx-auto max-w-3xl">
-          <Reveal>
-            <FaqExplorer />
-          </Reveal>
+      <Section className="pt-10">
+        <FaqDirectory />
 
-          <Reveal className="mt-16">
-            <div className="glass-card flex flex-col items-center gap-4 rounded-[var(--radius-xl)] p-10 text-center">
-              <h2 className="font-display text-xl font-semibold text-[var(--text-primary)]">
-                Still have a question?
-              </h2>
-              <p className="max-w-md text-sm text-[var(--text-secondary)]">
-                Ask in the community or send us a message — we reply to every
-                enquiry.
-              </p>
-              <CtaButton href="/contact" variant="primary" className="mt-2">
-                Contact us
-              </CtaButton>
-            </div>
-          </Reveal>
-        </div>
+        {/* support closer — single primary CTA (§3 rule 1) */}
+        <Reveal className="mx-auto mt-20 max-w-2xl text-center">
+          <h2 className="font-display text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl">
+            Still have questions?
+          </h2>
+          <p className="mx-auto mt-3 max-w-md text-[var(--text-secondary)]">
+            Send a note and we&apos;ll point you the right way — no sales
+            pressure.
+          </p>
+          <div className="mt-7 flex justify-center">
+            <CtaButton href="/contact" variant="primary">
+              Contact us
+            </CtaButton>
+          </div>
+          <p className="mt-4 text-xs text-[var(--text-muted)]">
+            {/* NEEDS CLIENT INPUT — confirm the real response window. */}
+            We aim to reply within a few working days.
+          </p>
+        </Reveal>
       </Section>
     </>
   );
