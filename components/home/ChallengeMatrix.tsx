@@ -88,7 +88,7 @@ function Row({
   return (
     <div
       className={cn(
-        "flex items-center justify-between gap-2 border-t border-[var(--border-subtle)] px-5",
+        "flex items-center justify-between gap-2 border-t border-[var(--border-subtle)] px-5 transition-colors duration-[var(--dur-fast)] hover:bg-white/[0.025]",
         tall ? "min-h-14 lg:h-16" : "min-h-11 lg:h-12",
       )}
     >
@@ -158,7 +158,12 @@ export function ChallengeMatrix() {
       </Reveal>
 
       {/* matrix — legend + one column per size; rows height-locked at lg */}
-      <Reveal className="mt-6">
+      <Reveal className="relative mt-6">
+        {/* ambient glow pooling behind the columns */}
+        <div
+          aria-hidden
+          className="glow-hero pointer-events-none absolute -inset-x-16 -inset-y-10 -z-10 opacity-60"
+        />
         <div className="grid gap-4 lg:grid-cols-[minmax(170px,200px)_repeat(5,minmax(0,1fr))]">
           {/* legend (lg+ only; mobile uses inline row labels) */}
           <div className="hidden lg:block">
@@ -168,11 +173,11 @@ export function ChallengeMatrix() {
               <div
                 key={l.label}
                 className={cn(
-                  "flex items-center gap-2.5 pr-3 text-sm text-[var(--text-secondary)]",
+                  "flex items-center gap-3 pr-3 text-sm text-[var(--text-secondary)]",
                   l.tall ? "h-16" : "h-12",
                 )}
               >
-                <span className="text-[var(--text-muted)]">
+                <span className="grid size-8 shrink-0 place-items-center rounded-[10px] border border-[var(--border-subtle)] bg-white/[0.04] text-[var(--accent)]">
                   <LegendIcon name={l.icon} />
                 </span>
                 <span className="border-b border-dashed border-[var(--border-default)] pb-0.5">
@@ -258,8 +263,16 @@ export function ChallengeMatrix() {
                       : "glass-card",
                   )}
                 >
+                  {/* selected-state inner radial tint */}
+                  <div
+                    aria-hidden
+                    className={cn(
+                      "pointer-events-none absolute inset-0 rounded-[inherit] bg-[radial-gradient(120%_55%_at_50%_0%,rgb(59_99_255/0.13),transparent_62%)] transition-opacity duration-[var(--dur-base)]",
+                      isSel ? "opacity-100" : "opacity-0",
+                    )}
+                  />
                   {c.popular && (
-                    <span className="absolute -top-3 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-[var(--accent)] px-3.5 py-1 text-xs font-semibold text-[var(--text-on-accent)] shadow-[0_6px_24px_-4px_var(--accent)]">
+                    <span className="absolute -top-3 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-b from-[var(--color-blue-400)] to-[var(--color-blue-600)] px-3.5 py-1 text-xs font-semibold text-[var(--text-on-accent)] shadow-[0_6px_24px_-4px_var(--accent)]">
                       Best value
                     </span>
                   )}
