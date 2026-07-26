@@ -96,9 +96,12 @@ export function ClosingCta() {
               before you buy
             </p>
 
-            <div className="mx-auto mt-10 max-w-2xl border-t border-[var(--border-subtle)] pt-8 text-left">
-              <RiskDisclosure />
-            </div>
+            {/* §4 — risk note stays adjacent to the purchase CTA; client asked
+                for minimal, so the banner became this quiet inline line. */}
+            <RiskDisclosure
+              variant="inline"
+              className="mx-auto mt-8 max-w-xl text-center"
+            />
           </div>
         </Reveal>
       </Container>
