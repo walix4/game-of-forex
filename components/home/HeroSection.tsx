@@ -14,8 +14,9 @@ import { RULES } from "@/lib/challenges";
  * terminal is hidden for now (client request). Rotating badge + rotating
  * headline pitch the offer.
  *
- * ⚠️ COMPLIANCE (§4): the badge's "world's first" line and the "10K+ members"
- * count are UNVERIFIED — marked NEEDS LEGAL SIGN-OFF / NEEDS CLIENT INPUT below.
+ * ⚠️ COMPLIANCE (§4): the "10K+ members" count is UNVERIFIED — NEEDS CLIENT
+ * INPUT below. (Rotating badge removed 2026-07-27 on client request — it also
+ * carried the unverifiable "world's first" superlative.)
  * Only page-load sequence lives here; <h1> is transform-only (LCP-safe, §3).
  */
 
@@ -33,13 +34,6 @@ const container: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
 };
-
-// NEEDS LEGAL SIGN-OFF — "world's first" is an unverifiable superlative (§4).
-const BADGE_PHRASES = [
-  "Real funded accounts · A-Book",
-  "The world's first real-funded prop firm",
-  "Founded by Waqas Ahmed",
-];
 
 const HEAD_PHRASES = [
   "real capital.",
@@ -78,23 +72,6 @@ export function HeroSection() {
           animate="show"
           className="flex flex-col items-center text-center lg:items-start lg:text-left"
         >
-          {/* rotating GREEN glass badge */}
-          <motion.p
-            variants={rise}
-            className="relative mb-8 inline-flex items-center gap-2.5 rounded-full border border-[rgb(130_220_124/0.4)] bg-[rgb(130_220_124/0.16)] px-4 py-2 text-xs font-medium tracking-wide text-[#DDF9D9] shadow-[0_0_44px_-8px_rgb(130_220_124/0.6)] backdrop-blur-xl"
-          >
-            <span
-              aria-hidden
-              className="size-1.5 shrink-0 rounded-full bg-[#82DC7C] shadow-[0_0_10px_2px_rgb(130_220_124/0.7)]"
-            />
-            <Rotator
-              phrases={BADGE_PHRASES}
-              reduce={reduce}
-              cursor="#82DC7C"
-              srLabel="Real funded accounts, A-Book"
-            />
-          </motion.p>
-
           <motion.h1
             id="hero-heading"
             variants={headline}
