@@ -12,6 +12,7 @@ const NAV = [
   { label: "Pricing", href: "/pricing" },
   { label: "Rules", href: "/rules" },
   { label: "Community", href: "/community" },
+  { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "/faq" },
 ];
 
