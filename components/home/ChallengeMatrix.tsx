@@ -10,46 +10,15 @@ import { cn } from "@/lib/utils";
 
 /**
  * FTMO-style challenge matrix: legend column + one aligned column per account
- * size, with a currency switch and a %↔$ "show amounts" toggle.
+ * size, with a %↔$ "show amounts" toggle. USD only (client decision).
  *
  * Deliberate deviations from the FTMO reference (CLAUDE.md):
  * - No "Avg. Reward" row — an unverifiable statistic (§4).
  * - No discount badges — no fake promos (§4).
  * - Only the popular card carries the accent FILL; the rest are outline
  *   (§3 rule 1 — one primary per viewport).
- * - FX conversion is illustrative only (NEEDS CLIENT INPUT — real rates/fees).
+ * - Fees are illustrative only (NEEDS CLIENT INPUT).
  */
-
-type Currency = "USD" | "GBP" | "EUR";
-
-// Illustrative FX for the mockup — never live rates. NEEDS CLIENT INPUT.
-const FX: Record<Currency, { rate: number; format: (n: number) => string }> = {
-  USD: { rate: 1, format: (n) => usd(n) },
-  GBP: {
-    rate: 0.79,
-    format: (n) =>
-      new Intl.NumberFormat("en-GB", {
-        style: "currency",
-        currency: "GBP",
-        maximumFractionDigits: 0,
-      }).format(n),
-  },
-  EUR: {
-    rate: 0.92,
-    format: (n) =>
-      new Intl.NumberFormat("en-IE", {
-        style: "currency",
-        currency: "EUR",
-        maximumFractionDigits: 0,
-      }).format(n),
-  },
-};
-
-const CURRENCIES: { code: Currency; flag: string }[] = [
-  { code: "USD", flag: "us" },
-  { code: "GBP", flag: "gb" },
-  { code: "EUR", flag: "eu" },
-];
 
 // Legend rows — order mirrors the card rows exactly; heights must match.
 const LEGEND: { label: string; icon: string; tall?: boolean }[] = [
@@ -130,12 +99,9 @@ function Row({
 }
 
 export function ChallengeMatrix() {
-  const [currency, setCurrency] = useState<Currency>("USD");
   const [showAmounts, setShowAmounts] = useState(false);
   const reduce = useReducedMotion();
 
-  const fx = FX[currency];
-  const fee = (n: number) => fx.format(Math.round(n * fx.rate));
   // % or absolute $ depending on the toggle (FTMO's "Show numbers").
   const val = (size: number, percent: number) =>
     showAmounts ? usd(amountOf(size, percent)) : `${percent}%`;
@@ -149,39 +115,17 @@ export function ChallengeMatrix() {
         align="center"
       />
 
-      {/* controls — currency pills + amounts toggle */}
+      {/* controls — USD note + amounts toggle (USD-only per client) */}
       <Reveal className="mt-10 flex flex-wrap items-center justify-between gap-4">
-        <div
-          role="group"
-          aria-label="Fee currency"
-          className="glass flex items-center gap-1 rounded-full p-1"
-        >
-          {CURRENCIES.map((c) => (
-            <button
-              key={c.code}
-              type="button"
-              aria-pressed={currency === c.code}
-              onClick={() => setCurrency(c.code)}
-              className={cn(
-                "flex items-center gap-2 rounded-full px-3.5 py-1.5 text-sm transition-colors duration-[var(--dur-fast)]",
-                currency === c.code
-                  ? "bg-white/10 text-[var(--text-primary)]"
-                  : "text-[var(--text-muted)] hover:text-[var(--text-primary)]",
-              )}
-            >
-              {/* flagcdn is already the flag idiom in WhyChoose */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`https://flagcdn.com/w40/${c.flag}.png`}
-                alt=""
-                width={20}
-                height={15}
-                className="h-[15px] w-5 rounded-[2px] object-cover"
-              />
-              {c.code}
-            </button>
-          ))}
-        </div>
+        <p className="flex items-center gap-2 text-sm text-[var(--text-muted)]">
+          <span
+            aria-hidden
+            className="grid size-6 place-items-center rounded-full border border-[var(--border-default)] bg-white/[0.04] text-[0.7rem] font-semibold text-[var(--text-secondary)]"
+          >
+            $
+          </span>
+          All accounts and fees in USD
+        </p>
 
         <button
           type="button"
@@ -236,7 +180,7 @@ export function ChallengeMatrix() {
           {SIZES.map((c, i) => {
             const values = (
               <motion.div
-                key={`${currency}-${showAmounts}`}
+                key={showAmounts ? "amounts" : "percent"}
                 initial={reduce ? false : { opacity: 0.35 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -306,17 +250,29 @@ export function ChallengeMatrix() {
                   )}
                 >
                   {c.popular && (
-                    <span className="absolute -top-3 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-[var(--accent)] px-3 py-1 text-xs font-semibold text-[var(--text-on-accent)]">
+                    <span className="absolute -top-3 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-[var(--accent)] px-3.5 py-1 text-xs font-semibold text-[var(--text-on-accent)] shadow-[0_6px_24px_-4px_var(--accent)]">
                       Best value
                     </span>
                   )}
 
-                  {/* header — matches the legend spacer height */}
-                  <div className="flex h-[104px] flex-col items-center justify-center px-5">
+                  {/* header — matches the legend spacer height; soft glow wash */}
+                  <div className="relative flex h-[104px] flex-col items-center justify-center overflow-hidden px-5">
+                    <div
+                      aria-hidden
+                      className={cn(
+                        "pointer-events-none absolute inset-x-0 -top-10 h-24 rounded-[50%] blur-2xl",
+                        c.popular ? "bg-[var(--accent)]/25" : "bg-white/[0.05]",
+                      )}
+                    />
                     <span className="text-xs uppercase tracking-[0.12em] text-[var(--text-muted)]">
                       Account
                     </span>
-                    <span className="tabular mt-1 font-display text-2xl font-semibold text-[var(--text-primary)] xl:text-[1.7rem]">
+                    <span
+                      className={cn(
+                        "tabular mt-1 font-display text-2xl font-semibold xl:text-[1.7rem]",
+                        c.popular ? "text-gradient" : "text-[var(--text-primary)]",
+                      )}
+                    >
                       {usd(c.size)}
                     </span>
                   </div>
@@ -325,10 +281,15 @@ export function ChallengeMatrix() {
 
                   {/* fee + CTA */}
                   <div className="mt-auto border-t border-[var(--border-subtle)] p-5 text-center">
-                    <p className="tabular font-display text-2xl font-semibold text-[var(--text-primary)]">
-                      {fee(c.price)}
+                    <p
+                      className={cn(
+                        "tabular font-display text-[1.75rem] font-semibold leading-none",
+                        c.popular ? "text-gradient" : "text-[var(--text-primary)]",
+                      )}
+                    >
+                      {usd(c.price)}
                     </p>
-                    <p className="mt-0.5 text-[0.65rem] text-[var(--text-muted)]">
+                    <p className="mt-1.5 text-[0.65rem] text-[var(--text-muted)]">
                       one-time refundable fee
                     </p>
                     <CtaButton
@@ -347,8 +308,8 @@ export function ChallengeMatrix() {
       </Reveal>
 
       <p className="mt-5 text-center text-xs text-[var(--text-muted)]">
-        {/* NEEDS CLIENT INPUT — fees, rules and FX conversion are illustrative. */}
-        Illustrative pricing and FX conversion — pending client confirmation.
+        {/* NEEDS CLIENT INPUT — fees and rules are illustrative. */}
+        Illustrative pricing — pending client confirmation.
       </p>
     </Section>
   );
