@@ -100,6 +100,11 @@ function Row({
 
 export function ChallengeMatrix() {
   const [showAmounts, setShowAmounts] = useState(false);
+  // Clicking a card selects it — the highlight and the single primary CTA
+  // follow the selection (§3 rule 1 still holds: one accent fill at a time).
+  const [selected, setSelected] = useState(
+    () => SIZES.find((s) => s.popular)?.slug ?? SIZES[0].slug,
+  );
   const reduce = useReducedMotion();
 
   // % or absolute $ depending on the toggle (FTMO's "Show numbers").
@@ -241,12 +246,16 @@ export function ChallengeMatrix() {
               </motion.div>
             );
 
+            const isSel = selected === c.slug;
             return (
               <Reveal key={c.slug} delay={i * 0.05}>
                 <div
+                  onClick={() => setSelected(c.slug)}
                   className={cn(
-                    "relative flex h-full flex-col overflow-visible rounded-[var(--radius-lg)]",
-                    c.popular ? "ring-accent glass glow-mint" : "glass-card",
+                    "relative flex h-full cursor-pointer flex-col overflow-visible rounded-[var(--radius-lg)] transition-[transform,box-shadow,border-color] duration-[var(--dur-base)] ease-[var(--ease-out)] motion-reduce:transition-none",
+                    isSel
+                      ? "ring-accent glass glow-mint lg:-translate-y-1.5"
+                      : "glass-card",
                   )}
                 >
                   {c.popular && (
@@ -255,13 +264,18 @@ export function ChallengeMatrix() {
                     </span>
                   )}
 
-                  {/* header — matches the legend spacer height; soft glow wash */}
-                  <div className="relative flex h-[104px] flex-col items-center justify-center overflow-hidden px-5">
+                  {/* header — keyboard-accessible select control; soft glow wash */}
+                  <button
+                    type="button"
+                    aria-pressed={isSel}
+                    onClick={() => setSelected(c.slug)}
+                    className="relative flex h-[104px] w-full flex-col items-center justify-center overflow-hidden rounded-t-[var(--radius-lg)] px-5 focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--focus-ring)]"
+                  >
                     <div
                       aria-hidden
                       className={cn(
-                        "pointer-events-none absolute inset-x-0 -top-10 h-24 rounded-[50%] blur-2xl",
-                        c.popular ? "bg-[var(--accent)]/25" : "bg-white/[0.05]",
+                        "pointer-events-none absolute inset-x-0 -top-10 h-24 rounded-[50%] blur-2xl transition-colors duration-[var(--dur-base)]",
+                        isSel ? "bg-[var(--accent)]/25" : "bg-white/[0.05]",
                       )}
                     />
                     <span className="text-xs uppercase tracking-[0.12em] text-[var(--text-muted)]">
@@ -270,12 +284,12 @@ export function ChallengeMatrix() {
                     <span
                       className={cn(
                         "tabular mt-1 font-display text-2xl font-semibold xl:text-[1.7rem]",
-                        c.popular ? "text-gradient" : "text-[var(--text-primary)]",
+                        isSel ? "text-gradient" : "text-[var(--text-primary)]",
                       )}
                     >
                       {usd(c.size)}
                     </span>
-                  </div>
+                  </button>
 
                   {values}
 
@@ -284,7 +298,7 @@ export function ChallengeMatrix() {
                     <p
                       className={cn(
                         "tabular font-display text-[1.75rem] font-semibold leading-none",
-                        c.popular ? "text-gradient" : "text-[var(--text-primary)]",
+                        isSel ? "text-gradient" : "text-[var(--text-primary)]",
                       )}
                     >
                       {usd(c.price)}
@@ -294,7 +308,7 @@ export function ChallengeMatrix() {
                     </p>
                     <CtaButton
                       href={`/challenges/${c.slug}`}
-                      variant={c.popular ? "primary" : "secondary"}
+                      variant={isSel ? "primary" : "secondary"}
                       className="mt-4 h-10 w-full px-3 text-sm"
                     >
                       Start now
