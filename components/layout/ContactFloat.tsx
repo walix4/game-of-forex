@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { asset } from "@/lib/asset";
 
 /**
  * Floating sticky "Contact Us" cutout on the RIGHT. Uses the client image at
@@ -40,7 +41,7 @@ export function ContactFloat() {
       {/* person cutout */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/contact-waqas.png"
+        src={asset("/contact-waqas.png")}
         alt="Contact us"
         onError={() => setOk(false)}
         className="h-auto w-full drop-shadow-[0_12px_34px_rgba(0,0,0,0.55)] transition-transform duration-[var(--dur-base)] group-hover:scale-[1.03]"

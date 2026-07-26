@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { asset } from "@/lib/asset";
 
 /**
  * Gold "G" medals decoration for the funded-capital card. Loads the
@@ -22,7 +23,7 @@ export function MedalsImage({ className }: { className?: string }) {
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src="/medals.png"
+      src={asset("/medals.png")}
       alt=""
       onError={() => setOk(false)}
       className={cn("h-auto w-full drop-shadow-[0_10px_30px_rgba(0,0,0,0.4)]", className)}

@@ -3,6 +3,7 @@
 import { motion, useReducedMotion, type Variants } from "motion/react";
 import { useEffect, useState, type ReactNode } from "react";
 import Link from "next/link";
+import { asset } from "@/lib/asset";
 import { CtaButton } from "@/components/shared/CtaButton";
 import { StarField } from "@/components/home/StarField";
 import { SocialProof } from "@/components/shared/SocialProof";
@@ -156,7 +157,7 @@ export function HeroSection() {
           <div className="anim-float-slow">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/waqas-hero.png"
+              src={asset("/waqas-hero.png")}
               alt="Waqas Ahmed, founder of Game of Forex"
               className="h-auto w-[440px] max-w-full xl:w-[500px] [mask-image:linear-gradient(to_bottom,#000_88%,transparent)]"
             />
