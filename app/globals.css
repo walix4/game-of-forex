@@ -218,6 +218,55 @@
   color: transparent;
 }
 
+/* ---------- gold selected-state (client request 2026-07-27) ----------
+   FTMO-style warm gold for the SELECTED challenge card only. Base #F5B843 was
+   already in the system (star rating, --warning-bg). CTAs stay accent blue. */
+:root {
+  --gold-300: #FFE3A8;
+  --gold-400: #FFCF6E;
+  --gold-500: #F5B843;
+  --gold-600: #E09B22;
+}
+.text-gradient-gold {
+  background: linear-gradient(
+    100deg,
+    var(--gold-300) 0%,
+    var(--gold-400) 40%,
+    var(--gold-500) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.ring-gold {
+  position: relative;
+}
+.ring-gold::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    140deg,
+    var(--gold-400),
+    rgb(245 184 67 / 0.25) 40%,
+    rgb(245 184 67 / 0.15) 60%,
+    var(--gold-600)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.glow-gold {
+  box-shadow:
+    0 0 0 1px rgb(245 184 67 / 0.40),
+    0 20px 60px -20px rgb(245 184 67 / 0.45);
+}
+
 /* Glass surface — frosted translucent panel: light tint, strong blur, a bright
    top edge and a soft drop shadow so it reads as real glass over any backdrop. */
 .glass {

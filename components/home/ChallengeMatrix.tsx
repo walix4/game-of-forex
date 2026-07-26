@@ -188,6 +188,7 @@ export function ChallengeMatrix() {
           </div>
 
           {SIZES.map((c, i) => {
+            const isSel = selected === c.slug;
             const values = (
               <motion.div
                 key={showAmounts ? "amounts" : "percent"}
@@ -238,7 +239,14 @@ export function ChallengeMatrix() {
                 <Row label="Refund">
                   <span className="flex items-center gap-1.5 text-sm font-medium text-[var(--text-primary)]">
                     Yes
-                    <span className="tabular rounded-full bg-[var(--accent-subtle)] px-2 py-0.5 text-[0.65rem] font-semibold text-[var(--accent)]">
+                    <span
+                      className={cn(
+                        "tabular rounded-full px-2 py-0.5 text-[0.65rem] font-semibold transition-colors duration-[var(--dur-base)]",
+                        isSel
+                          ? "bg-[var(--gold-500)]/15 text-[var(--gold-400)]"
+                          : "bg-[var(--accent-subtle)] text-[var(--accent)]",
+                      )}
+                    >
                       100%
                     </span>
                   </span>
@@ -251,7 +259,6 @@ export function ChallengeMatrix() {
               </motion.div>
             );
 
-            const isSel = selected === c.slug;
             return (
               <Reveal key={c.slug} delay={i * 0.05}>
                 <div
@@ -259,7 +266,7 @@ export function ChallengeMatrix() {
                   className={cn(
                     "relative flex h-full cursor-pointer flex-col overflow-visible rounded-[var(--radius-lg)] transition-[transform,box-shadow,border-color] duration-[var(--dur-base)] ease-[var(--ease-out)] motion-reduce:transition-none",
                     isSel
-                      ? "ring-accent glass glow-mint lg:-translate-y-1.5"
+                      ? "ring-gold glass glow-gold lg:-translate-y-1.5"
                       : "glass-card",
                   )}
                 >
@@ -267,12 +274,12 @@ export function ChallengeMatrix() {
                   <div
                     aria-hidden
                     className={cn(
-                      "pointer-events-none absolute inset-0 rounded-[inherit] bg-[radial-gradient(120%_55%_at_50%_0%,rgb(59_99_255/0.13),transparent_62%)] transition-opacity duration-[var(--dur-base)]",
+                      "pointer-events-none absolute inset-0 rounded-[inherit] bg-[radial-gradient(120%_55%_at_50%_0%,rgb(245_184_67/0.16),transparent_62%)] transition-opacity duration-[var(--dur-base)]",
                       isSel ? "opacity-100" : "opacity-0",
                     )}
                   />
                   {c.popular && (
-                    <span className="absolute -top-3 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-b from-[var(--color-blue-400)] to-[var(--color-blue-600)] px-3.5 py-1 text-xs font-semibold text-[var(--text-on-accent)] shadow-[0_6px_24px_-4px_var(--accent)]">
+                    <span className="absolute -top-3 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-b from-[var(--gold-400)] to-[var(--gold-600)] px-3.5 py-1 text-xs font-semibold text-[var(--bg-base)] shadow-[0_6px_24px_-4px_var(--gold-500)]">
                       Best value
                     </span>
                   )}
@@ -288,7 +295,7 @@ export function ChallengeMatrix() {
                       aria-hidden
                       className={cn(
                         "pointer-events-none absolute inset-x-0 -top-10 h-24 rounded-[50%] blur-2xl transition-colors duration-[var(--dur-base)]",
-                        isSel ? "bg-[var(--accent)]/25" : "bg-white/[0.05]",
+                        isSel ? "bg-[var(--gold-500)]/30" : "bg-white/[0.05]",
                       )}
                     />
                     <span className="text-xs uppercase tracking-[0.12em] text-[var(--text-muted)]">
@@ -297,7 +304,7 @@ export function ChallengeMatrix() {
                     <span
                       className={cn(
                         "tabular mt-1 font-display text-2xl font-semibold xl:text-[1.7rem]",
-                        isSel ? "text-gradient" : "text-[var(--text-primary)]",
+                        isSel ? "text-gradient-gold" : "text-[var(--text-primary)]",
                       )}
                     >
                       {usd(c.size)}
@@ -311,7 +318,7 @@ export function ChallengeMatrix() {
                     <p
                       className={cn(
                         "tabular font-display text-[1.75rem] font-semibold leading-none",
-                        isSel ? "text-gradient" : "text-[var(--text-primary)]",
+                        isSel ? "text-gradient-gold" : "text-[var(--text-primary)]",
                       )}
                     >
                       {usd(c.price)}
