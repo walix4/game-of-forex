@@ -33,10 +33,11 @@ export function WhyChoose() {
 
         <Reveal as="div" delay={0.08}>
           <Card>
-            {/* NEEDS CLIENT INPUT — "100+" is an unverified count (§4). */}
+            {/* ⚠️ NEEDS LEGAL SIGN-OFF — "world's first" is an unverifiable
+                superlative (§4/§0); shipped on explicit client request. */}
             <CardHead
-              title="100+ Qualified Analysts"
-              sub="Traders in the community, every day."
+              title="The world's first A-Book platform"
+              sub="Funded accounts on real capital — your fills reach the live market."
             />
             <CommunityOrbit />
           </Card>
@@ -44,9 +45,10 @@ export function WhyChoose() {
 
         <Reveal as="div" delay={0.16}>
           <Card>
+            {/* NEEDS CLIENT INPUT — payout schedule is unconfirmed (§8). */}
             <CardHead
-              title="Real-time insights"
-              sub="Market context for smarter decisions."
+              title="Get paid daily"
+              sub="Request your split as often as every trading day."
             />
             <InsightsPanel />
           </Card>
