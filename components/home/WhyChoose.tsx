@@ -39,7 +39,7 @@ export function WhyChoose() {
               title="The world's first A-Book platform"
               sub="Funded accounts on real capital — your fills reach the live market."
             />
-            <CommunityOrbit />
+            <ABookFlow />
           </Card>
         </Reveal>
 
@@ -50,7 +50,7 @@ export function WhyChoose() {
               title="Get paid daily"
               sub="Request your split as often as every trading day."
             />
-            <InsightsPanel />
+            <PayoutPanel />
           </Card>
         </Reveal>
 
@@ -141,127 +141,121 @@ function AnalyticsChart() {
   );
 }
 
-function CommunityOrbit() {
-  // Stock placeholders (randomuser.me) — NEEDS CLIENT PHOTOS before launch (§4).
-  const photos = [
-    "https://randomuser.me/api/portraits/men/32.jpg",
-    "https://randomuser.me/api/portraits/women/44.jpg",
-    "https://randomuser.me/api/portraits/men/54.jpg",
-    "https://randomuser.me/api/portraits/women/68.jpg",
-    "https://randomuser.me/api/portraits/men/76.jpg",
-    "https://randomuser.me/api/portraits/women/12.jpg",
-  ];
-  const radius = 88;
+function ABookFlow() {
+  // Order-routing diagram: your order → G (A-Book routing) → live market.
+  // Fill price/size are illustrative mock data.
+  const chip =
+    "relative z-10 flex w-full max-w-[260px] items-center gap-3 rounded-[var(--radius)] border border-[var(--border-default)] bg-[var(--bg-raised)]/90 px-4 py-3 backdrop-blur-md";
   return (
-    <div className="grid flex-1 place-items-center pt-4">
-      <div className="relative size-56">
-        <div
-          aria-hidden
-          className="absolute inset-6 rounded-full opacity-70 blur-2xl"
-          style={{ background: "var(--glow-accent)" }}
-        />
-        <span className="absolute inset-0 rounded-full border border-[var(--border-subtle)]" />
-        <span className="absolute inset-10 rounded-full border border-[var(--border-subtle)]" />
-        <span className="anim-spin-slow absolute inset-4 rounded-full border border-dashed border-[var(--accent)]/25" />
-        {/* website icon (blue circle + white G) in the middle */}
-        <span className="absolute left-1/2 top-1/2 grid size-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-gradient-to-br from-[#3D74FF] to-[#1B45D8] shadow-[0_0_34px_-4px_rgb(59_99_255/0.85)]">
-          <span className="font-[Arial,Helvetica,sans-serif] text-2xl font-black leading-none text-white">
-            G
+    <div className="relative mt-6 flex flex-1 flex-col items-center justify-center gap-5 pb-2">
+      {/* connector line + travelling pulse */}
+      <div
+        aria-hidden
+        className="absolute left-1/2 top-2 bottom-2 w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[var(--accent)]/40 to-transparent"
+      />
+      <div className={chip}>
+        <span className="grid size-8 shrink-0 place-items-center rounded-[8px] bg-[var(--accent)]/10 text-[var(--accent)]">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" className="size-4" aria-hidden>
+            <path d="M8 13V3M4 7l4-4 4 4" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
+        <span>
+          <span className="block text-xs text-[var(--text-muted)]">Your order</span>
+          <span className="tabular block text-sm font-medium text-[var(--text-primary)]">
+            Buy 1.00 lot EURUSD
           </span>
         </span>
-        <div className="anim-orbit absolute inset-0">
-          {photos.map((src, i) => {
-            const angle = (i / photos.length) * 2 * Math.PI;
-            const x = Math.cos(angle) * radius;
-            const y = Math.sin(angle) * radius;
-            return (
-              <span
-                key={i}
-                className="absolute left-1/2 top-1/2"
-                style={{ transform: `translate(-50%, -50%) translate(${x}px, ${y}px)` }}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={src}
-                  alt=""
-                  width={40}
-                  height={40}
-                  loading="lazy"
-                  className="anim-orbit-rev size-10 rounded-full object-cover shadow-[0_0_0_1px_rgb(255_255_255/0.12)] ring-1 ring-[var(--accent)]/25"
-                />
-              </span>
-            );
-          })}
-        </div>
+      </div>
+
+      <span className="relative z-10 grid size-14 place-items-center rounded-full bg-gradient-to-br from-[#3D74FF] to-[#1B45D8] shadow-[0_0_34px_-4px_rgb(59_99_255/0.85)]">
+        <span className="anim-ping-ring absolute inset-0 rounded-full border border-[var(--accent)]/50" aria-hidden />
+        <span className="font-[Arial,Helvetica,sans-serif] text-xl font-black leading-none text-white">
+          G
+        </span>
+      </span>
+      <span className="relative z-10 -mt-3 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-base)]/80 px-2.5 py-0.5 text-[0.65rem] uppercase tracking-[0.1em] text-[var(--text-muted)]">
+        A-Book routing
+      </span>
+
+      <div className={chip}>
+        <span className="grid size-8 shrink-0 place-items-center rounded-[8px] bg-[var(--market-up)]/10 text-[var(--market-up)]">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" className="size-4" aria-hidden>
+            <circle cx="8" cy="8" r="6" strokeWidth="1.6" />
+            <path d="M2 8h12M8 2c2.5 2.8 2.5 9.2 0 12M8 2c-2.5 2.8-2.5 9.2 0 12" strokeWidth="1.2" />
+          </svg>
+        </span>
+        <span className="flex-1">
+          <span className="block text-xs text-[var(--text-muted)]">Live market</span>
+          <span className="tabular block text-sm font-medium text-[var(--text-primary)]">
+            Filled at 1.08427
+          </span>
+        </span>
+        <span aria-hidden className="text-[var(--market-up)]">✓</span>
       </div>
     </div>
   );
 }
 
-function InsightsPanel() {
-  const menu = [
-    "Trading opportunity",
-    "Volatility analysis",
-    "Screener",
-    "Market overview",
+function PayoutPanel() {
+  // Daily-payout mock: week strip + recent payout rows. All figures are
+  // clearly-fake mock data (§0); schedule NEEDS CLIENT INPUT (§8).
+  const days = [
+    { d: "Mon", paid: true },
+    { d: "Tue", paid: true },
+    { d: "Wed", paid: true },
+    { d: "Thu", paid: true },
+    { d: "Fri", paid: false },
   ];
-  // Proper candlesticks (wick + body) on a rising trend — the faint backdrop.
-  const N = 13;
-  const candles = Array.from({ length: N }, (_, i) => {
-    const base = 150 - i * 7.5; // rising trend
-    const up = i % 3 !== 1;
-    const bodyH = 14 + (i % 4) * 6;
-    const wickH = bodyH + 20;
-    return { x: 16 + i * 24, base, bodyH, wickH, up };
-  });
+  const rows = [
+    { date: "Thu, Jul 23", amount: "$412.20", status: "Paid" },
+    { date: "Wed, Jul 22", amount: "$538.00", status: "Paid" },
+    { date: "Fri, Jul 24", amount: "$291.10", status: "Processing" },
+  ];
   return (
     <div className="relative mt-6 flex-1 overflow-hidden rounded-[var(--radius)] border border-[var(--border-subtle)] bg-[var(--bg-base)]/60 p-4">
-      {/* faint candlestick chart */}
-      <svg
-        aria-hidden
-        viewBox="0 0 320 190"
-        preserveAspectRatio="xMidYMid slice"
-        className="absolute inset-0 h-full w-full opacity-40"
-      >
-        {candles.map((c, i) => {
-          const color = c.up ? "var(--market-up)" : "var(--market-down)";
-          return (
-            <g key={i}>
-              <line
-                x1={c.x}
-                y1={c.base - c.wickH / 2}
-                x2={c.x}
-                y2={c.base + c.wickH / 2}
-                stroke={color}
-                strokeWidth="1.5"
-              />
-              <rect
-                x={c.x - 4.5}
-                y={c.base - c.bodyH / 2}
-                width="9"
-                height={c.bodyH}
-                rx="2"
-                fill={color}
-              />
-            </g>
-          );
-        })}
-      </svg>
-      {/* dropdown menu */}
-      <div className="relative w-fit rounded-[var(--radius)] border border-[var(--border-default)] bg-[var(--bg-raised)]/90 p-1.5 backdrop-blur-md">
-        {menu.map((m, i) => (
-          <div
-            key={m}
-            className={`rounded-[var(--radius-sm)] px-3 py-2 text-sm ${
-              i === 0
-                ? "bg-[var(--accent-subtle)] text-[var(--accent)]"
-                : "text-[var(--text-secondary)]"
-            }`}
-          >
-            {m}
+      {/* week cadence strip */}
+      <div className="flex items-center justify-between gap-1.5">
+        {days.map((day) => (
+          <span key={day.d} className="flex flex-1 flex-col items-center gap-1.5">
+            <span
+              className={`grid size-7 place-items-center rounded-full text-[0.65rem] ${
+                day.paid
+                  ? "bg-[var(--market-up)]/12 text-[var(--market-up)]"
+                  : "border border-dashed border-[var(--border-default)] text-[var(--text-muted)]"
+              }`}
+              aria-hidden
+            >
+              {day.paid ? "✓" : "·"}
+            </span>
+            <span className="text-[0.6rem] text-[var(--text-muted)]">{day.d}</span>
+          </span>
+        ))}
+      </div>
+
+      {/* recent payouts */}
+      <div className="mt-4 divide-y divide-[var(--border-subtle)] rounded-[var(--radius)] border border-[var(--border-default)] bg-[var(--bg-raised)]/90 backdrop-blur-md">
+        {rows.map((r) => (
+          <div key={r.date} className="flex items-center justify-between gap-2 px-3.5 py-2.5">
+            <span className="tabular text-xs text-[var(--text-muted)]">{r.date}</span>
+            <span className="tabular text-sm font-medium text-[var(--text-primary)]">
+              {r.amount}
+            </span>
+            <span
+              className={`rounded-full px-2 py-0.5 text-[0.6rem] font-semibold ${
+                r.status === "Paid"
+                  ? "bg-[var(--market-up)]/12 text-[var(--market-up)]"
+                  : "bg-[var(--accent-subtle)] text-[var(--accent)]"
+              }`}
+            >
+              {r.status}
+            </span>
           </div>
         ))}
       </div>
+
+      <p className="mt-3 text-center text-[0.6rem] text-[var(--text-muted)]">
+        Mock data — payout schedule to be confirmed
+      </p>
     </div>
   );
 }
