@@ -142,55 +142,83 @@ function AnalyticsChart() {
 }
 
 function ABookFlow() {
-  // Order-routing diagram: your order → G (A-Book routing) → live market.
-  // Fill price/size are illustrative mock data.
-  const chip =
-    "relative z-10 flex w-full max-w-[260px] items-center gap-3 rounded-[var(--radius)] border border-[var(--border-default)] bg-[var(--bg-raised)]/90 px-4 py-3 backdrop-blur-md";
+  // Order-execution ticket: a terminal-style lifecycle trace — placed, routed,
+  // filled in the live market. All values are illustrative mock data.
+  const steps = [
+    { label: "Order placed", time: "09:42:03.120", done: true },
+    { label: "Routed to liquidity", time: "09:42:03.128", done: true },
+    { label: "Filled in live market", time: "1.08427", done: true, final: true },
+  ];
   return (
-    <div className="relative mt-6 flex flex-1 flex-col items-center justify-center gap-5 pb-2">
-      {/* connector line + travelling pulse */}
-      <div
-        aria-hidden
-        className="absolute left-1/2 top-2 bottom-2 w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-[var(--accent)]/40 to-transparent"
-      />
-      <div className={chip}>
-        <span className="grid size-8 shrink-0 place-items-center rounded-[8px] bg-[var(--accent)]/10 text-[var(--accent)]">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" className="size-4" aria-hidden>
-            <path d="M8 13V3M4 7l4-4 4 4" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </span>
-        <span>
-          <span className="block text-xs text-[var(--text-muted)]">Your order</span>
-          <span className="tabular block text-sm font-medium text-[var(--text-primary)]">
-            Buy 1.00 lot EURUSD
+    <div className="mt-6 flex flex-1 flex-col justify-center">
+      <div className="rounded-[var(--radius)] border border-[var(--border-subtle)] bg-[var(--bg-base)]/60 p-4">
+        {/* ticket header */}
+        <div className="flex items-center justify-between gap-2">
+          <span className="flex items-center gap-2.5">
+            <span className="font-display text-sm font-semibold text-[var(--text-primary)]">
+              EURUSD
+            </span>
+            <span className="tabular rounded-full bg-[var(--market-up)]/12 px-2 py-0.5 text-[0.65rem] font-semibold text-[var(--market-up)]">
+              Buy 1.00
+            </span>
           </span>
-        </span>
-      </div>
-
-      <span className="relative z-10 grid size-14 place-items-center rounded-full bg-gradient-to-br from-[#3D74FF] to-[#1B45D8] shadow-[0_0_34px_-4px_rgb(59_99_255/0.85)]">
-        <span className="anim-ping-ring absolute inset-0 rounded-full border border-[var(--accent)]/50" aria-hidden />
-        <span className="font-[Arial,Helvetica,sans-serif] text-xl font-black leading-none text-white">
-          G
-        </span>
-      </span>
-      <span className="relative z-10 -mt-3 rounded-full border border-[var(--border-subtle)] bg-[var(--bg-base)]/80 px-2.5 py-0.5 text-[0.65rem] uppercase tracking-[0.1em] text-[var(--text-muted)]">
-        A-Book routing
-      </span>
-
-      <div className={chip}>
-        <span className="grid size-8 shrink-0 place-items-center rounded-[8px] bg-[var(--market-up)]/10 text-[var(--market-up)]">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" className="size-4" aria-hidden>
-            <circle cx="8" cy="8" r="6" strokeWidth="1.6" />
-            <path d="M2 8h12M8 2c2.5 2.8 2.5 9.2 0 12M8 2c-2.5 2.8-2.5 9.2 0 12" strokeWidth="1.2" />
-          </svg>
-        </span>
-        <span className="flex-1">
-          <span className="block text-xs text-[var(--text-muted)]">Live market</span>
-          <span className="tabular block text-sm font-medium text-[var(--text-primary)]">
-            Filled at 1.08427
+          <span className="rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/10 px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-[0.08em] text-[var(--accent)]">
+            A-Book
           </span>
-        </span>
-        <span aria-hidden className="text-[var(--market-up)]">✓</span>
+        </div>
+
+        {/* lifecycle timeline */}
+        <ul className="mt-4">
+          {steps.map((s, i) => (
+            <li key={s.label} className="relative flex gap-3 pb-4 last:pb-0">
+              {/* connector */}
+              {i < steps.length - 1 && (
+                <span
+                  aria-hidden
+                  className="absolute left-[9px] top-5 bottom-0 w-px bg-[var(--border-default)]"
+                />
+              )}
+              {/* dot */}
+              <span
+                className={`relative z-10 mt-0.5 grid size-[19px] shrink-0 place-items-center rounded-full text-[0.6rem] ${
+                  s.final
+                    ? "bg-[var(--market-up)]/15 text-[var(--market-up)]"
+                    : "bg-white/[0.07] text-[var(--text-muted)]"
+                }`}
+                aria-hidden
+              >
+                {s.final && (
+                  <span className="anim-ping-ring absolute inset-0 rounded-full border border-[var(--market-up)]/50" />
+                )}
+                ✓
+              </span>
+              <span className="flex flex-1 items-baseline justify-between gap-2">
+                <span
+                  className={`text-sm ${
+                    s.final
+                      ? "font-medium text-[var(--text-primary)]"
+                      : "text-[var(--text-secondary)]"
+                  }`}
+                >
+                  {s.label}
+                </span>
+                <span
+                  className={`tabular text-xs ${
+                    s.final
+                      ? "font-semibold text-[var(--market-up)]"
+                      : "text-[var(--text-muted)]"
+                  }`}
+                >
+                  {s.time}
+                </span>
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        <p className="mt-3 border-t border-[var(--border-subtle)] pt-2.5 text-center text-[0.6rem] text-[var(--text-muted)]">
+          Illustrative execution trace
+        </p>
       </div>
     </div>
   );
