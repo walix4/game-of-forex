@@ -1,6 +1,7 @@
 import { HeroSection } from "@/components/home/HeroSection";
 import { ChallengeMatrix } from "@/components/home/ChallengeMatrix";
 import { WhyChoose } from "@/components/home/WhyChoose";
+import { HowItWorksScroll } from "@/components/home/HowItWorksScroll";
 import { BehindTheScenes } from "@/components/home/BehindTheScenes";
 import { CommunityRow } from "@/components/home/CommunityRow";
 import { FaqPreview } from "@/components/home/FaqPreview";
@@ -12,6 +13,7 @@ export default function HomePage() {
     <>
       <HeroSection />
       <WhyChoose />
+      <HowItWorksScroll />
       <ChallengeMatrix />
       <BehindTheScenes />
       <CommunityRow />
