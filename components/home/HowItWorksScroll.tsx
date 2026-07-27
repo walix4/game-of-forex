@@ -53,8 +53,12 @@ const STEPS = [
     glow: "#A8F5C4",
     deep: "#064D20",
     icon: "medal",
+    // client-supplied AI render (own asset) — masked so edges melt into the card
+    img: "/step-reward.png",
   },
 ] as const;
+
+type Step = (typeof STEPS)[number] & { img?: string };
 
 /** Metallic 3D-style glyphs: per-icon gradient fills, a light-catch edge and a
     deep drop shadow — approximates the reference's rendered-3D look in SVG. */
@@ -196,7 +200,25 @@ function StepCard({
       </p>
       {/* large glyph bleeding off the corner, like the reference renders */}
       <div className="absolute -bottom-5 -right-3 rotate-[8deg]">
-        <StepIcon name={s.icon} glow={s.glow} deep={s.deep} />
+        {(s as Step).img ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={asset((s as Step).img!)}
+            alt=""
+            width={280}
+            height={280}
+            loading="lazy"
+            className="size-44 object-contain drop-shadow-[0_18px_28px_rgb(0_0_0/0.45)] sm:size-56"
+            style={{
+              maskImage:
+                "radial-gradient(circle at 50% 48%, #000 52%, transparent 74%)",
+              WebkitMaskImage:
+                "radial-gradient(circle at 50% 48%, #000 52%, transparent 74%)",
+            }}
+          />
+        ) : (
+          <StepIcon name={s.icon} glow={s.glow} deep={s.deep} />
+        )}
       </div>
     </div>
   );
