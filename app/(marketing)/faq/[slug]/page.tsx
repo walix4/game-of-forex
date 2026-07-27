@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/Container";
-import { Reveal } from "@/components/shared/Reveal";
 import { CtaButton } from "@/components/shared/CtaButton";
 import { RiskDisclosure } from "@/components/shared/RiskDisclosure";
 import { FaqSidebar } from "@/components/faq/FaqSidebar";
@@ -46,14 +45,14 @@ export default async function FaqDetailPage({
       <Container className="py-14 sm:py-20">
         <div className="grid gap-10 lg:grid-cols-[290px_minmax(0,1fr)] lg:gap-14">
           {/* sidebar — sticky on desktop */}
-          <Reveal className="order-2 lg:order-1">
+          <div className="order-2 lg:order-1">
             <div className="lg:sticky lg:top-28">
               <FaqSidebar current={faq} />
             </div>
-          </Reveal>
+          </div>
 
           {/* content */}
-          <Reveal className="order-1 lg:order-2">
+          <div className="order-1 lg:order-2">
             <nav aria-label="Breadcrumb" className="text-xs text-[var(--text-muted)]">
               <ol className="flex flex-wrap items-center gap-1.5">
                 <li>
@@ -133,7 +132,7 @@ export default async function FaqDetailPage({
               </div>
               <RiskDisclosure variant="inline" className="mt-5" />
             </div>
-          </Reveal>
+          </div>
         </div>
       </Container>
     </div>

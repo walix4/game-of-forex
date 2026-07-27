@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/Container";
-import { Reveal } from "@/components/shared/Reveal";
 import { CtaButton } from "@/components/shared/CtaButton";
 import { RiskDisclosure } from "@/components/shared/RiskDisclosure";
 import { posts, getPost, readingTime } from "@/lib/blog";
@@ -54,7 +53,7 @@ export default async function BlogPostPage({
 
       <Container className="pt-12 sm:pt-16">
         {/* breadcrumb */}
-        <Reveal>
+        <div>
           <nav aria-label="Breadcrumb" className="text-xs text-[var(--text-muted)]">
             <ol className="flex flex-wrap items-center gap-1.5">
               <li>
@@ -81,10 +80,10 @@ export default async function BlogPostPage({
             {/* NEEDS CLIENT INPUT — real author byline */}
             <span>Game of Forex desk</span>
           </p>
-        </Reveal>
+        </div>
 
         {/* hero image */}
-        <Reveal className="mt-10">
+        <div className="mt-10">
           <div className="glass-card relative aspect-[21/9] overflow-hidden rounded-[var(--radius-xl)]">
             <Image
               src={post.image}
@@ -99,11 +98,11 @@ export default async function BlogPostPage({
               className="absolute inset-0 bg-gradient-to-t from-[var(--bg-base)]/50 to-transparent"
             />
           </div>
-        </Reveal>
+        </div>
 
         <div className="mt-14 grid gap-12 lg:grid-cols-[230px_minmax(0,1fr)]">
           {/* "in this article" rail */}
-          <Reveal className="hidden lg:block">
+          <div className="hidden lg:block">
             <nav aria-label="In this article" className="sticky top-28">
               <p className="text-xs font-medium uppercase tracking-[0.14em] text-[var(--text-muted)]">
                 In this article
@@ -121,10 +120,10 @@ export default async function BlogPostPage({
                 ))}
               </ul>
             </nav>
-          </Reveal>
+          </div>
 
           {/* body */}
-          <Reveal className="max-w-2xl">
+          <div className="max-w-2xl">
             {post.body.map((s, i) => (
               <section key={s.h ?? i}>
                 {s.h && (
@@ -151,11 +150,11 @@ export default async function BlogPostPage({
               Educational content only — nothing here is financial advice or a
               recommendation to trade.
             </p>
-          </Reveal>
+          </div>
         </div>
 
         {/* related posts */}
-        <Reveal className="mt-20">
+        <div className="mt-20">
           <h2 className="font-display text-2xl font-semibold text-[var(--text-primary)]">
             Keep reading
           </h2>
@@ -182,10 +181,10 @@ export default async function BlogPostPage({
               </li>
             ))}
           </ul>
-        </Reveal>
+        </div>
 
         {/* closer — single primary CTA (§3 rule 1), risk note adjacent */}
-        <Reveal className="my-20">
+        <div className="my-20">
           <div className="ring-accent glass rounded-[var(--radius-xl)] p-7 sm:p-9">
             <div className="flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
               <div>
@@ -202,7 +201,7 @@ export default async function BlogPostPage({
             </div>
             <RiskDisclosure variant="inline" className="mt-5" />
           </div>
-        </Reveal>
+        </div>
       </Container>
     </article>
   );
