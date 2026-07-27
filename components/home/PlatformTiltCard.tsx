@@ -14,11 +14,12 @@ import { SocialIcon } from "@/components/shared/SocialIcon";
  * request 2026-07-27). Brand gradients are platform assets, same idiom as the
  * BRAND colour map. Tilt is skipped under prefers-reduced-motion.
  */
+// Deep, dark takes on the brand colours (client: "thora dark touch").
 const BG: Record<string, string> = {
-  Discord: "linear-gradient(160deg, #6A75F6 0%, #5865F2 45%, #3C46C4 100%)",
-  WhatsApp: "linear-gradient(160deg, #41D97A 0%, #25D366 45%, #128C5A 100%)",
-  YouTube: "linear-gradient(160deg, #FF6A5E 0%, #E52D27 55%, #B31217 100%)",
-  Instagram: "linear-gradient(140deg, #F58529 0%, #DD2A7B 50%, #8134AF 100%)",
+  Discord: "linear-gradient(160deg, #4A54D8 0%, #333CA8 50%, #1E2470 100%)",
+  WhatsApp: "linear-gradient(160deg, #1FA855 0%, #12744B 55%, #0A4A32 100%)",
+  YouTube: "linear-gradient(160deg, #C4302B 0%, #91201C 55%, #641210 100%)",
+  Instagram: "linear-gradient(140deg, #B35A18 0%, #96204F 50%, #4E1F70 100%)",
 };
 
 export function PlatformTiltCard({
@@ -68,7 +69,7 @@ export function PlatformTiltCard({
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(90% 55% at 15% 0%, rgb(255 255 255 / 0.25), transparent 55%)",
+            "radial-gradient(90% 55% at 15% 0%, rgb(255 255 255 / 0.16), transparent 55%)",
         }}
       />
       <span className="relative grid size-11 place-items-center rounded-[var(--radius)] bg-white/20 text-white">

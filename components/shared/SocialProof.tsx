@@ -22,9 +22,9 @@ export function SocialProof({ className }: { className?: string }) {
         className,
       )}
     >
-      {/* avatar stack */}
-      <div className="flex items-center gap-3">
-        <div className="flex -space-x-3">
+      {/* avatar stack — shrink-0 so the text column can never ride over it */}
+      <div className="flex items-center gap-4">
+        <div className="flex shrink-0">
           {AVATARS.map((src, i) => (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -34,14 +34,24 @@ export function SocialProof({ className }: { className?: string }) {
               width={44}
               height={44}
               loading="lazy"
-              className="size-11 rounded-full border-2 border-[var(--bg-base)] object-cover"
+              className={cn(
+                "size-11 rounded-full border-2 border-[var(--bg-base)] object-cover",
+                i > 0 && "-ml-3",
+              )}
             />
           ))}
-          <span className="grid size-11 shrink-0 place-items-center rounded-full border-2 border-[var(--bg-base)] bg-white text-lg font-bold leading-none text-[var(--bg-base)]">
-            +
+          <span className="-ml-3 grid size-11 shrink-0 place-items-center rounded-full border-2 border-[var(--bg-base)] bg-white text-[var(--bg-base)]">
+            <svg viewBox="0 0 16 16" className="size-4" aria-hidden>
+              <path
+                d="M8 3.5v9M3.5 8h9"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+              />
+            </svg>
           </span>
         </div>
-        <div className="text-left">
+        <div className="min-w-0 text-left">
           <p className="font-semibold text-[var(--text-primary)]">
             <span className="tabular">10K+</span> community members
           </p>
