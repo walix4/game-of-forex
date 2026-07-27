@@ -46,6 +46,8 @@ const STEPS = [
     glow: "#FFD9A8",
     deep: "#8F3B02",
     icon: "arrow",
+    // client-supplied AI render (own asset)
+    img: "/step-pass.png",
   },
   {
     step: "Step 3",
