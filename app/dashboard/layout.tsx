@@ -42,7 +42,7 @@ export default function DashboardLayout({
 
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-8 lg:flex-row">
         <aside className="lg:w-52 lg:shrink-0">
-          <div className="-mx-6 overflow-x-auto px-6 lg:mx-0 lg:overflow-visible lg:px-0">
+          <div className="-mx-6 overflow-x-auto px-6 [scrollbar-width:none] lg:mx-0 lg:overflow-visible lg:px-0">
             <DashboardNav />
           </div>
         </aside>

@@ -125,7 +125,7 @@ export function PayoutLeaderboard() {
               aria-pressed={period === p}
               onClick={() => setPeriod(p)}
               className={cn(
-                "rounded-full px-4 py-2 text-sm transition-colors duration-[var(--dur-fast)]",
+                "rounded-full px-3 py-2 text-xs transition-colors duration-[var(--dur-fast)] sm:px-4 sm:text-sm",
                 period === p
                   ? "bg-[var(--accent)] font-medium text-[var(--text-on-accent)]"
                   : "text-[var(--text-muted)] hover:text-[var(--text-primary)]",
@@ -212,7 +212,7 @@ export function PayoutLeaderboard() {
                   <span className="grid size-7 shrink-0 place-items-center rounded-full border border-[var(--border-default)] text-xs text-[var(--text-muted)]">
                     {i + 4}
                   </span>
-                  <span className="w-20 shrink-0 text-sm font-medium text-[var(--text-primary)] sm:w-28">
+                  <span className="w-20 shrink-0 truncate text-sm font-medium text-[var(--text-primary)] sm:w-28">
                     {r.name}
                   </span>
                   <span className="hidden min-w-0 flex-1 items-center gap-2 text-sm text-[var(--text-secondary)] sm:flex">

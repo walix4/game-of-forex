@@ -116,7 +116,7 @@ export default async function FaqDetailPage({
             )}
 
             {/* closer — single primary CTA (§3 rule 1), risk note adjacent */}
-            <div className="ring-accent glass mt-12 rounded-[var(--radius-xl)] p-7 sm:p-9">
+            <div className="ring-accent glass mt-12 rounded-[var(--radius-xl)] p-5 sm:p-9">
               <div className="flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
                 <div>
                   <h2 className="font-display text-xl font-semibold text-[var(--text-primary)]">

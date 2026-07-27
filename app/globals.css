@@ -189,6 +189,9 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    /* belt-and-braces: no decorative absolute element may ever cause
+       sideways page scroll on mobile (§6) */
+    overflow-x: clip;
   }
   /* All prices/percentages/countdowns/figures are tabular (CLAUDE.md §3). */
   .tabular {

@@ -78,11 +78,11 @@ export default async function ChallengeDetailPage({
                     >
                       <th
                         scope="row"
-                        className="px-5 py-3.5 text-left font-normal text-[var(--text-muted)]"
+                        className="px-4 py-3.5 text-left font-normal text-[var(--text-muted)] sm:px-5"
                       >
                         {r.label}
                       </th>
-                      <td className="tabular px-5 py-3.5 text-right font-medium text-[var(--text-primary)]">
+                      <td className="tabular px-4 py-3.5 text-right font-medium text-[var(--text-primary)] sm:px-5">
                         {r.value}
                       </td>
                     </tr>
@@ -96,7 +96,7 @@ export default async function ChallengeDetailPage({
           </Reveal>
 
           <Reveal delay={0.06}>
-            <aside className="ring-accent glass glow-mint sticky top-24 rounded-[var(--radius-lg)] p-7">
+            <aside className="ring-accent glass glow-mint rounded-[var(--radius-lg)] p-5 sm:p-7 lg:sticky lg:top-24">
               <p className="text-sm text-[var(--text-muted)]">One-time fee</p>
               <p className="tabular font-display text-4xl font-semibold text-[var(--text-primary)]">
                 {usd(c.price)}

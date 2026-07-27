@@ -78,8 +78,8 @@ export function BlogDirectory() {
 
   return (
     <div className="grid gap-10 lg:grid-cols-[210px_minmax(0,1fr)_250px] lg:gap-12">
-      {/* category rail */}
-      <Reveal className="order-2 lg:order-1">
+      {/* category rail — first on mobile so filtering stays reachable */}
+      <Reveal className="order-1">
         <nav aria-label="Blog categories" className="lg:sticky lg:top-28">
           <ul className="flex flex-wrap gap-1.5 lg:flex-col">
             {(["All", ...BLOG_CATEGORIES] as Filter[]).map((cat) => (
@@ -104,7 +104,7 @@ export function BlogDirectory() {
       </Reveal>
 
       {/* posts */}
-      <div className="order-1 lg:order-2">
+      <div className="order-2">
         {latest ? (
           <Reveal>
             <p className="mb-4 text-xs font-medium uppercase tracking-[0.14em] text-[var(--text-muted)]">

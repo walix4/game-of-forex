@@ -162,7 +162,7 @@ export function ChallengeMatrix() {
         {/* ambient glow pooling behind the columns */}
         <div
           aria-hidden
-          className="glow-hero pointer-events-none absolute -inset-x-16 -inset-y-10 -z-10 opacity-60"
+          className="glow-hero pointer-events-none absolute inset-x-0 -inset-y-10 -z-10 opacity-60 lg:-inset-x-16"
         />
         <div className="grid gap-4 lg:grid-cols-[minmax(170px,200px)_repeat(5,minmax(0,1fr))]">
           {/* legend (lg+ only; mobile uses inline row labels) */}

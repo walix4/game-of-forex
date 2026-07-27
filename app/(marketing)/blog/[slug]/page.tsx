@@ -72,7 +72,7 @@ export default async function BlogPostPage({
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--text-secondary)]">
             {post.excerpt}
           </p>
-          <p className="mt-5 flex items-center gap-2 text-sm text-[var(--text-muted)]">
+          <p className="mt-5 flex flex-wrap items-center gap-2 text-sm text-[var(--text-muted)]">
             <span className="tabular">{post.date}</span>
             <span aria-hidden>·</span>
             <span className="tabular">{readingTime(post)} min read</span>
@@ -84,7 +84,7 @@ export default async function BlogPostPage({
 
         {/* hero image */}
         <div className="mt-10">
-          <div className="glass-card relative aspect-[21/9] overflow-hidden rounded-[var(--radius-xl)]">
+          <div className="glass-card relative aspect-[16/10] overflow-hidden rounded-[var(--radius-xl)] sm:aspect-[21/9]">
             <Image
               src={post.image}
               alt=""
@@ -185,7 +185,7 @@ export default async function BlogPostPage({
 
         {/* closer — single primary CTA (§3 rule 1), risk note adjacent */}
         <div className="my-20">
-          <div className="ring-accent glass rounded-[var(--radius-xl)] p-7 sm:p-9">
+          <div className="ring-accent glass rounded-[var(--radius-xl)] p-5 sm:p-9">
             <div className="flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
               <div>
                 <h2 className="font-display text-xl font-semibold text-[var(--text-primary)]">

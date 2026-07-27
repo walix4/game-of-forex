@@ -84,10 +84,10 @@ export function SizeExplorer() {
         initial={reduce ? false : { opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.26, ease: [0.22, 1, 0.36, 1] }}
-        className="ring-accent glass mt-6 grid gap-8 rounded-[var(--radius-xl)] p-7 sm:p-9 lg:grid-cols-[1.15fr_0.85fr]"
+        className="ring-accent glass mt-6 grid gap-8 rounded-[var(--radius-xl)] p-5 sm:p-9 lg:grid-cols-[1.15fr_0.85fr]"
       >
         <div>
-          <div className="flex items-baseline justify-between gap-4">
+          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
             <h2 className="tabular font-display text-3xl font-semibold text-[var(--text-primary)] sm:text-4xl">
               {usd(c.size)}{" "}
               <span className="text-lg font-medium text-[var(--text-muted)]">
@@ -120,7 +120,7 @@ export function SizeExplorer() {
           </dl>
         </div>
 
-        <div className="flex flex-col justify-between gap-6 rounded-[var(--radius-lg)] bg-[var(--bg-frame)]/40 p-6 lg:border-l lg:border-[var(--border-subtle)]">
+        <div className="flex flex-col justify-between gap-6 rounded-[var(--radius-lg)] bg-[var(--bg-frame)]/40 p-5 sm:p-6 lg:border-l lg:border-[var(--border-subtle)]">
           <div>
             <p className="text-sm text-[var(--text-muted)]">One-time fee</p>
             <p className="tabular mt-1 font-display text-4xl font-semibold text-[var(--text-primary)]">

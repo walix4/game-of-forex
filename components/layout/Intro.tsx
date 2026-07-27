@@ -37,7 +37,8 @@ export function Intro() {
         >
           <div className="px-6 text-center">
             {/* main text — blue-gradient fill left→right */}
-            <span className="relative inline-block font-display font-semibold tracking-tight text-[clamp(3rem,10vw,8rem)] leading-none">
+            {/* clamp min 2.5rem so "EZE Funded" fits 320–360px viewports */}
+            <span className="relative inline-block font-display font-semibold tracking-tight text-[clamp(2.5rem,10vw,8rem)] leading-none">
               <span className="text-white/12">EZE Funded</span>
               <motion.span
                 aria-hidden

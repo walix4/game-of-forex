@@ -231,15 +231,15 @@ function StepCard({
 /** Overlay copy shown on the image (stage 1) and on the left slice (stage 2). */
 function ImageCopy() {
   return (
-    <div className="pointer-events-none absolute inset-0 flex flex-col justify-center p-8 sm:p-12">
-      <p className="max-w-[14ch] font-display text-3xl font-semibold leading-[1.15] tracking-[-0.02em] text-white sm:text-4xl xl:text-5xl">
+    <div className="pointer-events-none absolute inset-0 flex flex-col justify-center p-6 sm:p-12">
+      <p className="max-w-[14ch] font-display text-2xl font-semibold leading-[1.15] tracking-[-0.02em] text-white sm:text-4xl xl:text-5xl">
         Three steps
         <br />
         Visible rules
         <br />
         Clear from day one
       </p>
-      <p className="mt-5 max-w-[34ch] text-sm leading-relaxed text-white/70 sm:text-base">
+      <p className="mt-3 max-w-[34ch] text-xs leading-relaxed text-white/70 sm:mt-5 sm:text-base">
         Pass the evaluation and trade our capital. Up to 80% of the profit is
         yours.
       </p>
@@ -341,7 +341,7 @@ export function HowItWorksScroll() {
           width={1800}
           height={780}
           loading="lazy"
-          className="aspect-[16/10] w-full object-cover sm:aspect-[21/9]"
+          className="aspect-[4/3] w-full object-cover sm:aspect-[21/9]"
         />
         <div
           aria-hidden
