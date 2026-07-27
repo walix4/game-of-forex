@@ -160,7 +160,9 @@ function ImageCopy() {
   );
 }
 
-/** One animated panel: image slice on the front, STEP card on the back. */
+/** One animated panel: the image slice crossfades and lifts away while the
+    STEP card rises in — staggered per card, then the trio tilts. (2D only:
+    3D flips get flattened by ancestor opacity/overflow and ghost both faces.) */
 function Panel({
   i,
   progress,
@@ -168,20 +170,26 @@ function Panel({
   i: number;
   progress: MotionValue<number>;
 }) {
-  const flipStart = 0.44 + i * 0.09;
-  const rotateY = useTransform(progress, [flipStart, flipStart + 0.2], [0, 180]);
+  const t0 = 0.44 + i * 0.09;
+  const sliceOpacity = useTransform(progress, [t0, t0 + 0.16], [1, 0]);
+  const sliceY = useTransform(progress, [t0, t0 + 0.16], [0, -28]);
+  const cardOpacity = useTransform(progress, [t0 + 0.03, t0 + 0.19], [0, 1]);
+  const cardY = useTransform(progress, [t0 + 0.03, t0 + 0.19], [42, 0]);
+  const cardScale = useTransform(progress, [t0 + 0.03, t0 + 0.19], [0.93, 1]);
   const rotateZ = useTransform(progress, [0.8, 0.97], [0, [-9, 0, 8][i]]);
-  const y = useTransform(progress, [0.8, 0.97], [0, [10, -6, 14][i]]);
+  const tiltY = useTransform(progress, [0.8, 0.97], [0, [10, -6, 14][i]]);
 
   return (
     <motion.div
       className="relative h-full flex-1"
-      style={{ rotateY, rotateZ, y, transformStyle: "preserve-3d" }}
+      style={{ rotateZ, y: tiltY }}
     >
-      {/* front — slice of the desk image */}
-      <div
-        className="absolute inset-0 overflow-hidden rounded-[24px] [backface-visibility:hidden]"
+      {/* image slice */}
+      <motion.div
+        className="absolute inset-0 overflow-hidden rounded-[24px]"
         style={{
+          opacity: sliceOpacity,
+          y: sliceY,
           backgroundImage: `url(${asset("/how-hero.jpg")})`,
           backgroundSize: "300% 100%",
           backgroundPosition: `${i * 50}% center`,
@@ -196,14 +204,14 @@ function Panel({
             <ImageCopy />
           </>
         )}
-      </div>
-      {/* back — the step card */}
-      <div
-        className="absolute inset-0 [backface-visibility:hidden]"
-        style={{ transform: "rotateY(180deg)" }}
+      </motion.div>
+      {/* step card */}
+      <motion.div
+        className="absolute inset-0"
+        style={{ opacity: cardOpacity, y: cardY, scale: cardScale }}
       >
         <StepCard s={STEPS[i]} />
-      </div>
+      </motion.div>
     </motion.div>
   );
 }
@@ -287,10 +295,7 @@ export function HowItWorksScroll() {
           <div className="sticky top-20 flex h-[calc(100vh-5rem)] flex-col justify-center">
             <Container className="flex w-full flex-col">
               <Header />
-              <div
-                className="relative mt-8 h-[54vh] min-h-[380px]"
-                style={{ perspective: 1400 }}
-              >
+              <div className="relative mt-8 h-[54vh] min-h-[380px]">
                 {/* stage 1 — one full-width image */}
                 <motion.div
                   className="absolute inset-0 overflow-hidden rounded-[24px]"
