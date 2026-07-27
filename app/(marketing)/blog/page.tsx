@@ -6,7 +6,7 @@ import { BlogDirectory } from "@/components/blog/BlogDirectory";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Market outlooks, trading systems, psychology and risk management from the Game of Forex desk.",
+    "Market outlooks, trading systems, psychology and risk management from the EZE Funded desk.",
 };
 
 // FTMO-style blog directory. Per client: no dashboard/stats banner at the end.
@@ -27,8 +27,8 @@ export default function BlogPage() {
             From the desk
           </h1>
           <p className="mt-4 max-w-xl text-lg leading-relaxed text-[var(--text-secondary)]">
-            Market outlooks, systems, psychology and risk — written for traders
-            in evaluation.
+            Outlooks, systems, psychology and risk. Written for traders working
+            through an evaluation.
           </p>
         </Container>
       </header>
@@ -37,8 +37,8 @@ export default function BlogPage() {
         <BlogDirectory />
         <p className="mt-8 text-xs text-[var(--text-muted)]">
           {/* NEEDS CLIENT INPUT — placeholder posts; real content ships via CMS. */}
-          Illustrative posts — articles publish once the editorial pipeline is
-          live.
+          These are sample posts. Real articles go up once our editorial
+          pipeline is live.
         </p>
       </Section>
     </>

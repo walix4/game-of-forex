@@ -42,7 +42,7 @@ export function HowItWorks() {
               href="/challenges"
               className="mt-auto inline-flex w-fit items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[var(--bg-base)] transition-transform duration-[var(--dur-fast)] hover:translate-x-0.5"
             >
-              Buy challenge <span aria-hidden>→</span>
+              Buy challenge
             </Link>
           </div>
         </Reveal>

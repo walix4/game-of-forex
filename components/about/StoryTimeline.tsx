@@ -11,22 +11,22 @@ const MILESTONES = [
   {
     step: "01",
     title: "Learning the market",
-    body: "Years on the charts before anything was sold — building a method around risk first, entries second.",
+    body: "Years on the charts before anything was ever sold. The method came first, and it starts with risk, not entries.",
   },
   {
     step: "02",
     title: "Building the community",
-    body: "Traders gathered around shared setups and journals on Discord and WhatsApp, keeping each other accountable.",
+    body: "Traders gathered on Discord and WhatsApp to share setups, post journals and keep each other honest.",
   },
   {
     step: "03",
     title: "Teaching the method",
-    body: "Structured sessions on process and discipline — the education roots Game of Forex grew from.",
+    body: "Structured sessions on process and discipline. The firm grew out of that teaching work.",
   },
   {
     step: "04",
     title: "Launching funded challenges",
-    body: "The pivot to a prop firm: a two-phase evaluation with transparent rules, built around a real-funding model.",
+    body: "The step into prop funding: two phases, public rules, and a model built on real capital.",
     current: true,
   },
 ];
@@ -37,7 +37,7 @@ export function StoryTimeline() {
       <SectionHeading
         eyebrow="The story"
         title="From community to prop firm."
-        intro="The milestones that shaped Game of Forex. Dates and details to be confirmed with the client."
+        intro="How EZE Funded got here. Dates and details are still being confirmed."
       />
 
       {/* NEEDS CLIENT INPUT — confirm milestones, order and dates. */}

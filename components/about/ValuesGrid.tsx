@@ -8,7 +8,8 @@ import { Reveal } from "@/components/shared/Reveal";
 const VALUES: { title: string; body: string; glyph: React.ReactNode }[] = [
   {
     title: "Real funding focus",
-    body: "The long-term model is real funded (A-Book) accounts — positioning pending client substantiation and legal review.",
+    // NEEDS LEGAL SIGN-OFF — A-Book positioning pending substantiation (§0).
+    body: "Our long-term model funds traders on real (A-Book) accounts, not a permanent simulation.",
     glyph: (
       <path d="M12 3v18M5.5 8.5 12 3l6.5 5.5M7 21h10" strokeLinecap="round" strokeLinejoin="round" />
     ),
@@ -22,7 +23,7 @@ const VALUES: { title: string; body: string; glyph: React.ReactNode }[] = [
   },
   {
     title: "Trust first",
-    body: "We say what we are — a challenge provider — and what we're not. Not a broker, not regulated, not financial advice.",
+    body: "We're clear about what we are: a firm that sells challenges. We're not a broker, we're not regulated, and we don't give financial advice.",
     glyph: (
       <path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z" strokeLinejoin="round" />
     ),

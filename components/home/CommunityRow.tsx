@@ -1,15 +1,7 @@
 import { Section, SectionHeading } from "@/components/layout/Section";
 import { Reveal } from "@/components/shared/Reveal";
-import { SocialIcon } from "@/components/shared/SocialIcon";
+import { PlatformTiltCard } from "@/components/home/PlatformTiltCard";
 import { community } from "@/lib/content";
-
-// Brand colours for the platform icons.
-const BRAND: Record<string, string> = {
-  Discord: "#5865F2",
-  WhatsApp: "#25D366",
-  YouTube: "#FF0000",
-  Instagram: "#E4405F",
-};
 
 /**
  * Community (CLAUDE.md §5.6): Discord, WhatsApp, YouTube, Instagram with REAL
@@ -22,7 +14,7 @@ export function CommunityRow() {
       <SectionHeading
         eyebrow="Community"
         title="Trade alongside people."
-        intro="Funded and evaluation traders share setups, journals, and progress in the community — you don't grind alone."
+        intro="Evaluation and funded traders sit in the same rooms, sharing setups and journals. Nobody grinds alone here."
         align="center"
       />
 
@@ -69,33 +61,11 @@ export function CommunityRow() {
       <ul className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {community.map((c, i) => (
           <Reveal as="li" key={c.platform} delay={i * 0.05}>
-            <a
+            <PlatformTiltCard
+              platform={c.platform}
+              handle={c.handle}
               href={c.href}
-              className="flex h-full flex-col items-start gap-3 rounded-[var(--radius-lg)] glass-card p-6 transition-colors duration-[var(--dur-base)] hover:border-[var(--border-accent)]"
-            >
-              <span
-                className="grid size-11 place-items-center rounded-[var(--radius)] bg-white/[0.06]"
-                style={{ color: BRAND[c.platform] }}
-              >
-                <SocialIcon name={c.platform} className="size-6" />
-              </span>
-              <span className="text-sm font-semibold text-[var(--text-primary)]">
-                {c.platform}
-              </span>
-              <span className="text-xs text-[var(--text-muted)]">
-                {c.handle}
-              </span>
-              <span className="mt-auto pt-3 text-sm font-medium text-[var(--accent)]">
-                {c.count === null ? (
-                  "Join →"
-                ) : (
-                  <>
-                    <span className="tabular">{c.count.toLocaleString()}</span>{" "}
-                    members
-                  </>
-                )}
-              </span>
-            </a>
+            />
           </Reveal>
         ))}
       </ul>

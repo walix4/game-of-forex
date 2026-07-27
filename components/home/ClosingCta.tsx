@@ -53,8 +53,8 @@ export function ClosingCta() {
               Prove your edge. <span className="text-gradient">Get funded.</span>
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-[var(--text-secondary)] sm:text-lg">
-              Choose an account size, pass two phases, and trade real funded
-              capital with a profit split from your first payout.
+              Pick a size, pass both phases, and trade our capital. Your split
+              starts with the first payout.
             </p>
 
             <div
@@ -74,20 +74,6 @@ export function ClosingCta() {
             <div className="mt-9 flex justify-center">
               <CtaButton href="/challenges" variant="primary" className="group">
                 Buy challenge
-                <svg
-                  aria-hidden
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  className="h-4 w-4 transition-transform duration-[var(--dur-fast)] ease-[var(--ease-out)] group-hover:translate-x-0.5 motion-reduce:transition-none"
-                >
-                  <path
-                    d="M3 8h10M9 4l4 4-4 4"
-                    stroke="currentColor"
-                    strokeWidth="1.6"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
               </CtaButton>
             </div>
 

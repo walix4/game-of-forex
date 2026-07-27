@@ -93,7 +93,7 @@ export function HeroSection() {
             variants={rise}
             className="mt-6 max-w-xl text-base leading-relaxed text-[var(--text-secondary)] sm:text-lg"
           >
-            Pass a two-phase evaluation, trade real funded capital, and keep up to{" "}
+            Pass two phases and trade a funded account. You keep up to{" "}
             {RULES.profitSplit}% of the profit.
           </motion.p>
 
@@ -115,7 +115,8 @@ export function HeroSection() {
           </motion.div>
 
           <motion.p variants={rise} className="mt-8 text-xs text-[var(--text-muted)]">
-            Trading carries risk. Challenges evaluate skill — not an investment.
+            Trading carries real risk. A challenge tests skill; it isn&apos;t an
+            investment.
           </motion.p>
         </motion.div>
 
@@ -135,7 +136,7 @@ export function HeroSection() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={asset("/waqas-hero.png")}
-              alt="Waqas Ahmed, founder of Game of Forex"
+              alt="Waqas Ahmed, founder of EZE Funded"
               className="h-auto w-[440px] max-w-full xl:w-[500px] [mask-image:linear-gradient(to_bottom,#000_88%,transparent)]"
             />
           </div>

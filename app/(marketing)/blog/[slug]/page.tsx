@@ -78,7 +78,7 @@ export default async function BlogPostPage({
             <span className="tabular">{readingTime(post)} min read</span>
             <span aria-hidden>·</span>
             {/* NEEDS CLIENT INPUT — real author byline */}
-            <span>Game of Forex desk</span>
+            <span>EZE Funded desk</span>
           </p>
         </div>
 
@@ -147,7 +147,7 @@ export default async function BlogPostPage({
 
             <p className="mt-10 border-t border-[var(--border-subtle)] pt-6 text-xs leading-relaxed text-[var(--text-muted)]">
               {/* NEEDS CLIENT INPUT — placeholder editorial content. */}
-              Educational content only — nothing here is financial advice or a
+              Educational content only. Nothing here is financial advice or a
               recommendation to trade.
             </p>
           </div>

@@ -116,7 +116,7 @@ export function ChallengeMatrix() {
       <SectionHeading
         eyebrow="Challenges"
         title="Choose your account size."
-        intro="Same two phases, same rules — pick the size that fits. Every number is shown before you buy."
+        intro="Two phases, one rule set. Every number is on the table before you pay."
         align="center"
       />
 
@@ -343,7 +343,7 @@ export function ChallengeMatrix() {
 
       <p className="mt-5 text-center text-xs text-[var(--text-muted)]">
         {/* NEEDS CLIENT INPUT — fees and rules are illustrative. */}
-        Illustrative pricing — pending client confirmation.
+        Illustrative pricing, to be confirmed before launch.
       </p>
     </Section>
   );

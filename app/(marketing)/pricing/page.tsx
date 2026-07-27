@@ -31,7 +31,7 @@ export default function PricingPage() {
       <PageHeader
         eyebrow="Pricing"
         title="Every size, side by side."
-        intro="One-time fees, no subscriptions. Compare targets and limits across account sizes."
+        intro="Pay once. No subscriptions, no add-ons, no upsells at checkout. This table is the whole deal."
       />
 
       <Section>
@@ -48,7 +48,7 @@ export default function PricingPage() {
         <SectionHeading
           eyebrow="Included"
           title="Included in every challenge."
-          intro="The same terms at every account size — nothing unlocked later, nothing buried in fine print."
+          intro="Same terms at every size. What's in the table is what you get."
         />
         <div className="mt-10">
           <IncludedStrip />
@@ -76,8 +76,8 @@ export default function PricingPage() {
             Pick a size. Start the evaluation.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-[var(--text-secondary)]">
-            Every price, target and limit above is shown again before checkout —
-            no surprises after you pay.
+            The same numbers show up again at checkout, so check them here
+            first.
           </p>
           <div className="mt-8 flex justify-center">
             <CtaButton href="/challenges" variant="primary">

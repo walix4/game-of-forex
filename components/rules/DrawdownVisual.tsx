@@ -139,8 +139,8 @@ export function DrawdownVisual() {
               </dt>
               <dd className="mt-1.5 text-[var(--text-secondary)]">
                 Equity may not drop more than {RULES.maxDailyLoss}% below the
-                day&apos;s starting balance. It resets every trading day — one bad
-                day never has to end the evaluation.
+                day&apos;s starting balance. It resets every trading day, so one
+                rough session doesn&apos;t have to end the run.
               </dd>
             </div>
             <div>
@@ -153,8 +153,8 @@ export function DrawdownVisual() {
               </dt>
               <dd className="mt-1.5 text-[var(--text-secondary)]">
                 The account may never fall more than {RULES.maxTotalLoss}% below
-                its starting balance. This is the hard floor — breaching it ends
-                the evaluation.
+                its starting balance. This one never resets. Break it and the
+                evaluation is over.
               </dd>
             </div>
             <div>
@@ -166,9 +166,9 @@ export function DrawdownVisual() {
                 Your equity
               </dt>
               <dd className="mt-1.5 text-[var(--text-secondary)]">
-                Stay above both lines while working toward the phase target.
-                Absolute dollar amounts for every limit are shown on each
-                challenge before you buy.
+                Stay above both lines while you work toward the target. The
+                dollar amounts for your size are on the challenge page before
+                you buy.
               </dd>
             </div>
           </dl>

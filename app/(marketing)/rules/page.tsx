@@ -12,7 +12,7 @@ import { RULES } from "@/lib/challenges";
 export const metadata: Metadata = {
   title: "Trading rules",
   description:
-    "The rules that apply to every Game of Forex challenge — profit targets, loss limits, trading days and profit split.",
+    "The rules on every EZE Funded challenge: profit targets, loss limits, trading days and the split.",
 };
 
 const EXPLAINED = [
@@ -48,7 +48,7 @@ export default function RulesPage() {
       <PageHeader
         eyebrow="Trading rules"
         title="One rule set. No surprises."
-        intro="The same limits apply across both phases and every account size. Absolute amounts are shown on each challenge."
+        intro="Both phases, every account size, one rule set. Dollar amounts for your size are on each challenge page."
       />
 
       <Section>

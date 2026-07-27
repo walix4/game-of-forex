@@ -10,7 +10,7 @@ import { ValuesGrid } from "@/components/about/ValuesGrid";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Game of Forex is a prop firm built on real funded accounts, founded by Waqas Ahmed.",
+    "EZE Funded is a prop firm built on real funded accounts, founded by Waqas Ahmed.",
 };
 
 export default function AboutPage() {

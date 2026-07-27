@@ -39,7 +39,7 @@ const ITEMS: { title: string; body: string; icon: ReactNode }[] = [
   },
   {
     title: `Up to ${RULES.profitSplit}% profit split`,
-    body: "Keep the majority of the profit you generate on a funded account.",
+    body: "Most of what you make on the funded account is yours.",
     icon: (
       <>
         <path d="M21.21 15.89A10 10 0 118 2.83" />

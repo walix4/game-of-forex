@@ -28,7 +28,7 @@ export async function generateMetadata({
   if (!c) return { title: "Challenge not found" };
   return {
     title: `${usd(c.size)} Challenge`,
-    description: `Buy the ${usd(c.size)} Game of Forex challenge. Two phases, ${RULES.profitSplit}% profit split.`,
+    description: `The ${usd(c.size)} EZE Funded challenge. Two phases, up to ${RULES.profitSplit}% profit split, fee back with your first payout.`,
   };
 }
 
@@ -59,7 +59,7 @@ export default async function ChallengeDetailPage({
       <PageHeader
         eyebrow="Challenge"
         title={`${usd(c.size)} Challenge`}
-        intro="Two-phase evaluation. Clear rules. A real funded account when you pass."
+        intro="Same rules as every other size. Pass both phases and this becomes your funded account."
       />
 
       <Section>
@@ -130,7 +130,7 @@ export default async function ChallengeDetailPage({
                 href="/challenges"
                 className="mt-4 block text-center text-xs text-[var(--text-muted)] hover:text-[var(--text-primary)]"
               >
-                ← All challenges
+                All challenges
               </Link>
             </aside>
           </Reveal>

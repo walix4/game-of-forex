@@ -9,7 +9,7 @@ import { JoinCta } from "@/components/community/JoinCta";
 export const metadata: Metadata = {
   title: "Community",
   description:
-    "Join the Game of Forex community — setups, journals, updates and support across Discord, WhatsApp, YouTube and Instagram.",
+    "The EZE Funded community: setups, journals and support on Discord, WhatsApp, YouTube and Instagram.",
 };
 
 export default function CommunityPage() {

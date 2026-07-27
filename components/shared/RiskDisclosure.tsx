@@ -15,9 +15,9 @@ export function RiskDisclosure({
   if (variant === "inline") {
     return (
       <p className={cn("text-xs leading-relaxed text-[var(--text-muted)]", className)}>
-        Trading foreign exchange carries a high level of risk and may not be
-        suitable for everyone. Game of Forex provides education, not financial
-        advice, and is not a broker or regulated entity.
+        Trading foreign exchange carries a high level of risk and isn&apos;t
+        for everyone. EZE Funded sells trading challenges. It is not a broker,
+        is not regulated, and nothing on this site is financial advice.
       </p>
     );
   }
@@ -34,11 +34,11 @@ export function RiskDisclosure({
       <span className="font-medium text-[var(--text-primary)]">
         Risk warning.
       </span>{" "}
-      Trading foreign exchange carries a high level of risk and can result in the
-      loss of your capital. Past performance does not guarantee future results.
-      Game of Forex offers education and community only — it is not a broker,
-      is not regulated, and does not provide financial advice. Only trade with
-      money you can afford to lose.
+      Trading foreign exchange carries a high level of risk. A challenge tests
+      trading skill: you can fail it and lose the fee you paid, and passing
+      never guarantees future results or payouts. EZE Funded is not a broker,
+      is not regulated, and does not give financial advice. Only spend what you
+      can afford to lose.
     </aside>
   );
 }

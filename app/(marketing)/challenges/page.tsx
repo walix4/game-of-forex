@@ -12,7 +12,7 @@ import { challenges } from "@/lib/challenges";
 export const metadata: Metadata = {
   title: "Challenges",
   description:
-    "Buy a trading challenge — $10K to $200K. Two phases, clear rules, real funded accounts.",
+    "Trading challenges from $10K to $200K. Pay once, pass two phases, trade a funded account.",
 };
 
 export default function ChallengesPage() {
@@ -21,7 +21,7 @@ export default function ChallengesPage() {
       <PageHeader
         eyebrow="Challenges"
         title="Choose your challenge."
-        intro="One-time fee. Two phases. A funded account when you pass. Every price, target and limit is shown before you buy."
+        intro="Pay once, pass two phases, trade our capital. Every number you'll be judged on is on this page before you spend anything."
       />
 
       {/* interactive size explorer — the page's single primary action */}

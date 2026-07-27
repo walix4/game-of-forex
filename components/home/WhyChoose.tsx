@@ -14,8 +14,8 @@ export function WhyChoose() {
     <Section id="advantage">
       <SectionHeading
         eyebrow="The advantage"
-        title="Why traders choose Game of Forex."
-        intro="Real funding, transparent rules, and the tools to trade them — not a highlight reel of numbers."
+        title="Why traders pick EZE Funded."
+        intro="Real capital behind funded accounts, and rules you can read in full before you pay."
         align="center"
       />
 
@@ -25,7 +25,7 @@ export function WhyChoose() {
           <Card>
             <CardHead
               title="Your account, at a glance"
-              sub="Balance, drawdown and target progress — live, in one view."
+              sub="Balance, drawdown and target progress in one live view."
             />
             <AnalyticsChart />
           </Card>
@@ -37,7 +37,7 @@ export function WhyChoose() {
                 superlative (§4/§0); shipped on explicit client request. */}
             <CardHead
               title="The world's first A-Book platform"
-              sub="Funded accounts on real capital — your fills reach the live market."
+              sub="Funded accounts run on real capital. Your fills hit the live market."
             />
             <ABookFlow />
           </Card>

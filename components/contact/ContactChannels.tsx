@@ -31,7 +31,7 @@ const CHANNELS: {
   },
   {
     name: "Discord",
-    detail: "Game of Forex server", // NEEDS CLIENT INPUT — real invite link
+    detail: "EZE Funded server", // NEEDS CLIENT INPUT — real invite link
     href: "#",
     icon: "Discord",
   },
@@ -87,12 +87,6 @@ export function ContactChannels({ className }: { className?: string }) {
               <span className="block truncate text-xs text-[var(--text-muted)]">
                 {c.detail}
               </span>
-            </span>
-            <span
-              aria-hidden
-              className="ml-auto text-[var(--text-muted)] transition-transform duration-[var(--dur-fast)] group-hover:translate-x-0.5 group-hover:text-[var(--accent)]"
-            >
-              →
             </span>
           </a>
         </li>

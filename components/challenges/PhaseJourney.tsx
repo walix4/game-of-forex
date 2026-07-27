@@ -11,19 +11,19 @@ const STEPS = [
     step: "Phase 1",
     figure: pct(RULES.phase1Target),
     figureLabel: "profit target",
-    body: "Reach the target while staying inside the daily and total loss limits.",
+    body: "Hit the target without touching either loss limit. Take as long as you need.",
   },
   {
     step: "Phase 2",
     figure: pct(RULES.phase2Target),
     figureLabel: "profit target",
-    body: "A lower target, same limits — consistency over lucky streaks.",
+    body: "Half the target, same limits. This is where one-trade wonders get found out.",
   },
   {
     step: "Funded",
     figure: `Up to ${pct(RULES.profitSplit)}`,
     figureLabel: "profit split",
-    body: "Trade a funded account with payouts on the profit you make.",
+    body: "You trade, we fund it. Your split gets paid on real results.",
     highlight: true,
   },
 ];

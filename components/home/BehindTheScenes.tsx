@@ -29,7 +29,7 @@ export function BehindTheScenes() {
       <SectionHeading
         eyebrow="Behind the scenes"
         title="The work behind the funding."
-        intro="A look at the trader, the community, and the day-to-day discipline — not a highlight reel of things bought."
+        intro="The desk, the sessions, and the people who show up every day."
       />
 
       <div className="mt-12 -mx-6 overflow-x-auto px-6 [scrollbar-width:none]">

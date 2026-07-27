@@ -61,7 +61,11 @@ export function PlatformCards() {
               </span>
               <span className="mt-auto pt-3 text-sm font-medium text-[var(--accent)] transition-colors duration-[var(--dur-fast)] group-hover:text-[var(--accent-hover)]">
                 {c.count === null ? (
-                  "Join →"
+                  (
+                  <span className="inline-flex items-center rounded-full border border-[var(--accent)]/30 px-4 py-1.5 font-medium text-[var(--accent)] transition-colors duration-[var(--dur-fast)] group-hover:border-[var(--accent)] group-hover:bg-[var(--accent)]/10">
+                    Join
+                  </span>
+                )
                 ) : (
                   <>
                     <span className="tabular">{c.count.toLocaleString()}</span>{" "}

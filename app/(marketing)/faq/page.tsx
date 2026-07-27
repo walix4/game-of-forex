@@ -29,7 +29,7 @@ export default function FaqPage() {
             Frequently asked questions
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-[var(--text-secondary)]">
-            The essentials on how challenges, phases and funded accounts work.
+            Straight answers on challenges, funded accounts, payouts and the firm.
           </p>
         </Container>
       </header>
@@ -43,8 +43,7 @@ export default function FaqPage() {
             Still have questions?
           </h2>
           <p className="mx-auto mt-3 max-w-md text-[var(--text-secondary)]">
-            Send a note and we&apos;ll point you the right way — no sales
-            pressure.
+            Ask us directly. No sales pitch, just an answer.
           </p>
           <div className="mt-7 flex justify-center">
             <CtaButton href="/contact" variant="primary">

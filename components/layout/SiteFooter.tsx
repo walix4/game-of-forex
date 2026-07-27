@@ -41,8 +41,9 @@ export function SiteFooter() {
           <div>
             <Logo />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-[var(--text-on-frame)]">
-              A prop trading firm built on real funded accounts. Founded by Waqas
-              Ahmed. Trade a challenge, prove your edge, get funded.
+              We fund traders who can prove their edge. Pass a two-phase
+              challenge, trade our capital, and keep most of what you make.
+              Founded by Waqas Ahmed.
             </p>
           </div>
 
@@ -84,7 +85,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-8 flex flex-col gap-2 border-t border-[var(--border-frame)] pt-6 text-xs text-[var(--text-muted)] sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 Game of Forex. All rights reserved.</p>
+          <p>© 2026 EZE Funded. All rights reserved.</p>
           <p>Not a broker. Not regulated. Not financial advice.</p>
         </div>
       </div>

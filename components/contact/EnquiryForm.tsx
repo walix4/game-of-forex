@@ -67,7 +67,7 @@ export function EnquiryForm({
           onClick={() => reset({ topic: defaultTopic })}
           className="mt-6 text-sm font-medium text-[var(--accent)] hover:text-[var(--accent-hover)]"
         >
-          Send another →
+          Send another
         </button>
       </div>
     );
@@ -145,8 +145,8 @@ export function EnquiryForm({
             {...register("consent")}
           />
           <span>
-            I understand Game of Forex offers education only — it is not a broker,
-            is not regulated, and trading carries real risk.
+            I understand EZE Funded sells trading challenges. It isn't a broker
+            or a regulated firm, and trading carries real risk.
           </span>
         </label>
         {errors.consent && <p className={errCls}>{errors.consent.message}</p>}

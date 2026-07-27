@@ -37,7 +37,7 @@ export function SocialProof({ className }: { className?: string }) {
               className="size-11 rounded-full border-2 border-[var(--bg-base)] object-cover"
             />
           ))}
-          <span className="grid size-11 place-items-center rounded-full border-2 border-[var(--bg-base)] bg-[var(--bg-frame-alt)] text-lg font-bold text-[var(--accent)] ring-1 ring-white/10">
+          <span className="grid size-11 shrink-0 place-items-center rounded-full border-2 border-[var(--bg-base)] bg-white text-lg font-bold leading-none text-[var(--bg-base)]">
             +
           </span>
         </div>

@@ -9,7 +9,7 @@ import { ContactChannels } from "@/components/contact/ContactChannels";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Enquire about challenges, funded accounts, or the community. Education only — not financial advice.",
+    "Questions about challenges, funded accounts or the rules? Ask us before you buy.",
 };
 
 // Topic preselection moved client-side (EnquiryFormWithTopic) so the page

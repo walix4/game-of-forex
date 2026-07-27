@@ -23,29 +23,31 @@ export function FounderHero() {
             </p>
             <h1 className="font-display text-4xl font-semibold tracking-[-0.02em] text-[var(--text-primary)] sm:text-5xl">
               The trader behind{" "}
-              <span className="text-gradient">Game of Forex.</span>
+              <span className="text-gradient">EZE Funded.</span>
             </h1>
             <p className="mt-5 text-lg leading-relaxed text-[var(--text-secondary)]">
-              Waqas Ahmed is a Pakistan-based forex trader who built the Game of
-              Forex community — and turned it into a prop firm designed around
-              real funded accounts and transparent rules.
+              Waqas Ahmed spent years trading forex from Pakistan and running a
+              community of traders. EZE Funded is what that work turned into: a
+              prop firm built around real funded accounts, with rules you can
+              read before you pay.
             </p>
 
             <div className="mt-7 space-y-5 text-[var(--text-secondary)]">
               {/* NEEDS CLIENT INPUT — verified founder bio. No net-worth / income
                   claims (§4). Placeholder copy below. */}
               <p>
-                This page will carry a verified account of Waqas Ahmed and why
-                he built Game of Forex — the gap he saw between prop firms that
-                &ldquo;fund&rdquo; on demo infrastructure and a model built on
-                real capital. The text here is placeholder and will be replaced
-                with facts the client can stand behind.
+                A full bio is coming once Waqas signs off on the details. The
+                short version: he watched prop firms &ldquo;fund&rdquo; traders
+                on demo servers and decided to build one where funded means
+                funded. Everything on this page will be replaced with facts he
+                can stand behind.
               </p>
               <p>
-                What won&apos;t change is the standard: transparent rules, a
-                real funding model, and a community that trades together. Game
-                of Forex is a challenge provider — not a broker, not regulated,
-                and not a source of financial advice.
+                Some things won&apos;t change either way. The rules are public.
+                The funding model is real. And the community still trades
+                together, the way it did before the firm existed. EZE Funded
+                sells challenges; it isn&apos;t a broker, isn&apos;t regulated,
+                and doesn&apos;t give financial advice.
               </p>
             </div>
 
@@ -72,7 +74,7 @@ export function FounderHero() {
                 <div className="relative aspect-square overflow-hidden rounded-[var(--radius-lg)]">
                   <Image
                     src="/waqas-hero.png"
-                    alt="Waqas Ahmed, founder of Game of Forex"
+                    alt="Waqas Ahmed, founder of EZE Funded"
                     fill
                     sizes="(max-width: 1024px) 100vw, 448px"
                     className="object-cover"

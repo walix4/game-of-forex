@@ -87,15 +87,9 @@ export function PricingTable() {
                 <td className="px-5 py-4.5 text-right">
                   <Link
                     href={`/challenges/${c.slug}`}
-                    className="group inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent)] transition-colors duration-[var(--dur-fast)] hover:text-[var(--accent-hover)]"
+                    className="inline-flex items-center rounded-full border border-[var(--accent)]/30 px-3.5 py-1 text-sm font-medium text-[var(--accent)] transition-colors duration-[var(--dur-fast)] hover:border-[var(--accent)] hover:bg-[var(--accent)]/10"
                   >
                     View
-                    <span
-                      aria-hidden
-                      className="transition-transform duration-[var(--dur-fast)] group-hover:translate-x-0.5"
-                    >
-                      →
-                    </span>
                   </Link>
                 </td>
               </tr>

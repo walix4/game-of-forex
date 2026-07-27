@@ -12,8 +12,8 @@ export type Community = {
 };
 
 export const community: Community[] = [
-  { platform: "Discord", handle: "Game of Forex", href: "#", count: null },
+  { platform: "Discord", handle: "EZE Funded", href: "#", count: null },
   { platform: "WhatsApp", handle: "Community", href: "#", count: null },
-  { platform: "YouTube", handle: "@gameofforex", href: "#", count: null },
-  { platform: "Instagram", handle: "@gameofforex", href: "#", count: null },
+  { platform: "YouTube", handle: "@ezefunded", href: "#", count: null },
+  { platform: "Instagram", handle: "@ezefunded", href: "#", count: null },
 ];

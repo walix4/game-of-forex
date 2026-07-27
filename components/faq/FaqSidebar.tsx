@@ -20,9 +20,6 @@ export function FaqSidebar({ current }: { current: Faq }) {
         href="/faq"
         className="group mx-2 mt-1 mb-2 flex items-center gap-2 rounded-[var(--radius)] px-2 py-2 text-sm text-[var(--text-muted)] transition-colors hover:text-[var(--text-primary)]"
       >
-        <span aria-hidden className="transition-transform duration-[var(--dur-fast)] group-hover:-translate-x-0.5">
-          ←
-        </span>
         All questions
       </Link>
 

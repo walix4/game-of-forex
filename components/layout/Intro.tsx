@@ -5,7 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 
 /**
  * Brand intro/preloader — on load, "EZE Funded" fills white left→right
- * (with "by Waqas Ahmed" smaller), then lifts away to reveal the hero.
+ * (with a short tagline smaller), then lifts away to reveal the hero.
  * Plays once per full page load. Respects reduced motion.
  */
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -56,7 +56,7 @@ export function Intro() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, ease: EASE, delay: reduce ? 0 : 1.05 }}
             >
-              by Game of Forex
+              Trade our capital.
             </motion.p>
           </div>
         </motion.div>

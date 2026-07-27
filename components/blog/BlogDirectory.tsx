@@ -135,7 +135,7 @@ export function BlogDirectory() {
             className="glass-card rounded-[var(--radius-xl)] p-6 sm:p-7"
           >
             <h2 className="font-display text-lg font-semibold text-[var(--text-primary)]">
-              Popular on Game of Forex
+              Popular on EZE Funded
             </h2>
             <ul className="mt-4 grid gap-4 sm:grid-cols-2">
               {popular.map((p) => (

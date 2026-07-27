@@ -65,7 +65,7 @@ export function ChallengeCard({
           href={`/challenges/${slug}`}
           className="text-center text-xs text-[var(--text-muted)] hover:text-[var(--text-primary)]"
         >
-          Full rules →
+          Full rules
         </Link>
       </div>
     </div>

@@ -4,7 +4,7 @@ import { LoginForm } from "@/components/auth/LoginForm";
 
 export const metadata: Metadata = {
   title: "Log in",
-  description: "Log in to your Game of Forex dashboard.",
+  description: "Log in to your EZE Funded dashboard.",
 };
 
 export default function LoginPage() {

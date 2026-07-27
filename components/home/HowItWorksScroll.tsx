@@ -240,8 +240,8 @@ function ImageCopy() {
         Clear from day one
       </p>
       <p className="mt-5 max-w-[34ch] text-sm leading-relaxed text-white/70 sm:text-base">
-        Pass the evaluation, get funded, and keep up to 80% of the profit you
-        generate.
+        Pass the evaluation and trade our capital. Up to 80% of the profit is
+        yours.
       </p>
     </div>
   );
@@ -312,7 +312,6 @@ function Header() {
         </p>
         <CtaButton href="#challenges" variant="secondary" className="mt-5">
           Discover
-          <span aria-hidden>→</span>
         </CtaButton>
       </div>
     </div>

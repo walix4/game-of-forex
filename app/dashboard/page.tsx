@@ -18,7 +18,7 @@ const ACC = {
   dailyLossUsed: 1.8, // %
   totalLossUsed: 0, // %
   login: "51042287",
-  server: "GameOfForex-Live",
+  server: "EZEFunded-Live",
 };
 
 function Bar({
@@ -182,7 +182,7 @@ export default function DashboardPage() {
             <Rule label="Trading period" value={RULES.tradingPeriod} />
           </dl>
           <Link href="/rules" className="mt-5 inline-block text-sm text-[var(--accent)] hover:text-[var(--accent-hover)]">
-            Full rules →
+            Full rules
           </Link>
         </section>
       </div>
