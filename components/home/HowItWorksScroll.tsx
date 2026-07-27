@@ -229,14 +229,18 @@ function Panel({
   i: number;
   progress: MotionValue<number>;
 }) {
-  const t0 = 0.44 + i * 0.09;
-  const sliceOpacity = useTransform(progress, [t0, t0 + 0.16], [1, 0]);
-  const sliceY = useTransform(progress, [t0, t0 + 0.16], [0, -28]);
-  const cardOpacity = useTransform(progress, [t0 + 0.03, t0 + 0.19], [0, 1]);
-  const cardY = useTransform(progress, [t0 + 0.03, t0 + 0.19], [42, 0]);
-  const cardScale = useTransform(progress, [t0 + 0.03, t0 + 0.19], [0.93, 1]);
-  const rotateZ = useTransform(progress, [0.8, 0.97], [0, [-9, 0, 8][i]]);
-  const tiltY = useTransform(progress, [0.8, 0.97], [0, [10, -6, 14][i]]);
+  // Sequential, not co-visible: the slice leaves fully BEFORE its card enters,
+  // so the two layers never blend into a muddy mix mid-scroll.
+  const t0 = 0.46 + i * 0.11;
+  const sliceOpacity = useTransform(progress, [t0, t0 + 0.08], [1, 0]);
+  const sliceY = useTransform(progress, [t0, t0 + 0.08], [0, -32]);
+  const cardOpacity = useTransform(progress, [t0 + 0.08, t0 + 0.17], [0, 1]);
+  const cardY = useTransform(progress, [t0 + 0.08, t0 + 0.17], [48, 0]);
+  const cardScale = useTransform(progress, [t0 + 0.08, t0 + 0.17], [0.92, 1]);
+  // headline copy on slice 0 clears out before any card starts arriving
+  const copyOpacity = useTransform(progress, [0.36, 0.44], [1, 0]);
+  const rotateZ = useTransform(progress, [0.86, 0.98], [0, [-9, 0, 8][i]]);
+  const tiltY = useTransform(progress, [0.86, 0.98], [0, [10, -6, 14][i]]);
 
   return (
     <motion.div
@@ -255,13 +259,13 @@ function Panel({
         }}
       >
         {i === 0 && (
-          <>
+          <motion.div className="absolute inset-0" style={{ opacity: copyOpacity }}>
             <div
               aria-hidden
               className="absolute inset-0 bg-gradient-to-r from-[var(--bg-base)]/85 via-[var(--bg-base)]/40 to-transparent"
             />
             <ImageCopy />
-          </>
+          </motion.div>
         )}
       </motion.div>
       {/* step card */}
