@@ -24,77 +24,135 @@ import { asset } from "@/lib/asset";
  * (schedule NEEDS CLIENT INPUT, §8).
  */
 
+// Reference-style card palette (client request) — deliberate exception to the
+// token scale, scoped to these cards only, mirroring the supplied reference.
 const STEPS = [
   {
     step: "Step 1",
     title: "Trade",
     body: "Start the challenge. Follow the rules. Hit the target.",
-    // brushed silver
-    bg: "linear-gradient(160deg, #EDEFF4 0%, #C2C7D2 45%, #8F96A6 100%)",
-    fg: "#14161C",
-    sub: "rgb(20 22 28 / 0.72)",
+    bg: "linear-gradient(165deg, #A78BFA 0%, #7C5CE8 45%, #4C2FB8 100%)",
+    glow: "#C4B0FF",
+    deep: "#2E1A78",
     icon: "candles",
   },
   {
     step: "Step 2",
     title: "Pass",
     body: "Clear both phases. Get your funded account.",
-    // accent blue
-    bg: "linear-gradient(160deg, var(--color-blue-300) 0%, var(--color-blue-500) 55%, var(--color-blue-800) 100%)",
-    fg: "#FFFFFF",
-    sub: "rgb(255 255 255 / 0.8)",
+    bg: "linear-gradient(165deg, #FFB35C 0%, #F97F1B 50%, #D95A05 100%)",
+    glow: "#FFD9A8",
+    deep: "#8F3B02",
     icon: "arrow",
   },
   {
     step: "Step 3",
-    title: "Get paid",
+    title: "Reward",
     body: "Request your split of the profit you generate.",
-    // gold (matches the selected-card treatment)
-    bg: "linear-gradient(160deg, var(--gold-300) 0%, var(--gold-500) 55%, var(--gold-600) 100%)",
-    fg: "#221703",
-    sub: "rgb(34 23 3 / 0.72)",
+    bg: "linear-gradient(165deg, #4ADE80 0%, #1FA84F 50%, #0B6B2E 100%)",
+    glow: "#A8F5C4",
+    deep: "#064D20",
     icon: "medal",
   },
 ] as const;
 
-function StepIcon({ name, color }: { name: string; color: string }) {
-  const stroke = {
-    stroke: color,
-    strokeWidth: 2.2,
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    fill: "none",
-  } as const;
+/** Metallic 3D-style glyphs: per-icon gradient fills, a light-catch edge and a
+    deep drop shadow — approximates the reference's rendered-3D look in SVG. */
+function StepIcon({
+  name,
+  glow,
+  deep,
+}: {
+  name: string;
+  glow: string;
+  deep: string;
+}) {
+  const gid = `grad-${name}`;
   return (
     <svg
       viewBox="0 0 48 48"
-      className="size-24 opacity-90 drop-shadow-[0_10px_18px_rgb(0_0_0/0.35)] sm:size-28"
+      className="size-36 drop-shadow-[0_18px_28px_rgb(0_0_0/0.45)] sm:size-44"
       aria-hidden
     >
+      <defs>
+        <linearGradient id={gid} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#FFFFFF" />
+          <stop offset="0.35" stopColor={glow} />
+          <stop offset="1" stopColor={deep} />
+        </linearGradient>
+        <linearGradient id={`${gid}-b`} x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor={glow} />
+          <stop offset="1" stopColor={deep} />
+        </linearGradient>
+      </defs>
       {name === "candles" && (
-        <>
-          <path d="M12 8v32M24 4v40M36 12v28" {...stroke} strokeWidth={2} opacity={0.55} />
-          <rect x="7" y="18" width="10" height="14" rx="2.5" fill={color} />
-          <rect x="19" y="12" width="10" height="20" rx="2.5" fill={color} opacity={0.85} />
-          <rect x="31" y="20" width="10" height="16" rx="2.5" fill={color} opacity={0.7} />
-        </>
+        <g>
+          <path
+            d="M12 6v36M24 2v44M36 10v32"
+            stroke={`url(#${gid}-b)`}
+            strokeWidth="2.4"
+            strokeLinecap="round"
+          />
+          <rect x="6.5" y="16" width="11" height="16" rx="3" fill={`url(#${gid})`} />
+          <rect x="18.5" y="24" width="11" height="12" rx="3" fill={`url(#${gid})`} />
+          <rect x="30.5" y="12" width="11" height="22" rx="3" fill={`url(#${gid})`} />
+          {/* light-catch edges */}
+          <path
+            d="M8 17.5h8M20 25.5h8M32 13.5h8"
+            stroke="#FFFFFF"
+            strokeOpacity="0.65"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+          />
+        </g>
       )}
       {name === "arrow" && (
-        <path
-          d="M8 38l9-10 7 6 9-12M33 20h8v8"
-          {...stroke}
-          strokeWidth={4.5}
-        />
+        <g>
+          <path
+            d="M6 40l10-11 7 6 12-15"
+            stroke={`url(#${gid})`}
+            strokeWidth="7"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            fill="none"
+          />
+          <path d="M28 17h14v14z" fill={`url(#${gid})`} />
+          <path
+            d="M8 38.5l8-9"
+            stroke="#FFFFFF"
+            strokeOpacity="0.55"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </g>
       )}
       {name === "medal" && (
-        <>
-          <circle cx="24" cy="20" r="12" {...stroke} strokeWidth={3.5} />
-          <path
-            d="M24 14.5l1.8 3.7 4.1.6-3 2.9.7 4-3.6-1.9-3.6 1.9.7-4-3-2.9 4.1-.6 1.8-3.7z"
-            fill={color}
+        <g>
+          <path d="M17 28l-4 16 11-6 11 6-4-16" fill={`url(#${gid}-b)`} />
+          <circle cx="24" cy="18" r="14" fill={`url(#${gid})`} />
+          <circle
+            cx="24"
+            cy="18"
+            r="10.5"
+            fill="none"
+            stroke={deep}
+            strokeOpacity="0.5"
+            strokeWidth="1.6"
           />
-          <path d="M18 30l-3 12 9-5 9 5-3-12" {...stroke} strokeWidth={3.5} />
-        </>
+          <path
+            d="M24 10.5l2.3 4.7 5.2.8-3.8 3.7.9 5.2-4.6-2.4-4.6 2.4.9-5.2-3.8-3.7 5.2-.8 2.3-4.7z"
+            fill={deep}
+            fillOpacity="0.85"
+          />
+          <path
+            d="M14.5 12.5a12 12 0 016-5.8"
+            stroke="#FFFFFF"
+            strokeOpacity="0.7"
+            strokeWidth="2"
+            strokeLinecap="round"
+            fill="none"
+          />
+        </g>
       )}
     </svg>
   );
@@ -113,29 +171,30 @@ function StepCard({
 }) {
   return (
     <div
-      className={`flex h-full w-full flex-col rounded-[24px] p-7 shadow-[0_30px_80px_-30px_rgb(0_0_0/0.8)] sm:p-8 ${className ?? ""}`}
+      className={`relative flex h-full w-full flex-col overflow-hidden rounded-[24px] p-7 shadow-[0_30px_80px_-30px_rgb(0_0_0/0.8)] sm:p-8 ${className ?? ""}`}
       style={{ background: s.bg, ...style }}
     >
-      <p
-        className="text-xs font-bold uppercase tracking-[0.14em]"
-        style={{ color: s.sub }}
-      >
+      {/* soft top-left sheen, reference-style */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(90% 60% at 12% 0%, rgb(255 255 255 / 0.28), transparent 55%)",
+        }}
+      />
+      <p className="relative text-xs font-bold uppercase tracking-[0.14em] text-white/85">
         {s.step}
       </p>
-      <p
-        className="mt-3 font-display text-4xl font-bold tracking-[-0.02em] sm:text-5xl"
-        style={{ color: s.fg }}
-      >
+      <p className="relative mt-3 font-display text-5xl font-bold tracking-[-0.02em] text-white sm:text-6xl">
         {s.title}
       </p>
-      <p
-        className="mt-4 max-w-[26ch] text-sm leading-relaxed sm:text-base"
-        style={{ color: s.sub }}
-      >
+      <p className="relative mt-4 max-w-[24ch] text-sm leading-relaxed text-white/85 sm:text-base">
         {s.body}
       </p>
-      <div className="mt-auto self-end">
-        <StepIcon name={s.icon} color={s.fg} />
+      {/* large glyph bleeding off the corner, like the reference renders */}
+      <div className="absolute -bottom-5 -right-3 rotate-[8deg]">
+        <StepIcon name={s.icon} glow={s.glow} deep={s.deep} />
       </div>
     </div>
   );
