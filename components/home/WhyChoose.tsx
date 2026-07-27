@@ -24,8 +24,8 @@ export function WhyChoose() {
         <Reveal as="div">
           <Card>
             <CardHead
-              title="Account analytics"
-              sub="Balance, drawdown and target progress in real time."
+              title="Your account, at a glance"
+              sub="Balance, drawdown and target progress — live, in one view."
             />
             <AnalyticsChart />
           </Card>
