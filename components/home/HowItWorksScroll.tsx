@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useId, useRef } from "react";
 import {
   motion,
   useScroll,
@@ -67,11 +67,13 @@ function StepIcon({
   glow: string;
   deep: string;
 }) {
-  const gid = `grad-${name}`;
+  // useId: the icon renders twice (static + animated blocks) — duplicate SVG
+  // gradient ids resolve against the hidden copy and kill the fills.
+  const gid = useId();
   return (
     <svg
       viewBox="0 0 48 48"
-      className="size-36 drop-shadow-[0_18px_28px_rgb(0_0_0/0.45)] sm:size-44"
+      className="size-40 drop-shadow-[0_18px_28px_rgb(0_0_0/0.45)] sm:size-52"
       aria-hidden
     >
       <defs>
