@@ -229,50 +229,42 @@ function Panel({
   i: number;
   progress: MotionValue<number>;
 }) {
-  // Sequential, not co-visible: the slice leaves fully BEFORE its card enters,
-  // so the two layers never blend into a muddy mix mid-scroll.
-  const t0 = 0.46 + i * 0.11;
-  const sliceOpacity = useTransform(progress, [t0, t0 + 0.08], [1, 0]);
-  const sliceY = useTransform(progress, [t0, t0 + 0.08], [0, -32]);
-  const cardOpacity = useTransform(progress, [t0 + 0.08, t0 + 0.17], [0, 1]);
-  const cardY = useTransform(progress, [t0 + 0.08, t0 + 0.17], [48, 0]);
-  const cardScale = useTransform(progress, [t0 + 0.08, t0 + 0.17], [0.92, 1]);
-  // headline copy on slice 0 clears out before any card starts arriving
-  const copyOpacity = useTransform(progress, [0.36, 0.44], [1, 0]);
+  // TRANSFORM-ONLY: the solid card slides up INSIDE the clipped panel and
+  // covers the slice. Zero opacity animation → nothing can ever ghost or
+  // show through, whatever the scroll state.
+  const t0 = 0.42 + i * 0.13;
+  const cardY = useTransform(progress, [t0, t0 + 0.18], ["112%", "0%"]);
+  // seamless single image at rest: radius 0 + gap 0, rounds as it splits
+  const radius = useTransform(progress, [0.05, 0.3], [0, 24]);
   const rotateZ = useTransform(progress, [0.86, 0.98], [0, [-9, 0, 8][i]]);
   const tiltY = useTransform(progress, [0.86, 0.98], [0, [10, -6, 14][i]]);
 
   return (
     <motion.div
-      className="relative h-full flex-1"
-      style={{ rotateZ, y: tiltY }}
+      className="relative h-full flex-1 overflow-hidden"
+      style={{ rotateZ, y: tiltY, borderRadius: radius }}
     >
-      {/* image slice */}
-      <motion.div
-        className="absolute inset-0 overflow-hidden rounded-[24px]"
+      {/* image slice — static, gets covered by the rising card */}
+      <div
+        className="absolute inset-0"
         style={{
-          opacity: sliceOpacity,
-          y: sliceY,
           backgroundImage: `url(${asset("/how-hero.jpg")})`,
           backgroundSize: "300% 100%",
           backgroundPosition: `${i * 50}% center`,
         }}
       >
         {i === 0 && (
-          <motion.div className="absolute inset-0" style={{ opacity: copyOpacity }}>
+          <>
             <div
               aria-hidden
               className="absolute inset-0 bg-gradient-to-r from-[var(--bg-base)]/85 via-[var(--bg-base)]/40 to-transparent"
             />
             <ImageCopy />
-          </motion.div>
+          </>
         )}
-      </motion.div>
-      {/* step card */}
-      <motion.div
-        className="absolute inset-0"
-        style={{ opacity: cardOpacity, y: cardY, scale: cardScale }}
-      >
+      </div>
+      {/* step card — solid, slides up over the slice */}
+      <motion.div className="absolute inset-0" style={{ y: cardY }}>
         <StepCard s={STEPS[i]} />
       </motion.div>
     </motion.div>
@@ -307,11 +299,8 @@ export function HowItWorksScroll() {
     offset: ["start start", "end end"],
   });
 
-  // stage 1 → 2: the single image crossfades into the three slices
-  const heroOpacity = useTransform(scrollYProgress, [0.24, 0.34], [1, 0]);
-  const heroScale = useTransform(scrollYProgress, [0, 0.3], [1, 0.985]);
-  const panelsOpacity = useTransform(scrollYProgress, [0.24, 0.34], [0, 1]);
-  const gap = useTransform(scrollYProgress, [0.26, 0.5], [8, 28]);
+  // stage 1 → 2: the seamless slices (gap 0, radius 0) split apart on scroll
+  const gap = useTransform(scrollYProgress, [0.08, 0.38], [0, 28]);
 
   // Static version — mobile always; all breakpoints under reduced motion.
   const staticBlock = (
@@ -359,29 +348,8 @@ export function HowItWorksScroll() {
             <Container className="flex w-full flex-col">
               <Header />
               <div className="relative mt-8 h-[54vh] min-h-[380px]">
-                {/* stage 1 — one full-width image */}
-                <motion.div
-                  className="absolute inset-0 overflow-hidden rounded-[24px]"
-                  style={{
-                    opacity: heroOpacity,
-                    scale: heroScale,
-                    backgroundImage: `url(${asset("/how-hero.jpg")})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                >
-                  <div
-                    aria-hidden
-                    className="absolute inset-0 bg-gradient-to-r from-[var(--bg-base)]/85 via-[var(--bg-base)]/35 to-transparent"
-                  />
-                  <ImageCopy />
-                </motion.div>
-
-                {/* stage 2+3 — three slices that flip into step cards */}
-                <motion.div
-                  className="absolute inset-0 flex"
-                  style={{ opacity: panelsOpacity, gap }}
-                >
+                {/* seamless at rest; splits, then cards slide up per panel */}
+                <motion.div className="absolute inset-0 flex" style={{ gap }}>
                   {STEPS.map((_, i) => (
                     <Panel key={i} i={i} progress={scrollYProgress} />
                   ))}
