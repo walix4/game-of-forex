@@ -28,6 +28,14 @@ jobs:
         env:
           DEPLOY_TARGET: pages
       - run: touch out/.nojekyll
+      # RSC payloads: the client router may request /path.txt (no trailing
+      # slash) — mirror each dir/index.txt to dir.txt so client-side
+      # navigation never 404s into a full-page reload.
+      - run: |
+          cd out
+          find . -mindepth 2 -name index.txt | while read -r f; do
+            cp "$f" "$(dirname "$f").txt"
+          done
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
