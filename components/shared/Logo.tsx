@@ -10,7 +10,7 @@ export function Logo({ className }: { className?: string }) {
   return (
     <Link
       href="/"
-      aria-label="Game of Forex — home"
+      aria-label="EZE Funded — home"
       className={cn(
         "group inline-flex items-center gap-2.5 font-display text-[1.05rem] font-semibold tracking-tight text-[var(--text-primary)]",
         className,
@@ -35,14 +35,14 @@ export function Logo({ className }: { className?: string }) {
           dominantBaseline="central"
           fontFamily="Arial, Helvetica, sans-serif"
           fontWeight="900"
-          fontSize="66"
+          fontSize="62"
           fill="#fff"
         >
-          G
+          E
         </text>
       </svg>
       <span className="leading-none">
-        Game of <span className="text-[var(--accent)]">Forex</span>
+        EZE <span className="text-[var(--accent)]">Funded</span>
       </span>
     </Link>
   );

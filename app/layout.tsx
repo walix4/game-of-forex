@@ -4,8 +4,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Game of Forex — Forex education, method and community",
-    template: "%s — Game of Forex",
+    default: "EZE Funded — Real funded trading challenges",
+    template: "%s — EZE Funded",
   },
   description:
     "Structured forex education and a trading community led by Waqas Ahmed. Learn the method, not the hype.",

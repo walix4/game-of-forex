@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 
 /**
- * Brand intro/preloader — on load, "Game of Forex" fills white left→right
+ * Brand intro/preloader — on load, "EZE Funded" fills white left→right
  * (with "by Waqas Ahmed" smaller), then lifts away to reveal the hero.
  * Plays once per full page load. Respects reduced motion.
  */
@@ -38,7 +38,7 @@ export function Intro() {
           <div className="px-6 text-center">
             {/* main text — blue-gradient fill left→right */}
             <span className="relative inline-block font-display font-semibold tracking-tight text-[clamp(3rem,10vw,8rem)] leading-none">
-              <span className="text-white/12">EZ Funded</span>
+              <span className="text-white/12">EZE Funded</span>
               <motion.span
                 aria-hidden
                 className="text-gradient absolute inset-y-0 left-0 overflow-hidden whitespace-nowrap"
@@ -46,7 +46,7 @@ export function Intro() {
                 animate={{ width: "100%" }}
                 transition={{ duration: reduce ? 0 : 1.5, ease: EASE }}
               >
-                EZ Funded
+                EZE Funded
               </motion.span>
             </span>
             {/* subheading */}
