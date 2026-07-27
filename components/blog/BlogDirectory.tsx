@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { posts, BLOG_CATEGORIES, type BlogCategory } from "@/lib/blog";
 import { Reveal } from "@/components/shared/Reveal";
 import { cn } from "@/lib/utils";
@@ -30,7 +31,7 @@ function PostCard({
   eager?: boolean;
 }) {
   return (
-    <a href="#" className="group block" aria-label={post.title}>
+    <Link href={`/blog/${post.slug}`} className="group block">
       <div
         className={cn(
           "relative overflow-hidden rounded-[var(--radius-lg)] glass-card",
@@ -63,7 +64,7 @@ function PostCard({
       >
         {post.title}
       </h3>
-    </a>
+    </Link>
   );
 }
 
@@ -139,7 +140,10 @@ export function BlogDirectory() {
             <ul className="mt-4 grid gap-4 sm:grid-cols-2">
               {popular.map((p) => (
                 <li key={p.slug}>
-                  <a href="#" className="group flex items-center gap-3.5">
+                  <Link
+                    href={`/blog/${p.slug}`}
+                    className="group flex items-center gap-3.5"
+                  >
                     <span className="relative aspect-[16/10] w-24 shrink-0 overflow-hidden rounded-[var(--radius)]">
                       <Image
                         src={p.image}
@@ -152,7 +156,7 @@ export function BlogDirectory() {
                     <span className="text-sm font-medium leading-snug text-[var(--text-secondary)] transition-colors group-hover:text-[var(--text-primary)]">
                       {p.title}
                     </span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -169,12 +173,12 @@ export function BlogDirectory() {
           <ul className="divide-y divide-[var(--border-subtle)]">
             {featured.map((p) => (
               <li key={p.slug} className="py-4 first:pt-0">
-                <a href="#" className="group block">
+                <Link href={`/blog/${p.slug}`} className="group block">
                   <CategoryChip cat={p.cat} />
                   <span className="mt-1 block text-sm font-medium leading-snug text-[var(--text-secondary)] transition-colors group-hover:text-[var(--text-primary)]">
                     {p.title}
                   </span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
