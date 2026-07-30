@@ -128,7 +128,17 @@ nav{position:sticky;top:0;z-index:50;background:rgba(10,10,11,.86);backdrop-filt
 .fb-dark{background:#8fd63a;color:#103314}
 .fb-dark:hover{background:#7cc22f}
 .fb-chip{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.92);border:1px solid rgba(140,220,70,.25);color:#103314;font-weight:700;border-radius:99px;padding:11px 18px;font-size:.8rem;backdrop-filter:blur(4px)}
-@media(max-width:820px){.fb-t{max-width:100%}.fb-one{height:72%;right:-14%;opacity:.5}}
+.fb-vis{position:absolute;right:clamp(18px,4.5%,64px);top:50%;transform:translateY(-50%);z-index:1;display:flex;flex-direction:column;gap:16px;width:min(330px,42%)}
+.fstat{display:flex;align-items:center;gap:14px;padding:15px 18px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(150,235,80,.20);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 12px 32px rgba(0,0,0,.30);transition:.18s}
+.flex-bn:hover .fstat{border-color:rgba(150,235,80,.34)}
+.fstat:nth-child(1){margin-right:46px}
+.fstat:nth-child(3){margin-left:22px;margin-right:24px}
+.fs-ic{flex:0 0 auto;width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:rgba(143,214,58,.16);color:#8fd63a}
+.fs-t{display:flex;flex-direction:column;line-height:1.15}
+.fs-t b{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums;font-size:1.45rem;color:#f3f8ee;letter-spacing:-.01em}
+.fs-t small{color:#c8dabc;font-size:.8rem;margin-top:2px}
+@media(max-width:860px){.fb-vis{display:none}}
+@media(max-width:820px){.fb-t{max-width:100%}}
 /* ---------- WHY PANEL ---------- */
 .why-panel{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(24px,3vw,44px);align-items:center;border:1px solid var(--line);border-radius:var(--r-lg);background:radial-gradient(85% 120% at 12% 0%,#12192a 0%,#101014 45%,#0f0f12 100%);padding:clamp(26px,3.6vw,48px);position:relative;overflow:hidden;margin-bottom:12px}
 .why-panel::after{content:"";position:absolute;right:-140px;top:-140px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(29,185,84,.1),transparent 65%)}
@@ -765,7 +775,11 @@ footer{background:var(--bg2);border-top:1px solid var(--line);margin-top:clamp(5
 <!-- ABOOK BANNER -->
 <section class="sec" style="padding-top:14px;padding-bottom:26px">
   <div class="wrap">
-    <a href="#pricing" class="flex-bn"><img class="fb-one" alt="Green glass number one" src="green-1.webp" loading="lazy">
+    <a href="#pricing" class="flex-bn"><div class="fb-vis" aria-hidden="true">
+        <div class="fstat"><span class="fs-ic"><svg class="i s18"><use href="#i-zap"/></svg></span><span class="fs-t"><b>3m 40s</b><small>median payout</small></span></div>
+        <div class="fstat"><span class="fs-ic"><svg class="i s18"><use href="#i-route"/></svg></span><span class="fs-t"><b>$94M+</b><small>paid to traders</small></span></div>
+        <div class="fstat"><span class="fs-ic"><svg class="i s18"><use href="#i-check"/></svg></span><span class="fs-t"><b>100%</b><small>A-Book routed</small></span></div>
+      </div>
       <div class="fb-t">
         <span class="fb-eye">W O R L D &rsquo; S &nbsp; F I R S T</span>
         <h2>World's 1st A-Book Platform<br>with Instant Payouts</h2>
