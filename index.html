@@ -636,6 +636,15 @@ footer{background:var(--bg2);border-top:1px solid var(--line);margin-top:clamp(5
   html{scroll-behavior:auto}
 }
 
+/* --- scroll interactions: reveal-on-scroll, top progress bar, nav scroll-spy --- */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+.nv-l a{position:relative}
+.nv-l a.on{color:var(--txt)}
+.nv-l a.on::after{content:"";position:absolute;left:2px;right:2px;bottom:-7px;height:2px;border-radius:2px;background:var(--blue)}
+#scrollbar{position:fixed;top:0;left:0;height:2px;width:0;z-index:99999;background:linear-gradient(90deg,var(--blue),#57a8ff);box-shadow:0 0 8px rgba(11,132,254,.6);pointer-events:none;will-change:width}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important}#scrollbar{display:none}}
+
 </style>
 </head>
 <body>
@@ -1756,6 +1765,73 @@ document.getElementById('faqTabs').addEventListener('click',function(e){
     d.classList.toggle('hid', f!=='all' && d.dataset.cat!==f);
   });
 });
+})();
+</script>
+
+<script>
+/* Scroll interactions — reveal-on-scroll, top progress bar, nav scroll-spy.
+   Progressive enhancement: if JS is off or reduced-motion is on, all content
+   stays fully visible (the .rv hidden state is only ever added by this script). */
+(function(){
+  var RM = window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* 1) top scroll-progress bar */
+  var bar=document.createElement('div'); bar.id='scrollbar'; document.body.appendChild(bar);
+  var tick=false;
+  function prog(){
+    if(tick) return; tick=true;
+    requestAnimationFrame(function(){
+      var d=document.documentElement, max=d.scrollHeight-d.clientHeight;
+      bar.style.width=(max>0?(d.scrollTop/max*100):0)+'%'; tick=false;
+    });
+  }
+  addEventListener('scroll',prog,{passive:true}); addEventListener('resize',prog,{passive:true}); prog();
+
+  /* 2) reveal-on-scroll (fade + rise, staggered, once only) */
+  if(!RM && 'IntersectionObserver' in window){
+    var STAG='.how,.feat4,.ab,.vids,.rvs,.wp-pts,.wp-stats,.press,.hero-badges,.tri,.tm,.tp-line';
+    var SKIP={CANVAS:1,SCRIPT:1,STYLE:1,TEMPLATE:1,BR:1,HR:1,DEFS:1,SVG:1};
+    var targets=[];
+    function tag(el,i){
+      if(!el||el.nodeType!==1||SKIP[el.tagName]) return;
+      if(el.querySelector&&el.querySelector('#globeCv')) return; /* leave the globe container alone */
+      el.classList.add('rv');
+      el.style.transitionDelay=(Math.min(i,7)*70)+'ms';
+      targets.push(el);
+    }
+    document.querySelectorAll('.hero .wrap, section.sec > .wrap').forEach(function(wrap){
+      var order=0;
+      Array.prototype.forEach.call(wrap.children,function(child){
+        if(child.nodeType!==1) return;
+        if(child.matches && child.matches(STAG)){
+          var kids=Array.prototype.filter.call(child.children,function(k){return k.nodeType===1});
+          kids.forEach(function(k,i){ tag(k,order+i); });
+          order+=Math.min(kids.length,6);
+        } else { tag(child,order); order++; }
+      });
+    });
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{rootMargin:'0px 0px -6% 0px',threshold:.05});
+    targets.forEach(function(t){ io.observe(t); });
+  }
+
+  /* 3) nav scroll-spy — highlight the section you're in */
+  if('IntersectionObserver' in window){
+    var map={};
+    document.querySelectorAll('.nv-l a[href^="#"]').forEach(function(a){
+      var id=a.getAttribute('href').slice(1); if(id) map[id]=a;
+    });
+    var ids=Object.keys(map);
+    if(ids.length){
+      var spy=new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(e.isIntersecting){ ids.forEach(function(id){ map[id].classList.toggle('on', id===e.target.id); }); }
+        });
+      },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+      ids.forEach(function(id){ var s=document.getElementById(id); if(s) spy.observe(s); });
+    }
+  }
 })();
 </script>
 
