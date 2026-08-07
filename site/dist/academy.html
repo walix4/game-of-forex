@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EZE Academy — Learn to Trade & Get Funded | EZE Funded</title>
-<meta name="description" content="Level up with EZE Academy. Free lessons on risk, strategy and psychology, plus a Discord community and YouTube channel of funded traders.">
+<title>EZE Academy — Free Video Course Library | EZE Funded</title>
+<meta name="description" content="The full Game of Forex video academy — beginner to advanced courses, price action, volume trading and funded-account playlists, playable right here.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<meta property="og:title" content="EZE Academy — Learn to Trade & Get Funded | EZE Funded">
-<meta property="og:description" content="Level up with EZE Academy. Free lessons on risk, strategy and psychology, plus a Discord community and YouTube channel of funded traders.">
+<meta property="og:title" content="EZE Academy — Free Video Course Library | EZE Funded">
+<meta property="og:description" content="The full Game of Forex video academy — beginner to advanced courses, price action, volume trading and funded-account playlists, playable right here.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1031,6 +1031,49 @@ a:hover .bp-th .pl,.bp-card:hover .pl{opacity:1}
 .bp-pag button:hover{border-color:#b9bec7;color:#111318}
 .bp-pag button.on{background:#111318;color:#fff;border-color:#111318}
 .bp-show{font-size:.76rem;color:#9aa0ab;text-align:right;margin-top:10px}
+/* academy video library (light) */
+.ac-top{display:grid;grid-template-columns:1.62fr .88fr;gap:22px;margin-bottom:clamp(30px,4vw,48px);align-items:stretch}
+.ac-frame{aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#000;box-shadow:0 20px 50px -24px rgba(16,20,28,.35)}
+.ac-frame iframe{width:100%;height:100%;border:0;display:block}
+.ac-now{margin-top:14px}
+.ac-now h2{font-size:clamp(1.05rem,2vw,1.35rem);color:#111318;line-height:1.3}
+.ac-nmeta{display:flex;gap:9px;align-items:center;font-size:.8rem;margin-top:7px;flex-wrap:wrap}
+.ac-nmeta .bp-tag{font-size:.8rem}
+.ac-nmeta .bp-date{font-size:.8rem}
+.ac-pl{border:1px solid #e6e8ec;border-radius:16px;background:#fff;display:flex;flex-direction:column;overflow:hidden;max-height:620px}
+.ac-plh{padding:15px 18px;border-bottom:1px solid #eef0f2;background:#fafbfc}
+.ac-plh small{display:flex;gap:7px;align-items:center;font-size:.62rem;font-weight:800;letter-spacing:.14em;color:#0b6ef5}
+.ac-plh h3{font-size:.98rem;color:#111318;margin-top:5px;line-height:1.3}
+.ac-plh span{font-size:.74rem;color:#9aa0ab}
+.ac-list{overflow-y:auto;flex:1}
+.ac-l{width:100%;display:flex;gap:11px;align-items:flex-start;text-align:left;padding:11px 16px;border-bottom:1px solid #f0f2f5;font-size:.83rem;font-weight:600;color:#3d434d;transition:.13s}
+.ac-l:last-child{border-bottom:0}
+.ac-l:hover{background:#f6f7f9;color:#111318}
+.ac-l.on{background:#eef4ff;color:#111318}
+.ac-l em{font-style:normal;font-family:"Plus Jakarta Sans";font-weight:800;font-size:.7rem;color:#9aa0ab;min-width:20px;padding-top:2px}
+.ac-l.on em{color:#0b6ef5}
+.ac-l span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.4}
+.ac-l .eq{margin-left:auto;color:#0b6ef5;flex:none;padding-top:2px;display:none}
+.ac-l.on .eq{display:block}
+.ac-sec{margin-bottom:clamp(30px,4vw,46px)}
+.ac-sec.hid{display:none}
+.ac-sh{display:flex;gap:12px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.ac-sh .pltag{display:inline-flex;gap:6px;align-items:center;font-size:.6rem;font-weight:800;letter-spacing:.12em;color:#0b6ef5;background:rgba(11,132,254,.08);border-radius:99px;padding:5px 11px}
+.ac-sh h2{font-size:1.18rem;color:#111318}
+.ac-sh span{font-size:.76rem;color:#9aa0ab}
+.ac-sh .playall{margin-left:auto;display:inline-flex;gap:7px;align-items:center;font-size:.76rem;font-weight:700;color:#24272e;border:1px solid #e3e5ea;border-radius:99px;padding:7px 14px;transition:.13s}
+.ac-sh .playall:hover{border-color:#b9bec7;color:#000}
+.ac-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ac-card{display:block;text-align:left;position:relative}
+.ac-card .bp-th{border-radius:12px}
+.ac-card .num{position:absolute;top:8px;left:8px;z-index:2;background:rgba(0,0,0,.72);color:#fff;font-family:"Plus Jakarta Sans";font-weight:800;font-size:.64rem;border-radius:7px;padding:4px 9px;letter-spacing:.05em}
+.ac-card h3{font-size:.88rem;color:#111318;margin-top:8px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:.13s}
+.ac-card:hover h3{color:#0b6ef5}
+.ac-card.on .bp-th{outline:2px solid #0b6ef5;outline-offset:2px}
+@media(max-width:1060px){.ac-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.ac-top{grid-template-columns:1fr}.ac-pl{max-height:340px}}
+@media(max-width:640px){.ac-grid{grid-template-columns:1fr}}
+
 /* blog detail (readable article) */
 .bd-doc{max-width:820px}
 .bd-art{display:none}
@@ -1185,184 +1228,255 @@ a:hover .bp-th .pl,.bp-card:hover .pl{opacity:1}
     </div>
   </div>
 </nav>
-<header class="page-hero pg-academy">
-  <div class="wrap">
-    <span class="peye">EZE ACADEMY</span>
-    <h1>Learn It. Trade It. <span class="grad">Keep It.</span></h1>
-    <p class="sub">Short, practical lessons built around one outcome: passing the evaluation and keeping the funded account alive. Free for every EZE trader.</p>
-    <div class="hero-cta">
-      <a href="#tracks" class="btn btn-b">Browse the curriculum</a>
-      <a href="challenge.html" class="btn btn-o">Skip to the challenge</a>
-    </div>
-    <div class="ph-quick">
-      <div><b>36</b><span>Lessons</span></div>
-      <div><b>4</b><span>Tracks</span></div>
-      <div><b class="grn">Free</b><span>For all traders</span></div>
-      <div><b>24/7</b><span>Community</span></div>
-    </div>
-  </div>
-</header>
+<style>footer{margin-top:0}</style>
 
-<!-- LEARNING PATH + SYLLABUS -->
-<section class="sec" id="tracks">
+<div class="flite">
+<section class="sec" style="padding-top:0;padding-bottom:clamp(40px,6vw,72px)">
   <div class="wrap">
-    <span class="sec-eye">THE CURRICULUM</span>
-    <div class="sec-t"><h2>Four tracks, one path</h2><p>Work through them in order, or jump straight to the gap in your game.</p></div>
-    <div class="lpath">
-      <span class="lp-c"><svg class="i s14"><use href="#i-book"/></svg> Learn</span>
-      <span class="lp-a"><svg class="i s12"><use href="#i-chev"/></svg></span>
-      <span class="lp-c"><svg class="i s14"><use href="#i-target"/></svg> Practise</span>
-      <span class="lp-a"><svg class="i s12"><use href="#i-chev"/></svg></span>
-      <span class="lp-c"><svg class="i s14"><use href="#i-rocket"/></svg> Pass</span>
-      <span class="lp-a"><svg class="i s12"><use href="#i-chev"/></svg></span>
-      <span class="lp-c last"><svg class="i s14"><use href="#i-check"/></svg> Funded</span>
+
+    <!-- PLAYER -->
+    <div class="ac-top" id="acPlayer" style="padding-top:clamp(28px,4vw,44px)">
+      <div>
+        <div class="ac-frame"><iframe id="acFrame" src="" title="EZE Academy player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="ac-now">
+          <h2 id="acTitle">Loading…</h2>
+          <div class="ac-nmeta" id="acMeta"></div>
+        </div>
+      </div>
+      <div class="ac-pl">
+        <div class="ac-plh">
+          <small><svg class="i s12"><use href="#i-play"/></svg> PLAYLIST</small>
+          <h3 id="acPlName">—</h3>
+          <span id="acPlCount"></span>
+        </div>
+        <div class="ac-list" id="acList"></div>
+      </div>
     </div>
-    <div class="syl">
-      <details open style="--sy:#0b84fe">
-        <summary><span class="sy-ic"><svg class="i s18"><use href="#i-book"/></svg></span><div><h3>Foundations</h3><div class="sy-sub">How markets, orders and execution actually work</div></div><span class="sy-n">8 lessons · Beginner</span><i>+</i></summary>
-        <div class="sy-ls">
-          <div class="sy-l"><em>01</em><span>How a forex quote works — pips, lots and leverage</span><small>9 min</small></div>
-          <div class="sy-l"><em>02</em><span>Order types: market, limit, stop and when to use each</span><small>11 min</small></div>
-          <div class="sy-l"><em>03</em><span>Spreads and commission — what execution really costs</span><small>8 min</small></div>
-          <div class="sy-l"><em>04</em><span>A-Book vs B-Book: where your order goes</span><small>12 min</small></div>
-          <div class="sy-l"><em>05</em><span>Sessions and liquidity: London, New York, Tokyo</span><small>10 min</small></div>
-          <div class="sy-l"><em>06</em><span>Reading a candle chart without the folklore</span><small>13 min</small></div>
-          <div class="sy-l"><em>07</em><span>Your platform: MT5 and cTrader essentials</span><small>14 min</small></div>
-          <div class="sy-l"><em>08</em><span>The EZE dashboard and your account metrics</span><small>7 min</small></div>
-        </div>
-      </details>
-      <details style="--sy:#1db954">
-        <summary><span class="sy-ic"><svg class="i s18"><use href="#i-target"/></svg></span><div><h3>Risk Management</h3><div class="sy-sub">The track that actually keeps funded accounts</div></div><span class="sy-n">10 lessons · Core</span><i>+</i></summary>
-        <div class="sy-ls">
-          <div class="sy-l"><em>01</em><span>Position sizing: the only formula you must know</span><small>10 min</small></div>
-          <div class="sy-l"><em>02</em><span>Designing around the max daily loss</span><small>12 min</small></div>
-          <div class="sy-l"><em>03</em><span>Risk-per-trade and surviving losing streaks</span><small>11 min</small></div>
-          <div class="sy-l"><em>04</em><span>Stop placement that respects structure, not hope</span><small>13 min</small></div>
-          <div class="sy-l"><em>05</em><span>Correlation: when three trades are really one</span><small>9 min</small></div>
-          <div class="sy-l"><em>06</em><span>Drawdown maths — why 10% down needs 11% back</span><small>8 min</small></div>
-          <div class="sy-l"><em>07</em><span>News risk: holding through releases sensibly</span><small>10 min</small></div>
-          <div class="sy-l"><em>08</em><span>Weekend gaps and overnight exposure</span><small>9 min</small></div>
-          <div class="sy-l"><em>09</em><span>Building your daily risk checklist</span><small>7 min</small></div>
-          <div class="sy-l"><em>10</em><span>Case study: passing a $100K evaluation on 1% risk</span><small>16 min</small></div>
-        </div>
-      </details>
-      <details style="--sy:#f59e0b">
-        <summary><span class="sy-ic"><svg class="i s18"><use href="#i-flame"/></svg></span><div><h3>Strategy</h3><div class="sy-sub">Market structure and building a repeatable edge</div></div><span class="sy-n">12 lessons · Intermediate</span><i>+</i></summary>
-        <div class="sy-ls">
-          <div class="sy-l"><em>01</em><span>Market structure: highs, lows and who's trapped</span><small>12 min</small></div>
-          <div class="sy-l"><em>02</em><span>Support and resistance that isn't just lines</span><small>11 min</small></div>
-          <div class="sy-l"><em>03</em><span>Trend vs range: choosing the right playbook</span><small>10 min</small></div>
-          <div class="sy-l"><em>04</em><span>Entries: pullback, breakout and failure patterns</span><small>14 min</small></div>
-          <div class="sy-l"><em>05</em><span>Exits and partials — where most edges leak</span><small>12 min</small></div>
-          <div class="sy-l"><em>06</em><span>Multi-timeframe alignment without paralysis</span><small>11 min</small></div>
-          <div class="sy-l"><em>07</em><span>Backtesting honestly: sample size and bias</span><small>15 min</small></div>
-          <div class="sy-l"><em>08</em><span>Journalling: turning trades into data</span><small>9 min</small></div>
-          <div class="sy-l"><em>09</em><span>Expectancy: the one number that matters</span><small>10 min</small></div>
-          <div class="sy-l"><em>10</em><span>Session playbooks: London open, NY overlap</span><small>13 min</small></div>
-          <div class="sy-l"><em>11</em><span>Gold and indices: adapting the edge</span><small>12 min</small></div>
-          <div class="sy-l"><em>12</em><span>Case study: one setup, ninety days, full journal</span><small>18 min</small></div>
-        </div>
-      </details>
-      <details style="--sy:#8b5cf6">
-        <summary><span class="sy-ic"><svg class="i s18"><use href="#i-eye"/></svg></span><div><h3>Psychology</h3><div class="sy-sub">The mindset of consistency under pressure</div></div><span class="sy-n">6 lessons · All levels</span><i>+</i></summary>
-        <div class="sy-ls">
-          <div class="sy-l"><em>01</em><span>Why good traders break good rules</span><small>10 min</small></div>
-          <div class="sy-l"><em>02</em><span>Tilt: recognising it before the third revenge trade</span><small>11 min</small></div>
-          <div class="sy-l"><em>03</em><span>Losing streaks are a maths event, not a verdict</span><small>9 min</small></div>
-          <div class="sy-l"><em>04</em><span>Routines: pre-market, in-trade, post-market</span><small>10 min</small></div>
-          <div class="sy-l"><em>05</em><span>Trading someone else's capital calmly</span><small>8 min</small></div>
-          <div class="sy-l"><em>06</em><span>The boring path to the 95% split</span><small>9 min</small></div>
-        </div>
-      </details>
+
+    <!-- LIBRARY -->
+    <div class="bp-lay" style="padding-top:0">
+      <aside class="bp-side" id="acSide">
+        <button class="bp-cat on" data-p="all"><svg class="i s14"><use href="#i-book"/></svg> All playlists</button>
+        <button class="bp-cat" data-p="PLnzjUZlkbEURuWycyX0wkCRPbUxFACbCB"><svg class="i s14"><use href="#i-spark"/></svg> Intro to Forex</button>
+        <button class="bp-cat" data-p="PLnzjUZlkbEURe6lwqTfg2SBYz7Gcmc2-H"><svg class="i s14"><use href="#i-book"/></svg> Basic Course</button>
+        <button class="bp-cat" data-p="PLnzjUZlkbEUQE8Z4oojIkOtbPw3O-WzQD"><svg class="i s14"><use href="#i-grad"/></svg> Beginner Course</button>
+        <button class="bp-cat" data-p="PLnzjUZlkbEUQpiRYCQo6YVpmCMQNFRrn3"><svg class="i s14"><use href="#i-chart"/></svg> Advanced Price Action</button>
+        <button class="bp-cat" data-p="PLnzjUZlkbEUQhANW5YDgFVKHxwr00BFLl"><svg class="i s14"><use href="#i-target"/></svg> Advanced Strategy</button>
+        <button class="bp-cat" data-p="PLnzjUZlkbEUQwihu6rMA2hpDESXXWZhMt"><svg class="i s14"><use href="#i-activity"/></svg> Volume Trading</button>
+        <button class="bp-cat" data-p="PLnzjUZlkbEUSKK92vHlT7Lr1maNP93Nt2"><svg class="i s14"><use href="#i-eye"/></svg> VSA</button>
+        <button class="bp-cat" data-p="PLnzjUZlkbEUSejefD5mz7WQpGHOraivjt"><svg class="i s14"><use href="#i-dollar"/></svg> Funded Account</button>
+      </aside>
+      <div class="bp-main">
+        <div class="ac-sec" data-p="PLnzjUZlkbEURuWycyX0wkCRPbUxFACbCB" data-name="Intro to Forex Trading">
+      <div class="ac-sh">
+        <span class="pltag"><svg class="i s12"><use href="#i-play"/></svg> PLAYLIST</span>
+        <h2>Intro to Forex Trading</h2><span>14 lessons</span>
+        <a href="#acPlayer" class="playall" data-p="PLnzjUZlkbEURuWycyX0wkCRPbUxFACbCB"><svg class="i s12"><use href="#i-play"/></svg> Play all</a>
+      </div>
+      <div class="ac-grid"><button class="ac-card" data-v="pqwj3TMQPsE" data-p="PLnzjUZlkbEURuWycyX0wkCRPbUxFACbCB" data-t="Trading Roadmap for Beginners"><span class="bp-th"><span class="num">01</span><img loading="lazy" src="https://i.ytimg.com/vi/pqwj3TMQPsE/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Trading Roadmap for Beginners</h3></button>
+<button class="ac-card" data-v="M4GataTyOAM" data-p="PLnzjUZlkbEURuWycyX0wkCRPbUxFACbCB" data-t="What is Forex trading?"><span class="bp-th"><span class="num">02</span><img loading="lazy" src="https://i.ytimg.com/vi/M4GataTyOAM/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>What is Forex trading?</h3></button>
+<button class="ac-card" data-v="xJSbjTZdcOc" data-p="PLnzjUZlkbEURuWycyX0wkCRPbUxFACbCB" data-t="Practical understanding of Breakouts &amp; Fakeouts - Advanced Price Action 30 Days Series"><span class="bp-th"><span class="num">03</span><img loading="lazy" src="https://i.ytimg.com/vi/xJSbjTZdcOc/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Practical understanding of Breakouts &amp; Fakeouts - Advanced Price Action 30 Days Series</h3></button>
+<button class="ac-card" data-v="O4ZpcssEL_I" data-p="PLnzjUZlkbEURuWycyX0wkCRPbUxFACbCB" data-t="Understanding Funded Account Rules for Forex Traders | Essential Guide by Waqas Ahmed"><span class="bp-th"><span class="num">04</span><img loading="lazy" src="https://i.ytimg.com/vi/O4ZpcssEL_I/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Understanding Funded Account Rules for Forex Traders | Essential Guide by Waqas Ahmed</h3></button>
+<button class="ac-card" data-v="EvRwE2jRP4o" data-p="PLnzjUZlkbEURuWycyX0wkCRPbUxFACbCB" data-t="Make Money Fast with Forex Investing Strategies Explained By Waqas Ahmed"><span class="bp-th"><span class="num">05</span><img loading="lazy" src="https://i.ytimg.com/vi/EvRwE2jRP4o/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Make Money Fast with Forex Investing Strategies Explained By Waqas Ahmed</h3></button>
+<button class="ac-card" data-v="DkLrQfFnrmc" data-p="PLnzjUZlkbEURuWycyX0wkCRPbUxFACbCB" data-t="How to Become a Successful Forex Trader: A Beginner’s Guide"><span class="bp-th"><span class="num">06</span><img loading="lazy" src="https://i.ytimg.com/vi/DkLrQfFnrmc/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>How to Become a Successful Forex Trader: A Beginner’s Guide</h3></button>
+<button class="ac-card" data-v="qH9LTKXSaoc" data-p="PLnzjUZlkbEURuWycyX0wkCRPbUxFACbCB" data-t="Overcome your anger, fear and greed"><span class="bp-th"><span class="num">07</span><img loading="lazy" src="https://i.ytimg.com/vi/qH9LTKXSaoc/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Overcome your anger, fear and greed</h3></button>
+<button class="ac-card" data-v="ZidCONw5lyY" data-p="PLnzjUZlkbEURuWycyX0wkCRPbUxFACbCB" data-t="A world brimming with opportunities, awaits those who dare to explore its depths"><span class="bp-th"><span class="num">08</span><img loading="lazy" src="https://i.ytimg.com/vi/ZidCONw5lyY/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>A world brimming with opportunities, awaits those who dare to explore its depths</h3></button>
+<button class="ac-card" data-v="fg_RJd6GIYA" data-p="PLnzjUZlkbEURuWycyX0wkCRPbUxFACbCB" data-t="Fake gurus and scammers preying on your greed and laziness"><span class="bp-th"><span class="num">09</span><img loading="lazy" src="https://i.ytimg.com/vi/fg_RJd6GIYA/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Fake gurus and scammers preying on your greed and laziness</h3></button>
+<button class="ac-card" data-v="CPgi6aMOU0k" data-p="PLnzjUZlkbEURuWycyX0wkCRPbUxFACbCB" data-t="Blaming Forex! Losing money, falling into abysmal greed etc"><span class="bp-th"><span class="num">10</span><img loading="lazy" src="https://i.ytimg.com/vi/CPgi6aMOU0k/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Blaming Forex! Losing money, falling into abysmal greed etc</h3></button>
+<button class="ac-card" data-v="SiUxhP-D6XI" data-p="PLnzjUZlkbEURuWycyX0wkCRPbUxFACbCB" data-t="Playing with the sentiments and manipulation with walls!"><span class="bp-th"><span class="num">11</span><img loading="lazy" src="https://i.ytimg.com/vi/SiUxhP-D6XI/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Playing with the sentiments and manipulation with walls!</h3></button>
+<button class="ac-card" data-v="TEKSzvh3sL8" data-p="PLnzjUZlkbEURuWycyX0wkCRPbUxFACbCB" data-t="Why are there drastic movements in a currencies?"><span class="bp-th"><span class="num">12</span><img loading="lazy" src="https://i.ytimg.com/vi/TEKSzvh3sL8/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Why are there drastic movements in a currencies?</h3></button>
+<button class="ac-card" data-v="8aY4pH-Hq9g" data-p="PLnzjUZlkbEURuWycyX0wkCRPbUxFACbCB" data-t="Is Dollar the only powerful currency for Forex Trading?"><span class="bp-th"><span class="num">13</span><img loading="lazy" src="https://i.ytimg.com/vi/8aY4pH-Hq9g/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Is Dollar the only powerful currency for Forex Trading?</h3></button>
+<button class="ac-card" data-v="4DMyqjP2EAg" data-p="PLnzjUZlkbEURuWycyX0wkCRPbUxFACbCB" data-t="Forex Trading, is it centralized? Is it regulated? Is it illegal?"><span class="bp-th"><span class="num">14</span><img loading="lazy" src="https://i.ytimg.com/vi/4DMyqjP2EAg/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Forex Trading, is it centralized? Is it regulated? Is it illegal?</h3></button></div>
+    </div>
+        <div class="ac-sec" data-p="PLnzjUZlkbEURe6lwqTfg2SBYz7Gcmc2-H" data-name="Forex Trading Basic Course">
+      <div class="ac-sh">
+        <span class="pltag"><svg class="i s12"><use href="#i-play"/></svg> PLAYLIST</span>
+        <h2>Forex Trading Basic Course</h2><span>8 lessons</span>
+        <a href="#acPlayer" class="playall" data-p="PLnzjUZlkbEURe6lwqTfg2SBYz7Gcmc2-H"><svg class="i s12"><use href="#i-play"/></svg> Play all</a>
+      </div>
+      <div class="ac-grid"><button class="ac-card" data-v="546WnHD1H3A" data-p="PLnzjUZlkbEURe6lwqTfg2SBYz7Gcmc2-H" data-t="📈 Forex Trading for Beginners | Class 7: What Funded Companies Are"><span class="bp-th"><span class="num">01</span><img loading="lazy" src="https://i.ytimg.com/vi/546WnHD1H3A/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>📈 Forex Trading for Beginners | Class 7: What Funded Companies Are</h3></button>
+<button class="ac-card" data-v="fg_qk9sDbyE" data-p="PLnzjUZlkbEURe6lwqTfg2SBYz7Gcmc2-H" data-t="📈 Forex Trading for Beginners | Class 6: What is Broker"><span class="bp-th"><span class="num">02</span><img loading="lazy" src="https://i.ytimg.com/vi/fg_qk9sDbyE/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>📈 Forex Trading for Beginners | Class 6: What is Broker</h3></button>
+<button class="ac-card" data-v="4koMXV3gHAo" data-p="PLnzjUZlkbEURe6lwqTfg2SBYz7Gcmc2-H" data-t="📈 Forex Trading for Beginners | Class 5: WHAT IS LEVERAGE"><span class="bp-th"><span class="num">03</span><img loading="lazy" src="https://i.ytimg.com/vi/4koMXV3gHAo/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>📈 Forex Trading for Beginners | Class 5: WHAT IS LEVERAGE</h3></button>
+<button class="ac-card" data-v="bgCLaEOS1dY" data-p="PLnzjUZlkbEURe6lwqTfg2SBYz7Gcmc2-H" data-t="📈 Forex Trading for Beginners | Class 4: What is Bullish &amp; Bearish Market?"><span class="bp-th"><span class="num">04</span><img loading="lazy" src="https://i.ytimg.com/vi/bgCLaEOS1dY/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>📈 Forex Trading for Beginners | Class 4: What is Bullish &amp; Bearish Market?</h3></button>
+<button class="ac-card" data-v="1iWQcMgdp1I" data-p="PLnzjUZlkbEURe6lwqTfg2SBYz7Gcmc2-H" data-t="📈 Forex Trading for Beginners | Class 3: Advantages of Forex Trading"><span class="bp-th"><span class="num">05</span><img loading="lazy" src="https://i.ytimg.com/vi/1iWQcMgdp1I/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>📈 Forex Trading for Beginners | Class 3: Advantages of Forex Trading</h3></button>
+<button class="ac-card" data-v="ZGFV5SCb2kU" data-p="PLnzjUZlkbEURe6lwqTfg2SBYz7Gcmc2-H" data-t="📈 Forex Trading for Beginners | Class 2: The Ultimate Guide to Avoiding Losses in Trading"><span class="bp-th"><span class="num">06</span><img loading="lazy" src="https://i.ytimg.com/vi/ZGFV5SCb2kU/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>📈 Forex Trading for Beginners | Class 2: The Ultimate Guide to Avoiding Losses in Trading</h3></button>
+<button class="ac-card" data-v="_yiTRaddvfM" data-p="PLnzjUZlkbEURe6lwqTfg2SBYz7Gcmc2-H" data-t="📈 Forex Trading for Beginners | Class 1: What is Forex &amp; How It Works (Full Beginner Guide)"><span class="bp-th"><span class="num">07</span><img loading="lazy" src="https://i.ytimg.com/vi/_yiTRaddvfM/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>📈 Forex Trading for Beginners | Class 1: What is Forex &amp; How It Works (Full Beginner Guide)</h3></button>
+<button class="ac-card" data-v="tyyf7IZNnnc" data-p="PLnzjUZlkbEURe6lwqTfg2SBYz7Gcmc2-H" data-t="We Launched a FREE Forex Trading Course! 🔥 | Enroll Now!"><span class="bp-th"><span class="num">08</span><img loading="lazy" src="https://i.ytimg.com/vi/tyyf7IZNnnc/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>We Launched a FREE Forex Trading Course! 🔥 | Enroll Now!</h3></button></div>
+    </div>
+        <div class="ac-sec" data-p="PLnzjUZlkbEUQE8Z4oojIkOtbPw3O-WzQD" data-name="Beginner Course">
+      <div class="ac-sh">
+        <span class="pltag"><svg class="i s12"><use href="#i-play"/></svg> PLAYLIST</span>
+        <h2>Beginner Course</h2><span>15 lessons</span>
+        <a href="#acPlayer" class="playall" data-p="PLnzjUZlkbEUQE8Z4oojIkOtbPw3O-WzQD"><svg class="i s12"><use href="#i-play"/></svg> Play all</a>
+      </div>
+      <div class="ac-grid"><button class="ac-card" data-v="rTOkk-ih2d4" data-p="PLnzjUZlkbEUQE8Z4oojIkOtbPw3O-WzQD" data-t="$100 SY CAREER KAESY BNAEIN"><span class="bp-th"><span class="num">01</span><img loading="lazy" src="https://i.ytimg.com/vi/rTOkk-ih2d4/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>$100 SY CAREER KAESY BNAEIN</h3></button>
+<button class="ac-card" data-v="ExF8c6gWlZk" data-p="PLnzjUZlkbEUQE8Z4oojIkOtbPw3O-WzQD" data-t="Want to PASS FUNDING accounts? Listen from Forex King Mr Waqas Ahme now!"><span class="bp-th"><span class="num">02</span><img loading="lazy" src="https://i.ytimg.com/vi/ExF8c6gWlZk/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Want to PASS FUNDING accounts? Listen from Forex King Mr Waqas Ahme now!</h3></button>
+<button class="ac-card" data-v="aLLOzAKOH7I" data-p="PLnzjUZlkbEUQE8Z4oojIkOtbPw3O-WzQD" data-t="The Ultimate Technical Analysis Guide l Turn Your Charts into Profits Explained by Waqas Ahmed"><span class="bp-th"><span class="num">03</span><img loading="lazy" src="https://i.ytimg.com/vi/aLLOzAKOH7I/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>The Ultimate Technical Analysis Guide l Turn Your Charts into Profits Explained by Waqas Ahmed</h3></button>
+<button class="ac-card" data-v="YN8jhWkqhnY" data-p="PLnzjUZlkbEUQE8Z4oojIkOtbPw3O-WzQD" data-t="Fundamental Analysis in Forex | News/Economy Impact on Market Explained by Waqas Ahmed #forex"><span class="bp-th"><span class="num">04</span><img loading="lazy" src="https://i.ytimg.com/vi/YN8jhWkqhnY/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Fundamental Analysis in Forex | News/Economy Impact on Market Explained by Waqas Ahmed #forex</h3></button>
+<button class="ac-card" data-v="XQvdrv3d9l8" data-p="PLnzjUZlkbEUQE8Z4oojIkOtbPw3O-WzQD" data-t="Ultimate Guide to Avoiding Scams and Making Safe Investments ! Are You Being Scammed?"><span class="bp-th"><span class="num">05</span><img loading="lazy" src="https://i.ytimg.com/vi/XQvdrv3d9l8/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Ultimate Guide to Avoiding Scams and Making Safe Investments ! Are You Being Scammed?</h3></button>
+<button class="ac-card" data-v="PoGpOzTkaRE" data-p="PLnzjUZlkbEUQE8Z4oojIkOtbPw3O-WzQD" data-t="TP/SL l Save your Deposit using Take Profit and Stop Loss By Waqas Ahmed#trading #fxeducation"><span class="bp-th"><span class="num">06</span><img loading="lazy" src="https://i.ytimg.com/vi/PoGpOzTkaRE/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>TP/SL l Save your Deposit using Take Profit and Stop Loss By Waqas Ahmed#trading #fxeducation</h3></button>
+<button class="ac-card" data-v="PpZuVHcW1Qw" data-p="PLnzjUZlkbEUQE8Z4oojIkOtbPw3O-WzQD" data-t="Solving the PIP Puzzle By Waqas Ahmed  #trading  #fxeducation #pipfx #forexandcryptotrading #gof"><span class="bp-th"><span class="num">07</span><img loading="lazy" src="https://i.ytimg.com/vi/PpZuVHcW1Qw/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Solving the PIP Puzzle By Waqas Ahmed  #trading  #fxeducation #pipfx #forexandcryptotrading #gof</h3></button>
+<button class="ac-card" data-v="gaFqwtW2bhk" data-p="PLnzjUZlkbEUQE8Z4oojIkOtbPw3O-WzQD" data-t="Save Yourself with Risk Management  #trading  #riskmanagement  #currencyexchange  #fxtrading"><span class="bp-th"><span class="num">08</span><img loading="lazy" src="https://i.ytimg.com/vi/gaFqwtW2bhk/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Save Yourself with Risk Management  #trading  #riskmanagement  #currencyexchange  #fxtrading</h3></button>
+<button class="ac-card" data-v="uwS8Di3MpNQ" data-p="PLnzjUZlkbEUQE8Z4oojIkOtbPw3O-WzQD" data-t="Mastering Currency Pairs: A Key to Successful Forex Trading  #fxeducation #gof #forextradingsystem"><span class="bp-th"><span class="num">09</span><img loading="lazy" src="https://i.ytimg.com/vi/uwS8Di3MpNQ/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Mastering Currency Pairs: A Key to Successful Forex Trading  #fxeducation #gof #forextradingsystem</h3></button>
+<button class="ac-card" data-v="2KtZiG2T0h4" data-p="PLnzjUZlkbEUQE8Z4oojIkOtbPw3O-WzQD" data-t="Don't Fall for the Myth: Indicators are Not a Holy Grail | Explained by Waqas Ahmed #gameoforex"><span class="bp-th"><span class="num">10</span><img loading="lazy" src="https://i.ytimg.com/vi/2KtZiG2T0h4/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Don't Fall for the Myth: Indicators are Not a Holy Grail | Explained by Waqas Ahmed #gameoforex</h3></button>
+<button class="ac-card" data-v="kcBc0YQ6csQ" data-p="PLnzjUZlkbEUQE8Z4oojIkOtbPw3O-WzQD" data-t="From Failure to Success| My 8-Year Forex Trading Journey By Waqas Ahmed #gameoforex"><span class="bp-th"><span class="num">11</span><img loading="lazy" src="https://i.ytimg.com/vi/kcBc0YQ6csQ/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>From Failure to Success| My 8-Year Forex Trading Journey By Waqas Ahmed #gameoforex</h3></button>
+<button class="ac-card" data-v="7w2iMVhptMQ" data-p="PLnzjUZlkbEUQE8Z4oojIkOtbPw3O-WzQD" data-t="Top 5 Tips for Forex Trading Success l Avoid common Mistakes l Explained by Waqas Ahmed #fxeducation"><span class="bp-th"><span class="num">12</span><img loading="lazy" src="https://i.ytimg.com/vi/7w2iMVhptMQ/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Top 5 Tips for Forex Trading Success l Avoid common Mistakes l Explained by Waqas Ahmed #fxeducation</h3></button>
+<button class="ac-card" data-v="lgVDsPw5BpQ" data-p="PLnzjUZlkbEUQE8Z4oojIkOtbPw3O-WzQD" data-t="Meet the Hidden Hands of Forex | Market Players &amp; Participants Explained By Waqas Ahmed #forex"><span class="bp-th"><span class="num">13</span><img loading="lazy" src="https://i.ytimg.com/vi/lgVDsPw5BpQ/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Meet the Hidden Hands of Forex | Market Players &amp; Participants Explained By Waqas Ahmed #forex</h3></button>
+<button class="ac-card" data-v="KmMiOPVIO7E" data-p="PLnzjUZlkbEUQE8Z4oojIkOtbPw3O-WzQD" data-t="Forex Advantage | Top 6 Benefits | Forex for Everyone  #trading  #fxeducation #forextrading"><span class="bp-th"><span class="num">14</span><img loading="lazy" src="https://i.ytimg.com/vi/KmMiOPVIO7E/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Forex Advantage | Top 6 Benefits | Forex for Everyone  #trading  #fxeducation #forextrading</h3></button>
+<button class="ac-card" data-v="iDEQLlz8z18" data-p="PLnzjUZlkbEUQE8Z4oojIkOtbPw3O-WzQD" data-t="What is leverage? Importance of Leverage/ لیوریج #gofx  #tradinginfo #trading"><span class="bp-th"><span class="num">15</span><img loading="lazy" src="https://i.ytimg.com/vi/iDEQLlz8z18/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>What is leverage? Importance of Leverage/ لیوریج #gofx  #tradinginfo #trading</h3></button></div>
+    </div>
+        <div class="ac-sec" data-p="PLnzjUZlkbEUQpiRYCQo6YVpmCMQNFRrn3" data-name="Advanced Price Action — 30 Days">
+      <div class="ac-sh">
+        <span class="pltag"><svg class="i s12"><use href="#i-play"/></svg> PLAYLIST</span>
+        <h2>Advanced Price Action — 30 Days</h2><span>15 lessons</span>
+        <a href="#acPlayer" class="playall" data-p="PLnzjUZlkbEUQpiRYCQo6YVpmCMQNFRrn3"><svg class="i s12"><use href="#i-play"/></svg> Play all</a>
+      </div>
+      <div class="ac-grid"><button class="ac-card" data-v="QX2mCypmdvU" data-p="PLnzjUZlkbEUQpiRYCQo6YVpmCMQNFRrn3" data-t="Practical understanding of Reversal Chart Patterns - Advanced Price Action 30 Days Series"><span class="bp-th"><span class="num">01</span><img loading="lazy" src="https://i.ytimg.com/vi/QX2mCypmdvU/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Practical understanding of Reversal Chart Patterns - Advanced Price Action 30 Days Series</h3></button>
+<button class="ac-card" data-v="aAZosnf7BNI" data-p="PLnzjUZlkbEUQpiRYCQo6YVpmCMQNFRrn3" data-t="Practical understanding of Continuation Chart Patterns - Advanced Price Action 30 Days Series"><span class="bp-th"><span class="num">02</span><img loading="lazy" src="https://i.ytimg.com/vi/aAZosnf7BNI/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Practical understanding of Continuation Chart Patterns - Advanced Price Action 30 Days Series</h3></button>
+<button class="ac-card" data-v="uF4NIyw3u64" data-p="PLnzjUZlkbEUQpiRYCQo6YVpmCMQNFRrn3" data-t="Practical understanding of Triple Candle Patterns - Advanced Price Action 30 Days Series"><span class="bp-th"><span class="num">03</span><img loading="lazy" src="https://i.ytimg.com/vi/uF4NIyw3u64/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Practical understanding of Triple Candle Patterns - Advanced Price Action 30 Days Series</h3></button>
+<button class="ac-card" data-v="DKHaIU_7mzI" data-p="PLnzjUZlkbEUQpiRYCQo6YVpmCMQNFRrn3" data-t="Practical understanding of Double Candle Patterns - Advanced Price Action 30 Days Series"><span class="bp-th"><span class="num">04</span><img loading="lazy" src="https://i.ytimg.com/vi/DKHaIU_7mzI/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Practical understanding of Double Candle Patterns - Advanced Price Action 30 Days Series</h3></button>
+<button class="ac-card" data-v="fjhwlTHS75w" data-p="PLnzjUZlkbEUQpiRYCQo6YVpmCMQNFRrn3" data-t="Practical understanding of Single Candle Patterns - Advanced Price Action 30 Days Series"><span class="bp-th"><span class="num">05</span><img loading="lazy" src="https://i.ytimg.com/vi/fjhwlTHS75w/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Practical understanding of Single Candle Patterns - Advanced Price Action 30 Days Series</h3></button>
+<button class="ac-card" data-v="XSVhdWyBNJo" data-p="PLnzjUZlkbEUQpiRYCQo6YVpmCMQNFRrn3" data-t="Practical understanding of Trend Lines or Trend Channels - Advanced Price Action 30 Days Series"><span class="bp-th"><span class="num">06</span><img loading="lazy" src="https://i.ytimg.com/vi/XSVhdWyBNJo/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Practical understanding of Trend Lines or Trend Channels - Advanced Price Action 30 Days Series</h3></button>
+<button class="ac-card" data-v="7qgw7NutAtQ" data-p="PLnzjUZlkbEUQpiRYCQo6YVpmCMQNFRrn3" data-t="Practical understanding of Price Action - Advanced Price Action 30 Days Series"><span class="bp-th"><span class="num">07</span><img loading="lazy" src="https://i.ytimg.com/vi/7qgw7NutAtQ/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Practical understanding of Price Action - Advanced Price Action 30 Days Series</h3></button>
+<button class="ac-card" data-v="D66PTDSMsnE" data-p="PLnzjUZlkbEUQpiRYCQo6YVpmCMQNFRrn3" data-t="Analysing Market Sessions | Advanced Price Action 30 Days Series"><span class="bp-th"><span class="num">08</span><img loading="lazy" src="https://i.ytimg.com/vi/D66PTDSMsnE/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Analysing Market Sessions | Advanced Price Action 30 Days Series</h3></button>
+<button class="ac-card" data-v="0vQ5zyFveF8" data-p="PLnzjUZlkbEUQpiRYCQo6YVpmCMQNFRrn3" data-t="News In Forex Trading | Advanced Price Action 30 Days Series"><span class="bp-th"><span class="num">09</span><img loading="lazy" src="https://i.ytimg.com/vi/0vQ5zyFveF8/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>News In Forex Trading | Advanced Price Action 30 Days Series</h3></button>
+<button class="ac-card" data-v="6l54Pg5RP-8" data-p="PLnzjUZlkbEUQpiRYCQo6YVpmCMQNFRrn3" data-t="SUPPLY &amp; DEMAND | Advanced Price Action 30 Days Series"><span class="bp-th"><span class="num">10</span><img loading="lazy" src="https://i.ytimg.com/vi/6l54Pg5RP-8/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>SUPPLY &amp; DEMAND | Advanced Price Action 30 Days Series</h3></button>
+<button class="ac-card" data-v="pWkMQVVWMZM" data-p="PLnzjUZlkbEUQpiRYCQo6YVpmCMQNFRrn3" data-t="Distribution &amp; Accumulation | Advanced Price Action 30 Days Series"><span class="bp-th"><span class="num">11</span><img loading="lazy" src="https://i.ytimg.com/vi/pWkMQVVWMZM/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Distribution &amp; Accumulation | Advanced Price Action 30 Days Series</h3></button>
+<button class="ac-card" data-v="I_zrMdA-DSA" data-p="PLnzjUZlkbEUQpiRYCQo6YVpmCMQNFRrn3" data-t="BI-LATERAL Chart Patterns | Advanced Price Action 30 Days Series"><span class="bp-th"><span class="num">12</span><img loading="lazy" src="https://i.ytimg.com/vi/I_zrMdA-DSA/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>BI-LATERAL Chart Patterns | Advanced Price Action 30 Days Series</h3></button>
+<button class="ac-card" data-v="cI8jU3IaqJ0" data-p="PLnzjUZlkbEUQpiRYCQo6YVpmCMQNFRrn3" data-t="Reversal Chart Patterns | Advanced Price Action 30 Days Series"><span class="bp-th"><span class="num">13</span><img loading="lazy" src="https://i.ytimg.com/vi/cI8jU3IaqJ0/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Reversal Chart Patterns | Advanced Price Action 30 Days Series</h3></button>
+<button class="ac-card" data-v="Pmz_SPfdJh0" data-p="PLnzjUZlkbEUQpiRYCQo6YVpmCMQNFRrn3" data-t="Continuation Chart Patterns | Advanced Price Action 30 Days Series"><span class="bp-th"><span class="num">14</span><img loading="lazy" src="https://i.ytimg.com/vi/Pmz_SPfdJh0/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Continuation Chart Patterns | Advanced Price Action 30 Days Series</h3></button>
+<button class="ac-card" data-v="_VR2xNCXlBU" data-p="PLnzjUZlkbEUQpiRYCQo6YVpmCMQNFRrn3" data-t="Break-outs &amp; Fake-outs | Advanced Price Action 30 Days Series"><span class="bp-th"><span class="num">15</span><img loading="lazy" src="https://i.ytimg.com/vi/_VR2xNCXlBU/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Break-outs &amp; Fake-outs | Advanced Price Action 30 Days Series</h3></button></div>
+    </div>
+        <div class="ac-sec" data-p="PLnzjUZlkbEUQhANW5YDgFVKHxwr00BFLl" data-name="Advanced Trading Strategy">
+      <div class="ac-sh">
+        <span class="pltag"><svg class="i s12"><use href="#i-play"/></svg> PLAYLIST</span>
+        <h2>Advanced Trading Strategy</h2><span>10 lessons</span>
+        <a href="#acPlayer" class="playall" data-p="PLnzjUZlkbEUQhANW5YDgFVKHxwr00BFLl"><svg class="i s12"><use href="#i-play"/></svg> Play all</a>
+      </div>
+      <div class="ac-grid"><button class="ac-card" data-v="da6vn7JpCHo" data-p="PLnzjUZlkbEUQhANW5YDgFVKHxwr00BFLl" data-t="The BEST Trading Strategy? Here’s What Actually Works in 2026"><span class="bp-th"><span class="num">01</span><img loading="lazy" src="https://i.ytimg.com/vi/da6vn7JpCHo/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>The BEST Trading Strategy? Here’s What Actually Works in 2026</h3></button>
+<button class="ac-card" data-v="XcbJkjGkUeg" data-p="PLnzjUZlkbEUQhANW5YDgFVKHxwr00BFLl" data-t="📊 My 1 Year Trading History 💰🔥"><span class="bp-th"><span class="num">02</span><img loading="lazy" src="https://i.ytimg.com/vi/XcbJkjGkUeg/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>📊 My 1 Year Trading History 💰🔥</h3></button>
+<button class="ac-card" data-v="IIXEpt-mqio" data-p="PLnzjUZlkbEUQhANW5YDgFVKHxwr00BFLl" data-t="🔥 How to Copy My Trades &amp; Make Money! (Easy Copy Trading Guide) 💰🚀"><span class="bp-th"><span class="num">03</span><img loading="lazy" src="https://i.ytimg.com/vi/IIXEpt-mqio/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>🔥 How to Copy My Trades &amp; Make Money! (Easy Copy Trading Guide) 💰🚀</h3></button>
+<button class="ac-card" data-v="DW5n_bszhxc" data-p="PLnzjUZlkbEUQhANW5YDgFVKHxwr00BFLl" data-t="Advanced Trading Strategy That Actually Works | Part 7 | No Supply - No Demand"><span class="bp-th"><span class="num">04</span><img loading="lazy" src="https://i.ytimg.com/vi/DW5n_bszhxc/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Advanced Trading Strategy That Actually Works | Part 7 | No Supply - No Demand</h3></button>
+<button class="ac-card" data-v="hzx9KImbQQo" data-p="PLnzjUZlkbEUQhANW5YDgFVKHxwr00BFLl" data-t="Secret levels behind the chart | Cheat sheet for traders | Part 6"><span class="bp-th"><span class="num">05</span><img loading="lazy" src="https://i.ytimg.com/vi/hzx9KImbQQo/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Secret levels behind the chart | Cheat sheet for traders | Part 6</h3></button>
+<button class="ac-card" data-v="H1gsyxB7vWI" data-p="PLnzjUZlkbEUQhANW5YDgFVKHxwr00BFLl" data-t="Inverse FVG Concept | Why Imbalance Fails | Part 5"><span class="bp-th"><span class="num">06</span><img loading="lazy" src="https://i.ytimg.com/vi/H1gsyxB7vWI/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Inverse FVG Concept | Why Imbalance Fails | Part 5</h3></button>
+<button class="ac-card" data-v="qSdSOHeiQLo" data-p="PLnzjUZlkbEUQhANW5YDgFVKHxwr00BFLl" data-t="Advanced FVGs Concept for Massive R:R's | Fair Use of Imbalance Volume"><span class="bp-th"><span class="num">07</span><img loading="lazy" src="https://i.ytimg.com/vi/qSdSOHeiQLo/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Advanced FVGs Concept for Massive R:R's | Fair Use of Imbalance Volume</h3></button>
+<button class="ac-card" data-v="Aty2aSRdIZE" data-p="PLnzjUZlkbEUQhANW5YDgFVKHxwr00BFLl" data-t="Advanced Trading Strategy That Actually Works | Part 3 | ShakeOut Technology"><span class="bp-th"><span class="num">08</span><img loading="lazy" src="https://i.ytimg.com/vi/Aty2aSRdIZE/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Advanced Trading Strategy That Actually Works | Part 3 | ShakeOut Technology</h3></button>
+<button class="ac-card" data-v="qITyqJCsYNE" data-p="PLnzjUZlkbEUQhANW5YDgFVKHxwr00BFLl" data-t="Advanced Trading Strategy That Actually Works | Part 2 | Volume Order Blocks (VOB)"><span class="bp-th"><span class="num">09</span><img loading="lazy" src="https://i.ytimg.com/vi/qITyqJCsYNE/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Advanced Trading Strategy That Actually Works | Part 2 | Volume Order Blocks (VOB)</h3></button>
+<button class="ac-card" data-v="-awpSo-CPZc" data-p="PLnzjUZlkbEUQhANW5YDgFVKHxwr00BFLl" data-t="Advanced Trading Strategy That Actually Works | Part 1 | Order Blocks"><span class="bp-th"><span class="num">10</span><img loading="lazy" src="https://i.ytimg.com/vi/-awpSo-CPZc/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Advanced Trading Strategy That Actually Works | Part 1 | Order Blocks</h3></button></div>
+    </div>
+        <div class="ac-sec" data-p="PLnzjUZlkbEUQwihu6rMA2hpDESXXWZhMt" data-name="Volume Trading">
+      <div class="ac-sh">
+        <span class="pltag"><svg class="i s12"><use href="#i-play"/></svg> PLAYLIST</span>
+        <h2>Volume Trading</h2><span>7 lessons</span>
+        <a href="#acPlayer" class="playall" data-p="PLnzjUZlkbEUQwihu6rMA2hpDESXXWZhMt"><svg class="i s12"><use href="#i-play"/></svg> Play all</a>
+      </div>
+      <div class="ac-grid"><button class="ac-card" data-v="hqCLTUsUoa4" data-p="PLnzjUZlkbEUQwihu6rMA2hpDESXXWZhMt" data-t="Volume Series Part 1 - What is Volume"><span class="bp-th"><span class="num">01</span><img loading="lazy" src="https://i.ytimg.com/vi/hqCLTUsUoa4/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Volume Series Part 1 - What is Volume</h3></button>
+<button class="ac-card" data-v="3t_55YmdzGc" data-p="PLnzjUZlkbEUQwihu6rMA2hpDESXXWZhMt" data-t="Volume Series Part 2 - High Volume VS Low Volume"><span class="bp-th"><span class="num">02</span><img loading="lazy" src="https://i.ytimg.com/vi/3t_55YmdzGc/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Volume Series Part 2 - High Volume VS Low Volume</h3></button>
+<button class="ac-card" data-v="uv85FbpTC4k" data-p="PLnzjUZlkbEUQwihu6rMA2hpDESXXWZhMt" data-t="Volume Series Part 3 - Effort vs Result"><span class="bp-th"><span class="num">03</span><img loading="lazy" src="https://i.ytimg.com/vi/uv85FbpTC4k/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Volume Series Part 3 - Effort vs Result</h3></button>
+<button class="ac-card" data-v="bBp1KOmNSX8" data-p="PLnzjUZlkbEUQwihu6rMA2hpDESXXWZhMt" data-t="Volume Series Part 4 - Engulfing Candle"><span class="bp-th"><span class="num">04</span><img loading="lazy" src="https://i.ytimg.com/vi/bBp1KOmNSX8/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Volume Series Part 4 - Engulfing Candle</h3></button>
+<button class="ac-card" data-v="Is9qAet03aE" data-p="PLnzjUZlkbEUQwihu6rMA2hpDESXXWZhMt" data-t="Volume series part 11 - Which broker's volume feed do we use"><span class="bp-th"><span class="num">05</span><img loading="lazy" src="https://i.ytimg.com/vi/Is9qAet03aE/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Volume series part 11 - Which broker's volume feed do we use</h3></button>
+<button class="ac-card" data-v="qaPlHc5qQ6k" data-p="PLnzjUZlkbEUQwihu6rMA2hpDESXXWZhMt" data-t="Volume series Part 12 - Why different brokers have different volume"><span class="bp-th"><span class="num">06</span><img loading="lazy" src="https://i.ytimg.com/vi/qaPlHc5qQ6k/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Volume series Part 12 - Why different brokers have different volume</h3></button>
+<button class="ac-card" data-v="23r-BH8JPGo" data-p="PLnzjUZlkbEUQwihu6rMA2hpDESXXWZhMt" data-t="Volume series Part 13 - High Volume Engulfing"><span class="bp-th"><span class="num">07</span><img loading="lazy" src="https://i.ytimg.com/vi/23r-BH8JPGo/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Volume series Part 13 - High Volume Engulfing</h3></button></div>
+    </div>
+        <div class="ac-sec" data-p="PLnzjUZlkbEUSKK92vHlT7Lr1maNP93Nt2" data-name="Volume Spread Analysis (VSA)">
+      <div class="ac-sh">
+        <span class="pltag"><svg class="i s12"><use href="#i-play"/></svg> PLAYLIST</span>
+        <h2>Volume Spread Analysis (VSA)</h2><span>15 lessons</span>
+        <a href="#acPlayer" class="playall" data-p="PLnzjUZlkbEUSKK92vHlT7Lr1maNP93Nt2"><svg class="i s12"><use href="#i-play"/></svg> Play all</a>
+      </div>
+      <div class="ac-grid"><button class="ac-card" data-v="dyA7bmb6AIA" data-p="PLnzjUZlkbEUSKK92vHlT7Lr1maNP93Nt2" data-t="Trader vs Gambler: The Key Differences Explained by Waqas Ahmed"><span class="bp-th"><span class="num">01</span><img loading="lazy" src="https://i.ytimg.com/vi/dyA7bmb6AIA/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Trader vs Gambler: The Key Differences Explained by Waqas Ahmed</h3></button>
+<button class="ac-card" data-v="faCtYW7-oo8" data-p="PLnzjUZlkbEUSKK92vHlT7Lr1maNP93Nt2" data-t="Forex Trading: Halal or Haram? Islamic Perspectives Explained By Waqas Ahmed"><span class="bp-th"><span class="num">02</span><img loading="lazy" src="https://i.ytimg.com/vi/faCtYW7-oo8/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Forex Trading: Halal or Haram? Islamic Perspectives Explained By Waqas Ahmed</h3></button>
+<button class="ac-card" data-v="sE3ni3tuDkw" data-p="PLnzjUZlkbEUSKK92vHlT7Lr1maNP93Nt2" data-t="90% Win Rate Strategy Revealed: Master the Forex Game!&quot; VSA Live Setups explained by Waqas Ahmed"><span class="bp-th"><span class="num">03</span><img loading="lazy" src="https://i.ytimg.com/vi/sE3ni3tuDkw/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>90% Win Rate Strategy Revealed: Master the Forex Game!&quot; VSA Live Setups explained by Waqas Ahmed</h3></button>
+<button class="ac-card" data-v="cMBlcqlhzok" data-p="PLnzjUZlkbEUSKK92vHlT7Lr1maNP93Nt2" data-t="The only strategy you need to learn in trading l CSM Explained by Waqas Ahmed"><span class="bp-th"><span class="num">04</span><img loading="lazy" src="https://i.ytimg.com/vi/cMBlcqlhzok/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>The only strategy you need to learn in trading l CSM Explained by Waqas Ahmed</h3></button>
+<button class="ac-card" data-v="Uk3noHLhjGo" data-p="PLnzjUZlkbEUSKK92vHlT7Lr1maNP93Nt2" data-t="The only strategy you need to learn in trading l VSA Setups Explained by Waqas Ahmed"><span class="bp-th"><span class="num">05</span><img loading="lazy" src="https://i.ytimg.com/vi/Uk3noHLhjGo/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>The only strategy you need to learn in trading l VSA Setups Explained by Waqas Ahmed</h3></button>
+<button class="ac-card" data-v="dppkvdjRf2Q" data-p="PLnzjUZlkbEUSKK92vHlT7Lr1maNP93Nt2" data-t="The only strategy you need to learn in trading l Order Block Explained by Waqas Ahmed"><span class="bp-th"><span class="num">06</span><img loading="lazy" src="https://i.ytimg.com/vi/dppkvdjRf2Q/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>The only strategy you need to learn in trading l Order Block Explained by Waqas Ahmed</h3></button>
+<button class="ac-card" data-v="QeAkS2TQL-s" data-p="PLnzjUZlkbEUSKK92vHlT7Lr1maNP93Nt2" data-t="The only strategy you need to learn in trading  l Support and Resistance Explained by Waqas Ahmed"><span class="bp-th"><span class="num">07</span><img loading="lazy" src="https://i.ytimg.com/vi/QeAkS2TQL-s/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>The only strategy you need to learn in trading  l Support and Resistance Explained by Waqas Ahmed</h3></button>
+<button class="ac-card" data-v="FGl7J1CT2HI" data-p="PLnzjUZlkbEUSKK92vHlT7Lr1maNP93Nt2" data-t="The only strategy you need to learn in trading Part 8 l VSA Setups Explained by Waqas Ahmed"><span class="bp-th"><span class="num">08</span><img loading="lazy" src="https://i.ytimg.com/vi/FGl7J1CT2HI/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>The only strategy you need to learn in trading Part 8 l VSA Setups Explained by Waqas Ahmed</h3></button>
+<button class="ac-card" data-v="ppX1kKhbAUg" data-p="PLnzjUZlkbEUSKK92vHlT7Lr1maNP93Nt2" data-t="The only strategy you need to learn in trading Part 7 l Explained by Waqas Ahmed"><span class="bp-th"><span class="num">09</span><img loading="lazy" src="https://i.ytimg.com/vi/ppX1kKhbAUg/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>The only strategy you need to learn in trading Part 7 l Explained by Waqas Ahmed</h3></button>
+<button class="ac-card" data-v="5rBxilqPb6I" data-p="PLnzjUZlkbEUSKK92vHlT7Lr1maNP93Nt2" data-t="The only strategy you need to learn in trading Part 6 l Explained by Waqas Ahmed"><span class="bp-th"><span class="num">10</span><img loading="lazy" src="https://i.ytimg.com/vi/5rBxilqPb6I/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>The only strategy you need to learn in trading Part 6 l Explained by Waqas Ahmed</h3></button>
+<button class="ac-card" data-v="YTkipCzN1Do" data-p="PLnzjUZlkbEUSKK92vHlT7Lr1maNP93Nt2" data-t="The only strategy you need to learn in trading Part 5"><span class="bp-th"><span class="num">11</span><img loading="lazy" src="https://i.ytimg.com/vi/YTkipCzN1Do/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>The only strategy you need to learn in trading Part 5</h3></button>
+<button class="ac-card" data-v="yZcSlkXUMXU" data-p="PLnzjUZlkbEUSKK92vHlT7Lr1maNP93Nt2" data-t="The only strategy you need to learn in trading Part 3"><span class="bp-th"><span class="num">12</span><img loading="lazy" src="https://i.ytimg.com/vi/yZcSlkXUMXU/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>The only strategy you need to learn in trading Part 3</h3></button>
+<button class="ac-card" data-v="Wl5uxJoW0NE" data-p="PLnzjUZlkbEUSKK92vHlT7Lr1maNP93Nt2" data-t="The Only Strategy You Need To Learn in Forex Trading Explained by Waqas Ahmed"><span class="bp-th"><span class="num">13</span><img loading="lazy" src="https://i.ytimg.com/vi/Wl5uxJoW0NE/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>The Only Strategy You Need To Learn in Forex Trading Explained by Waqas Ahmed</h3></button>
+<button class="ac-card" data-v="szN0-oBPsL4" data-p="PLnzjUZlkbEUSKK92vHlT7Lr1maNP93Nt2" data-t="Solving the Volume Puzzle  | Hidden Truth Behind Forex Volume | Explained by Waqas Ahmed #gameoforex"><span class="bp-th"><span class="num">14</span><img loading="lazy" src="https://i.ytimg.com/vi/szN0-oBPsL4/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Solving the Volume Puzzle  | Hidden Truth Behind Forex Volume | Explained by Waqas Ahmed #gameoforex</h3></button>
+<button class="ac-card" data-v="gO_PqNh1rIg" data-p="PLnzjUZlkbEUSKK92vHlT7Lr1maNP93Nt2" data-t="Only Technical Analysis video you need to Master Forex l  VSA course in Urdu l Hindi Part 3"><span class="bp-th"><span class="num">15</span><img loading="lazy" src="https://i.ytimg.com/vi/gO_PqNh1rIg/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Only Technical Analysis video you need to Master Forex l  VSA course in Urdu l Hindi Part 3</h3></button></div>
+    </div>
+        <div class="ac-sec" data-p="PLnzjUZlkbEUSejefD5mz7WQpGHOraivjt" data-name="Funded Account">
+      <div class="ac-sh">
+        <span class="pltag"><svg class="i s12"><use href="#i-play"/></svg> PLAYLIST</span>
+        <h2>Funded Account</h2><span>15 lessons</span>
+        <a href="#acPlayer" class="playall" data-p="PLnzjUZlkbEUSejefD5mz7WQpGHOraivjt"><svg class="i s12"><use href="#i-play"/></svg> Play all</a>
+      </div>
+      <div class="ac-grid"><button class="ac-card" data-v="StScwRBjE74" data-p="PLnzjUZlkbEUSejefD5mz7WQpGHOraivjt" data-t="How to Pass a Funded Account Explain By Waqas Ahmed"><span class="bp-th"><span class="num">01</span><img loading="lazy" src="https://i.ytimg.com/vi/StScwRBjE74/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>How to Pass a Funded Account Explain By Waqas Ahmed</h3></button>
+<button class="ac-card" data-v="OskIg4RB3VQ" data-p="PLnzjUZlkbEUSejefD5mz7WQpGHOraivjt" data-t="My Personal Strategy Finally Revealed"><span class="bp-th"><span class="num">02</span><img loading="lazy" src="https://i.ytimg.com/vi/OskIg4RB3VQ/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>My Personal Strategy Finally Revealed</h3></button>
+<button class="ac-card" data-v="CzMZi6j87bA" data-p="PLnzjUZlkbEUSejefD5mz7WQpGHOraivjt" data-t="1 step vs 2 step vs Instant accounts comparison."><span class="bp-th"><span class="num">03</span><img loading="lazy" src="https://i.ytimg.com/vi/CzMZi6j87bA/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>1 step vs 2 step vs Instant accounts comparison.</h3></button>
+<button class="ac-card" data-v="riAsCx174uA" data-p="PLnzjUZlkbEUSejefD5mz7WQpGHOraivjt" data-t="Hidden Rules of Funded Accounts"><span class="bp-th"><span class="num">04</span><img loading="lazy" src="https://i.ytimg.com/vi/riAsCx174uA/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Hidden Rules of Funded Accounts</h3></button>
+<button class="ac-card" data-v="yrk1SizHIGU" data-p="PLnzjUZlkbEUSejefD5mz7WQpGHOraivjt" data-t="How Funded Accounts Make You a Better Trader"><span class="bp-th"><span class="num">05</span><img loading="lazy" src="https://i.ytimg.com/vi/yrk1SizHIGU/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>How Funded Accounts Make You a Better Trader</h3></button>
+<button class="ac-card" data-v="X9i174ZWYZI" data-p="PLnzjUZlkbEUSejefD5mz7WQpGHOraivjt" data-t="GOAT Funded Trader Rules for Beginners – Simple &amp; Clear Guide"><span class="bp-th"><span class="num">06</span><img loading="lazy" src="https://i.ytimg.com/vi/X9i174ZWYZI/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>GOAT Funded Trader Rules for Beginners – Simple &amp; Clear Guide</h3></button>
+<button class="ac-card" data-v="c6UISieKM2Q" data-p="PLnzjUZlkbEUSejefD5mz7WQpGHOraivjt" data-t="WHY SOME PEOPLE HATE FUNDED ACCOUNTS"><span class="bp-th"><span class="num">07</span><img loading="lazy" src="https://i.ytimg.com/vi/c6UISieKM2Q/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>WHY SOME PEOPLE HATE FUNDED ACCOUNTS</h3></button>
+<button class="ac-card" data-v="2LiEgHwfAqI" data-p="PLnzjUZlkbEUSejefD5mz7WQpGHOraivjt" data-t="Why You Keep Failing Prop Firm Challenges"><span class="bp-th"><span class="num">08</span><img loading="lazy" src="https://i.ytimg.com/vi/2LiEgHwfAqI/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>Why You Keep Failing Prop Firm Challenges</h3></button>
+<button class="ac-card" data-v="z-H_Itq5h7E" data-p="PLnzjUZlkbEUSejefD5mz7WQpGHOraivjt" data-t="After 5 Years of Failure, I Finally Passed My First Funded Account"><span class="bp-th"><span class="num">09</span><img loading="lazy" src="https://i.ytimg.com/vi/z-H_Itq5h7E/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>After 5 Years of Failure, I Finally Passed My First Funded Account</h3></button>
+<button class="ac-card" data-v="kizcZFtEoWs" data-p="PLnzjUZlkbEUSejefD5mz7WQpGHOraivjt" data-t="HOW TO BUY FUNDED ACCOUNT IN PAKISTAN"><span class="bp-th"><span class="num">10</span><img loading="lazy" src="https://i.ytimg.com/vi/kizcZFtEoWs/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>HOW TO BUY FUNDED ACCOUNT IN PAKISTAN</h3></button>
+<button class="ac-card" data-v="plo_Nnyt2rs" data-p="PLnzjUZlkbEUSejefD5mz7WQpGHOraivjt" data-t="REGISTRATION &amp; PURCHASING ACCOUNTS, KYC VERIFICATION &amp; PAYOUT METHOD | PREMIUM FUNDED ACCOUNT COURSE"><span class="bp-th"><span class="num">11</span><img loading="lazy" src="https://i.ytimg.com/vi/plo_Nnyt2rs/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>REGISTRATION &amp; PURCHASING ACCOUNTS, KYC VERIFICATION &amp; PAYOUT METHOD | PREMIUM FUNDED ACCOUNT COURSE</h3></button>
+<button class="ac-card" data-v="v_FABc0T3JA" data-p="PLnzjUZlkbEUSejefD5mz7WQpGHOraivjt" data-t="FUNDED FIRMS &amp; BALANCE BASED VS EQUITY BASED ACCOUNTS | PREMIUM FUNDED ACCOUNT COURSE"><span class="bp-th"><span class="num">12</span><img loading="lazy" src="https://i.ytimg.com/vi/v_FABc0T3JA/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>FUNDED FIRMS &amp; BALANCE BASED VS EQUITY BASED ACCOUNTS | PREMIUM FUNDED ACCOUNT COURSE</h3></button>
+<button class="ac-card" data-v="af6DXBlAJPc" data-p="PLnzjUZlkbEUSejefD5mz7WQpGHOraivjt" data-t="How to Choose the Right Subscription Plan in Funded Forex Firms | PREMIUM FUNDED ACCOUNT COURSE"><span class="bp-th"><span class="num">13</span><img loading="lazy" src="https://i.ytimg.com/vi/af6DXBlAJPc/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>How to Choose the Right Subscription Plan in Funded Forex Firms | PREMIUM FUNDED ACCOUNT COURSE</h3></button>
+<button class="ac-card" data-v="J9jwF9LJa_c" data-p="PLnzjUZlkbEUSejefD5mz7WQpGHOraivjt" data-t="RISK MANAGEMENT IN FUNDED ACCOUNTS | PREMIUM FUNDED ACCOUNT COURSE"><span class="bp-th"><span class="num">14</span><img loading="lazy" src="https://i.ytimg.com/vi/J9jwF9LJa_c/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>RISK MANAGEMENT IN FUNDED ACCOUNTS | PREMIUM FUNDED ACCOUNT COURSE</h3></button>
+<button class="ac-card" data-v="qt5-V3qEIRI" data-p="PLnzjUZlkbEUSejefD5mz7WQpGHOraivjt" data-t="STRATEGIES TO EXPAND AND GROW YOUR PORTFOLIO | PREMIUM FUNDED ACCOUNT COURSE."><span class="bp-th"><span class="num">15</span><img loading="lazy" src="https://i.ytimg.com/vi/qt5-V3qEIRI/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span><h3>STRATEGIES TO EXPAND AND GROW YOUR PORTFOLIO | PREMIUM FUNDED ACCOUNT COURSE.</h3></button></div>
+    </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- POSITION SIZE TOOL -->
-<section class="sec" style="background:var(--bg2);border-block:1px solid var(--line)">
+<!-- CTA + TRUST -->
+<section class="sec" style="padding-top:0;padding-bottom:0">
   <div class="wrap">
-    <span class="sec-eye">FREE TOOL</span>
-    <div class="sec-t"><h2>Position size, in one drag</h2><p>Lesson one of Risk Management, as a tool you'll use every day.</p></div>
-    <div class="calc" style="max-width:860px;margin:0 auto">
-      <div class="calc-l">
-        <div class="calc-f">
-          <small>Account balance</small>
-          <input type="range" id="lotBal" min="5000" max="200000" step="5000" value="100000" aria-label="Account balance">
-          <div class="calc-rv"><span>Balance</span><b id="lotBalV">$100,000</b></div>
+    <div class="cta">
+      <div>
+        <h2>Learned It? Now Trade It.</h2>
+        <div class="cta-li">
+          <div><i><svg class="i s12"><use href="#i-check"/></svg></i> 99 free lessons, no signup</div>
+          <div><i><svg class="i s12"><use href="#i-check"/></svg></i> Up to $200,000 account</div>
+          <div><i><svg class="i s12"><use href="#i-check"/></svg></i> Fee refunded on first payout</div>
         </div>
-        <div class="calc-f">
-          <small>Risk per trade</small>
-          <input type="range" id="lotRisk" min="0.25" max="3" step="0.25" value="1" aria-label="Risk percent">
-          <div class="calc-rv"><span>Risk</span><b id="lotRiskV">1%</b></div>
-        </div>
-        <div class="calc-f">
-          <small>Stop-loss distance</small>
-          <input type="range" id="lotSL" min="5" max="100" step="5" value="25" aria-label="Stop loss pips">
-          <div class="calc-rv"><span>Stop</span><b id="lotSLV">25 pips</b></div>
+        <div class="btns">
+          <a href="challenge.html" class="btn btn-w">Start EZE Challenge</a>
+          <a href="challenge.html#pricing" class="btn btn-o" style="border-color:rgba(255,255,255,.4);color:#fff">Free Trial</a>
         </div>
       </div>
-      <div class="calc-r">
-        <small>Position size</small>
-        <div class="calc-out" id="lotOut">4.00 lots</div>
-        <p>on a major pair (~$10 per pip per standard lot).</p>
-        <div class="calc-rows">
-          <div><span>Capital at risk</span><b id="lotRiskAmt">$1,000</b></div>
+      <div class="cta-mock">
+        <div class="cm-top"><b><svg class="i s12"><use href="#i-diamond"/></svg> EZE Account #200-84921</b><span class="cm-live">LIVE · A-BOOK</span></div>
+        <div class="cm-eq"><div><small style="color:var(--dim);font-size:.6rem;text-transform:uppercase;letter-spacing:.05em">Equity</small><br><b>$213,406.88</b></div><span>+6.70%</span></div>
+        <svg viewBox="0 0 300 54" style="width:100%" aria-hidden="true">
+          <path d="M0,44 L18,40 L34,43 L52,35 L68,38 L88,29 L104,32 L124,24 L140,27 L158,19 L176,23 L194,15 L214,18 L232,11 L252,14 L272,7 L300,10" fill="none" stroke="#39d573" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <div class="cm-g">
+          <div><small>Balance</small><b>$208,120</b></div>
+          <div><small>Daily DD</small><b style="color:#39d573">1.4% / 5%</b></div>
+          <div><small>Last payout</small><b style="color:#ffb04d">$8,120 · 3m 12s</b></div>
         </div>
-        <p class="calc-disc">Educational tool — assumes ~$10/pip per standard lot on majors. Always verify against your platform's contract specs.</p>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- COMMUNITY DUO -->
-<section class="sec">
-  <div class="wrap">
-    <span class="sec-eye">LEARN TOGETHER</span>
-    <div class="sec-t"><h2>Thousands of traders, one goal</h2><p>Both communities are free and open before you ever buy a challenge.</p></div>
-    <div class="duo">
-      <div class="duo-c">
-        <div class="duo-v dis">
-          <span class="dot" style="top:30%;left:20%"></span><span class="dot" style="top:60%;right:16%"></span><span class="dot" style="bottom:20%;left:35%;width:3px;height:3px"></span>
-          <div class="brand-lock"><span class="bmk"><svg viewBox="0 0 24 24"><use href="#i-dcbig"/></svg></span><span class="bword">Discord</span></div>
-        </div>
-        <div class="duo-b">
-          <h3>Discord community</h3>
-          <p>Real-time discussion with traders worldwide. Ask questions, share journals, and sit in on live market talk.</p>
-          <a href="#" class="btn btn-o btn-sm">Join the server <svg class="i s12"><use href="#i-route"/></svg></a>
-        </div>
+    <div class="trustbar">
+      <div>
+        <h3>Prove Your Skills with a Trusted Firm</h3>
+        <div class="mut">We've been building the A-Book model since 2023. Join us now!</div>
       </div>
-      <div class="duo-c">
-        <div class="duo-v yt">
-          <div class="brand-lock"><span class="ytmk"><span></span></span><span class="bword">YouTube</span></div>
-        </div>
-        <div class="duo-b">
-          <h3>YouTube channel</h3>
-          <p>Trader journeys, reward stories and lesson walk-throughs — new uploads every week.</p>
-          <a href="#" class="btn btn-o btn-sm">Watch on YouTube <svg class="i s12"><use href="#i-route"/></svg></a>
-        </div>
-      </div>
+      <div class="tb-n"><b>99</b><span>Free lessons<br>in the library</span></div>
+      <div class="tb-n"><b>$94M+</b><span>Paid in rewards<br>worldwide</span></div>
+      <div class="tb-n"><b>4.8/5</b><span>Trustpilot</span></div>
     </div>
-  </div>
-</section>
 
-<!-- END CAP -->
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="cta-band">
-      <h2>Learn it, then live it.</h2>
-      <p>Take what you've learned straight to a funded A-Book account — the fee comes back with your first payout.</p>
-      <div class="btns">
-        <a href="challenge.html" class="btn btn-w">Start EZE Challenge</a>
-        <a href="a-book.html" class="btn btn-o" style="border-color:rgba(255,255,255,.4);color:#fff">How A-Book works</a>
-      </div>
-      <div class="ticks">
-        <span><svg class="i s12"><use href="#i-check"/></svg> Academy free forever</span>
-        <span><svg class="i s12"><use href="#i-check"/></svg> No time limit on evaluations</span>
-        <span><svg class="i s12"><use href="#i-check"/></svg> Community before you commit</span>
-      </div>
+    <div class="fl-rev">
+      <small>WORLDWIDE REVIEWS</small>
+      <b>Excellent</b>
+      <span class="tp-st"><i><svg class="i f"><use href="#i-star"/></svg></i><i><svg class="i f"><use href="#i-star"/></svg></i><i><svg class="i f"><use href="#i-star"/></svg></i><i><svg class="i f"><use href="#i-star"/></svg></i><i><svg class="i f"><use href="#i-star"/></svg></i></span>
+      <a href="reviews.html">31,209 reviews on</a>
+      <span class="tp-lg">&#9733; Trustpilot</span>
     </div>
   </div>
 </section>
+</div>
 <footer>
   <div class="wrap">
     <div class="ft-g">
@@ -1944,6 +2058,52 @@ if(document.getElementById('itable')) itbl('fx');
   });
   var h=location.hash.replace('#','');
   if(document.getElementById(h)&&document.getElementById(h).classList.contains('bd-art')) show(h,false);
+})();
+
+/* academy: playlist library with embedded player */
+(function(){
+  var frame=document.getElementById('acFrame'); if(!frame) return;
+  var secs=[].slice.call(document.querySelectorAll('.ac-sec'));
+  function cardsOf(pid){ return [].slice.call(document.querySelectorAll('.ac-card[data-p="'+pid+'"]')); }
+  function secOf(pid){ return document.querySelector('.ac-sec[data-p="'+pid+'"]'); }
+  function play(v,pid,auto,scroll){
+    var cards=cardsOf(pid), idx=0;
+    cards.forEach(function(c,i){ if(c.dataset.v===v) idx=i; });
+    frame.src='https://www.youtube-nocookie.com/embed/'+v+'?list='+pid+'&rel=0'+(auto?'&autoplay=1':'');
+    var sec=secOf(pid), name=sec?sec.dataset.name:'';
+    document.getElementById('acTitle').textContent=cards[idx].dataset.t;
+    document.getElementById('acMeta').innerHTML='<span class="bp-tag">'+name+'</span><span class="bp-date">&middot; Lesson '+(idx+1)+' of '+cards.length+'</span>';
+    document.getElementById('acPlName').textContent=name;
+    document.getElementById('acPlCount').textContent=cards.length+' lessons &middot; plays in order';
+    var list=document.getElementById('acList');
+    list.innerHTML=cards.map(function(c,i){
+      return '<button class="ac-l'+(i===idx?' on':'')+'" data-v="'+c.dataset.v+'" data-p="'+pid+'">'+
+        '<em>'+('0'+(i+1)).slice(-2)+'</em><span>'+c.dataset.t+'</span>'+
+        '<svg class="i s12 eq"><use href="#i-play"/></svg></button>';
+    }).join('');
+    var on=list.querySelector('.ac-l.on'); if(on) on.scrollIntoView({block:'nearest'});
+    document.querySelectorAll('.ac-card').forEach(function(c){ c.classList.toggle('on',c.dataset.v===v&&c.dataset.p===pid); });
+    if(history.replaceState) history.replaceState(null,'','#p-'+v);
+    if(scroll) document.getElementById('acPlayer').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  document.addEventListener('click',function(e){
+    var c=e.target.closest('.ac-card'); if(c){ e.preventDefault(); play(c.dataset.v,c.dataset.p,true,true); return; }
+    var l=e.target.closest('.ac-l'); if(l){ play(l.dataset.v,l.dataset.p,true,false); return; }
+    var pa=e.target.closest('.playall'); if(pa){ e.preventDefault(); var pid=pa.dataset.p; var cs=cardsOf(pid); if(cs.length) play(cs[0].dataset.v,pid,true,true); }
+  });
+  /* sidebar: filter playlists */
+  var side=document.getElementById('acSide');
+  side?.addEventListener('click',function(e){
+    var b=e.target.closest('.bp-cat'); if(!b) return;
+    var p=b.dataset.p;
+    side.querySelectorAll('.bp-cat').forEach(function(x){x.classList.toggle('on',x===b)});
+    secs.forEach(function(sc){ sc.classList.toggle('hid', p!=='all' && sc.dataset.p!==p); });
+  });
+  /* init: deep link or first lesson of first playlist */
+  var h=location.hash.replace('#p-','');
+  var c0=h?document.querySelector('.ac-card[data-v="'+h+'"]'):null;
+  if(!c0) c0=document.querySelector('.ac-card');
+  if(c0) play(c0.dataset.v,c0.dataset.p,false,false);
 })();
 
 /* rating distribution bars animate in (reviews) */

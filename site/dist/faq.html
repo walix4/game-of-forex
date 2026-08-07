@@ -1031,6 +1031,49 @@ a:hover .bp-th .pl,.bp-card:hover .pl{opacity:1}
 .bp-pag button:hover{border-color:#b9bec7;color:#111318}
 .bp-pag button.on{background:#111318;color:#fff;border-color:#111318}
 .bp-show{font-size:.76rem;color:#9aa0ab;text-align:right;margin-top:10px}
+/* academy video library (light) */
+.ac-top{display:grid;grid-template-columns:1.62fr .88fr;gap:22px;margin-bottom:clamp(30px,4vw,48px);align-items:stretch}
+.ac-frame{aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#000;box-shadow:0 20px 50px -24px rgba(16,20,28,.35)}
+.ac-frame iframe{width:100%;height:100%;border:0;display:block}
+.ac-now{margin-top:14px}
+.ac-now h2{font-size:clamp(1.05rem,2vw,1.35rem);color:#111318;line-height:1.3}
+.ac-nmeta{display:flex;gap:9px;align-items:center;font-size:.8rem;margin-top:7px;flex-wrap:wrap}
+.ac-nmeta .bp-tag{font-size:.8rem}
+.ac-nmeta .bp-date{font-size:.8rem}
+.ac-pl{border:1px solid #e6e8ec;border-radius:16px;background:#fff;display:flex;flex-direction:column;overflow:hidden;max-height:620px}
+.ac-plh{padding:15px 18px;border-bottom:1px solid #eef0f2;background:#fafbfc}
+.ac-plh small{display:flex;gap:7px;align-items:center;font-size:.62rem;font-weight:800;letter-spacing:.14em;color:#0b6ef5}
+.ac-plh h3{font-size:.98rem;color:#111318;margin-top:5px;line-height:1.3}
+.ac-plh span{font-size:.74rem;color:#9aa0ab}
+.ac-list{overflow-y:auto;flex:1}
+.ac-l{width:100%;display:flex;gap:11px;align-items:flex-start;text-align:left;padding:11px 16px;border-bottom:1px solid #f0f2f5;font-size:.83rem;font-weight:600;color:#3d434d;transition:.13s}
+.ac-l:last-child{border-bottom:0}
+.ac-l:hover{background:#f6f7f9;color:#111318}
+.ac-l.on{background:#eef4ff;color:#111318}
+.ac-l em{font-style:normal;font-family:"Plus Jakarta Sans";font-weight:800;font-size:.7rem;color:#9aa0ab;min-width:20px;padding-top:2px}
+.ac-l.on em{color:#0b6ef5}
+.ac-l span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.4}
+.ac-l .eq{margin-left:auto;color:#0b6ef5;flex:none;padding-top:2px;display:none}
+.ac-l.on .eq{display:block}
+.ac-sec{margin-bottom:clamp(30px,4vw,46px)}
+.ac-sec.hid{display:none}
+.ac-sh{display:flex;gap:12px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.ac-sh .pltag{display:inline-flex;gap:6px;align-items:center;font-size:.6rem;font-weight:800;letter-spacing:.12em;color:#0b6ef5;background:rgba(11,132,254,.08);border-radius:99px;padding:5px 11px}
+.ac-sh h2{font-size:1.18rem;color:#111318}
+.ac-sh span{font-size:.76rem;color:#9aa0ab}
+.ac-sh .playall{margin-left:auto;display:inline-flex;gap:7px;align-items:center;font-size:.76rem;font-weight:700;color:#24272e;border:1px solid #e3e5ea;border-radius:99px;padding:7px 14px;transition:.13s}
+.ac-sh .playall:hover{border-color:#b9bec7;color:#000}
+.ac-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ac-card{display:block;text-align:left;position:relative}
+.ac-card .bp-th{border-radius:12px}
+.ac-card .num{position:absolute;top:8px;left:8px;z-index:2;background:rgba(0,0,0,.72);color:#fff;font-family:"Plus Jakarta Sans";font-weight:800;font-size:.64rem;border-radius:7px;padding:4px 9px;letter-spacing:.05em}
+.ac-card h3{font-size:.88rem;color:#111318;margin-top:8px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:.13s}
+.ac-card:hover h3{color:#0b6ef5}
+.ac-card.on .bp-th{outline:2px solid #0b6ef5;outline-offset:2px}
+@media(max-width:1060px){.ac-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.ac-top{grid-template-columns:1fr}.ac-pl{max-height:340px}}
+@media(max-width:640px){.ac-grid{grid-template-columns:1fr}}
+
 /* blog detail (readable article) */
 .bd-doc{max-width:820px}
 .bd-art{display:none}
@@ -2076,6 +2119,52 @@ if(document.getElementById('itable')) itbl('fx');
   });
   var h=location.hash.replace('#','');
   if(document.getElementById(h)&&document.getElementById(h).classList.contains('bd-art')) show(h,false);
+})();
+
+/* academy: playlist library with embedded player */
+(function(){
+  var frame=document.getElementById('acFrame'); if(!frame) return;
+  var secs=[].slice.call(document.querySelectorAll('.ac-sec'));
+  function cardsOf(pid){ return [].slice.call(document.querySelectorAll('.ac-card[data-p="'+pid+'"]')); }
+  function secOf(pid){ return document.querySelector('.ac-sec[data-p="'+pid+'"]'); }
+  function play(v,pid,auto,scroll){
+    var cards=cardsOf(pid), idx=0;
+    cards.forEach(function(c,i){ if(c.dataset.v===v) idx=i; });
+    frame.src='https://www.youtube-nocookie.com/embed/'+v+'?list='+pid+'&rel=0'+(auto?'&autoplay=1':'');
+    var sec=secOf(pid), name=sec?sec.dataset.name:'';
+    document.getElementById('acTitle').textContent=cards[idx].dataset.t;
+    document.getElementById('acMeta').innerHTML='<span class="bp-tag">'+name+'</span><span class="bp-date">&middot; Lesson '+(idx+1)+' of '+cards.length+'</span>';
+    document.getElementById('acPlName').textContent=name;
+    document.getElementById('acPlCount').textContent=cards.length+' lessons &middot; plays in order';
+    var list=document.getElementById('acList');
+    list.innerHTML=cards.map(function(c,i){
+      return '<button class="ac-l'+(i===idx?' on':'')+'" data-v="'+c.dataset.v+'" data-p="'+pid+'">'+
+        '<em>'+('0'+(i+1)).slice(-2)+'</em><span>'+c.dataset.t+'</span>'+
+        '<svg class="i s12 eq"><use href="#i-play"/></svg></button>';
+    }).join('');
+    var on=list.querySelector('.ac-l.on'); if(on) on.scrollIntoView({block:'nearest'});
+    document.querySelectorAll('.ac-card').forEach(function(c){ c.classList.toggle('on',c.dataset.v===v&&c.dataset.p===pid); });
+    if(history.replaceState) history.replaceState(null,'','#p-'+v);
+    if(scroll) document.getElementById('acPlayer').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  document.addEventListener('click',function(e){
+    var c=e.target.closest('.ac-card'); if(c){ e.preventDefault(); play(c.dataset.v,c.dataset.p,true,true); return; }
+    var l=e.target.closest('.ac-l'); if(l){ play(l.dataset.v,l.dataset.p,true,false); return; }
+    var pa=e.target.closest('.playall'); if(pa){ e.preventDefault(); var pid=pa.dataset.p; var cs=cardsOf(pid); if(cs.length) play(cs[0].dataset.v,pid,true,true); }
+  });
+  /* sidebar: filter playlists */
+  var side=document.getElementById('acSide');
+  side?.addEventListener('click',function(e){
+    var b=e.target.closest('.bp-cat'); if(!b) return;
+    var p=b.dataset.p;
+    side.querySelectorAll('.bp-cat').forEach(function(x){x.classList.toggle('on',x===b)});
+    secs.forEach(function(sc){ sc.classList.toggle('hid', p!=='all' && sc.dataset.p!==p); });
+  });
+  /* init: deep link or first lesson of first playlist */
+  var h=location.hash.replace('#p-','');
+  var c0=h?document.querySelector('.ac-card[data-v="'+h+'"]'):null;
+  if(!c0) c0=document.querySelector('.ac-card');
+  if(c0) play(c0.dataset.v,c0.dataset.p,false,false);
 })();
 
 /* rating distribution bars animate in (reviews) */

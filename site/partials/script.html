@@ -491,6 +491,52 @@ if(document.getElementById('itable')) itbl('fx');
   if(document.getElementById(h)&&document.getElementById(h).classList.contains('bd-art')) show(h,false);
 })();
 
+/* academy: playlist library with embedded player */
+(function(){
+  var frame=document.getElementById('acFrame'); if(!frame) return;
+  var secs=[].slice.call(document.querySelectorAll('.ac-sec'));
+  function cardsOf(pid){ return [].slice.call(document.querySelectorAll('.ac-card[data-p="'+pid+'"]')); }
+  function secOf(pid){ return document.querySelector('.ac-sec[data-p="'+pid+'"]'); }
+  function play(v,pid,auto,scroll){
+    var cards=cardsOf(pid), idx=0;
+    cards.forEach(function(c,i){ if(c.dataset.v===v) idx=i; });
+    frame.src='https://www.youtube-nocookie.com/embed/'+v+'?list='+pid+'&rel=0'+(auto?'&autoplay=1':'');
+    var sec=secOf(pid), name=sec?sec.dataset.name:'';
+    document.getElementById('acTitle').textContent=cards[idx].dataset.t;
+    document.getElementById('acMeta').innerHTML='<span class="bp-tag">'+name+'</span><span class="bp-date">&middot; Lesson '+(idx+1)+' of '+cards.length+'</span>';
+    document.getElementById('acPlName').textContent=name;
+    document.getElementById('acPlCount').textContent=cards.length+' lessons &middot; plays in order';
+    var list=document.getElementById('acList');
+    list.innerHTML=cards.map(function(c,i){
+      return '<button class="ac-l'+(i===idx?' on':'')+'" data-v="'+c.dataset.v+'" data-p="'+pid+'">'+
+        '<em>'+('0'+(i+1)).slice(-2)+'</em><span>'+c.dataset.t+'</span>'+
+        '<svg class="i s12 eq"><use href="#i-play"/></svg></button>';
+    }).join('');
+    var on=list.querySelector('.ac-l.on'); if(on) on.scrollIntoView({block:'nearest'});
+    document.querySelectorAll('.ac-card').forEach(function(c){ c.classList.toggle('on',c.dataset.v===v&&c.dataset.p===pid); });
+    if(history.replaceState) history.replaceState(null,'','#p-'+v);
+    if(scroll) document.getElementById('acPlayer').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  document.addEventListener('click',function(e){
+    var c=e.target.closest('.ac-card'); if(c){ e.preventDefault(); play(c.dataset.v,c.dataset.p,true,true); return; }
+    var l=e.target.closest('.ac-l'); if(l){ play(l.dataset.v,l.dataset.p,true,false); return; }
+    var pa=e.target.closest('.playall'); if(pa){ e.preventDefault(); var pid=pa.dataset.p; var cs=cardsOf(pid); if(cs.length) play(cs[0].dataset.v,pid,true,true); }
+  });
+  /* sidebar: filter playlists */
+  var side=document.getElementById('acSide');
+  side?.addEventListener('click',function(e){
+    var b=e.target.closest('.bp-cat'); if(!b) return;
+    var p=b.dataset.p;
+    side.querySelectorAll('.bp-cat').forEach(function(x){x.classList.toggle('on',x===b)});
+    secs.forEach(function(sc){ sc.classList.toggle('hid', p!=='all' && sc.dataset.p!==p); });
+  });
+  /* init: deep link or first lesson of first playlist */
+  var h=location.hash.replace('#p-','');
+  var c0=h?document.querySelector('.ac-card[data-v="'+h+'"]'):null;
+  if(!c0) c0=document.querySelector('.ac-card');
+  if(c0) play(c0.dataset.v,c0.dataset.p,false,false);
+})();
+
 /* rating distribution bars animate in (reviews) */
 (function(){
   var r=document.querySelector('.rate'); if(!r) return;
