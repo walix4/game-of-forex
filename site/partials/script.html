@@ -273,7 +273,7 @@ if(document.getElementById('itable')) itbl('fx');
   Object.keys(CATS).forEach(function(k){
     if(!byCat[k]) return;
     var g=document.createElement('div'); g.className='fq-g'; g.dataset.g=k;
-    g.innerHTML='<button class="gh"><span class="ic" style="background:'+CATS[k].bg+';color:'+CATS[k].c+'"><svg class="i s14"><use href="#'+CATS[k].ic+'"/></svg></span>'+CATS[k].l+
+    g.innerHTML='<button class="gh"><span class="ic"><svg class="i s16"><use href="#'+CATS[k].ic+'"/></svg></span>'+CATS[k].l+
       '<svg class="i s12 chev"><use href="#i-chev"/></svg></button><div class="fq-qs"></div>';
     var qs=g.querySelector('.fq-qs');
     byCat[k].forEach(function(a){
@@ -286,7 +286,10 @@ if(document.getElementById('itable')) itbl('fx');
     var art=document.getElementById(id); if(!art) return;
     arts.forEach(function(a){a.classList.toggle('on',a===art)});
     tree.querySelectorAll('.fq-q').forEach(function(b){b.classList.toggle('on',b.dataset.id===id)});
-    tree.querySelectorAll('.fq-g').forEach(function(g){ if(g.dataset.g===art.dataset.g) g.classList.add('open'); });
+    tree.querySelectorAll('.fq-g').forEach(function(g){
+      g.classList.toggle('act',g.dataset.g===art.dataset.g);
+      if(g.dataset.g===art.dataset.g) g.classList.add('open');
+    });
     /* breadcrumb */
     var c=document.getElementById('fqCrumb');
     if(c) c.innerHTML='<span>All FAQ</span><svg class="i"><use href="#i-chev"/></svg><span>'+CATS[art.dataset.g].l+'</span><svg class="i"><use href="#i-chev"/></svg><b>'+art.dataset.t+'</b>';

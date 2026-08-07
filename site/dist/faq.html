@@ -904,6 +904,49 @@ nav.scrolled{background:rgba(10,10,11,.82);backdrop-filter:blur(12px);border-bot
   .fq-side{position:static;max-height:none;overflow:visible}
 }
 
+/* light content scope — FTMO-style white area between dark nav & footer */
+.flite{background:#fff;color:#111318}
+.flite .fsearch input{background:#fff;border-color:#e3e5ea;color:#111318}
+.flite .fsearch input::placeholder{color:#9aa0ab}
+.flite .fsearch input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(11,132,254,.12)}
+.flite .fsearch .i{color:#9aa0ab}
+.flite .fq-g>button.gh{color:#111318}
+.flite .fq-g>button.gh:hover{background:#f4f5f7}
+.flite .fq-g.act>button.gh{background:#f4f5f7}
+.flite .fq-g .ic{background:none!important;color:#565d68!important;width:20px;height:20px}
+.flite .fq-g .chev{color:#9aa0ab}
+.flite .fq-q{color:#565d68}
+.flite .fq-q:hover{color:#111318;background:#f4f5f7}
+.flite .fq-q.on{color:#111318;background:#eceef2}
+.flite .fq-qs{border-left:1px solid #eceef2;margin-left:10px;padding-left:8px}
+.flite .fq-crumb{color:#9aa0ab}
+.flite .fq-crumb b{color:#565d68}
+.flite .fq-art h1{color:#111318}
+.flite .fq-art p,.flite .fq-art ul{color:#3d434d}
+.flite .fq-art p b{color:#111318}
+.flite .fq-art p a{color:#0b6ef5}
+.flite .fq-rel{border-color:#e6e8ec;background:#fff}
+.flite .fq-rel>button{color:#24272e;border-color:#eef0f2}
+.flite .fq-rel>button:hover{background:#f7f8fa;color:#000}
+.flite .fq-rel .di,.flite .fq-rel .chev{color:#9aa0ab}
+.flite .faq-cta{background:#f7f8fa;border-color:#e6e8ec}
+.flite .faq-cta b{color:#111318}
+.flite .faq-cta span{color:#565d68}
+.flite .btn-o{border-color:#d9dce2;color:#24272e}
+.flite .btn-o:hover{border-color:#b9bec7;background:#f4f5f7}
+.flite .faq-none{color:#565d68}
+.flite .trustbar h3{color:#111318}
+.flite .trustbar .mut{color:#565d68}
+.flite .trustbar .tb-n{padding-left:clamp(18px,3vw,44px);border-left:1px solid #e6e8ec}
+.flite .trustbar .tb-n b{color:#111318}
+.flite .trustbar .tb-n span{color:#565d68}
+.fl-rev{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;padding:clamp(26px,4vw,40px) 0 clamp(40px,6vw,64px);font-size:.86rem;color:#565d68}
+.fl-rev small{font-size:.64rem;font-weight:800;letter-spacing:.14em;color:#9aa0ab;margin-right:8px}
+.fl-rev b{color:#111318;font-weight:700}
+.fl-rev a{text-decoration:underline;color:#565d68}
+.fl-rev .tp-lg{color:var(--tp)}
+@media(max-width:1060px){.flite .trustbar .tb-n{border-left:0;padding-left:0}}
+
 /* rating panel + distribution (reviews) */
 .rate{display:grid;grid-template-columns:auto 1fr;gap:clamp(28px,5vw,64px);align-items:center;border:1px solid var(--line);border-radius:var(--r-lg);background:linear-gradient(165deg,#0f1512,#101014 60%);padding:clamp(26px,4vw,44px)}
 .rate-l{text-align:center}
@@ -1015,6 +1058,9 @@ nav.scrolled{background:rgba(10,10,11,.82);backdrop-filter:blur(12px);border-bot
     </div>
   </div>
 </nav>
+<style>footer{margin-top:0}</style>
+<div class="flite">
+
 <section class="sec" id="faq" style="padding-top:0;padding-bottom:clamp(40px,6vw,72px)">
   <div class="wrap">
     <div class="fq-lay">
@@ -1245,30 +1291,56 @@ nav.scrolled{background:rgba(10,10,11,.82);backdrop-filter:blur(12px);border-bot
   </div>
 </section>
 
-<!-- END CAP -->
-<section class="sec" style="padding-top:0">
+<!-- CTA + TRUST (FTMO-style) -->
+<section class="sec" style="padding-top:0;padding-bottom:0">
   <div class="wrap">
-    <div class="cta-band">
-      <h2>Start your EZE Challenge today.</h2>
-      <p>Everything answered? Pick a size and be inside your dashboard in five minutes.</p>
-      <div class="btns">
-        <a href="challenge.html#pricing" class="btn btn-w">EZE Challenge</a>
-        <a href="challenge.html" class="btn btn-o" style="border-color:rgba(255,255,255,.4);color:#fff">Free Trial</a>
+    <div class="cta">
+      <div>
+        <h2>Start Your EZE Challenge Today</h2>
+        <div class="cta-li">
+          <div><i><svg class="i s12"><use href="#i-check"/></svg></i> As many Free Trials as you need</div>
+          <div><i><svg class="i s12"><use href="#i-check"/></svg></i> Up to $200,000 account</div>
+          <div><i><svg class="i s12"><use href="#i-check"/></svg></i> No time limit</div>
+        </div>
+        <div class="btns">
+          <a href="challenge.html" class="btn btn-w">EZE Challenge</a>
+          <a href="challenge.html#pricing" class="btn btn-o" style="border-color:rgba(255,255,255,.4);color:#fff">Free Trial</a>
+        </div>
       </div>
-      <div class="ticks">
-        <span><svg class="i s12"><use href="#i-check"/></svg> As many Free Trials as you need</span>
-        <span><svg class="i s12"><use href="#i-check"/></svg> Up to $200,000 account</span>
-        <span><svg class="i s12"><use href="#i-check"/></svg> No time limit</span>
+      <div class="cta-mock">
+        <div class="cm-top"><b><svg class="i s12"><use href="#i-diamond"/></svg> EZE Account #200-84921</b><span class="cm-live">LIVE · A-BOOK</span></div>
+        <div class="cm-eq"><div><small style="color:var(--dim);font-size:.6rem;text-transform:uppercase;letter-spacing:.05em">Equity</small><br><b>$213,406.88</b></div><span>+6.70%</span></div>
+        <svg viewBox="0 0 300 54" style="width:100%" aria-hidden="true">
+          <path d="M0,44 L18,40 L34,43 L52,35 L68,38 L88,29 L104,32 L124,24 L140,27 L158,19 L176,23 L194,15 L214,18 L232,11 L252,14 L272,7 L300,10" fill="none" stroke="#39d573" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <div class="cm-g">
+          <div><small>Balance</small><b>$208,120</b></div>
+          <div><small>Daily DD</small><b style="color:#39d573">1.4% / 5%</b></div>
+          <div><small>Last payout</small><b style="color:#ffb04d">$8,120 · 3m 12s</b></div>
+        </div>
       </div>
     </div>
-    <div class="ph-quick" style="margin-top:clamp(36px,5vw,56px)">
-      <div><b>$94M+</b><span>Paid in rewards</span></div>
-      <div><b>640K+</b><span>EZE accounts</span></div>
-      <div><b class="grn">4.8/5</b><span>Trustpilot · 31,209 reviews</span></div>
-      <div><b>132</b><span>Countries</span></div>
+
+    <div class="trustbar">
+      <div>
+        <h3>Prove Your Skills with a Trusted Firm</h3>
+        <div class="mut">We've been building the A-Book model since 2023. Join us now!</div>
+      </div>
+      <div class="tb-n"><b>640K+</b><span>EZE accounts<br>worldwide</span></div>
+      <div class="tb-n"><b>$94M+</b><span>Paid in rewards<br>worldwide</span></div>
+      <div class="tb-n"><b>4.8/5</b><span>Trustpilot</span></div>
+    </div>
+
+    <div class="fl-rev">
+      <small>WORLDWIDE REVIEWS</small>
+      <b>Excellent</b>
+      <span class="tp-st"><i><svg class="i f"><use href="#i-star"/></svg></i><i><svg class="i f"><use href="#i-star"/></svg></i><i><svg class="i f"><use href="#i-star"/></svg></i><i><svg class="i f"><use href="#i-star"/></svg></i><i><svg class="i f"><use href="#i-star"/></svg></i></span>
+      <a href="reviews.html">31,209 reviews on</a>
+      <span class="tp-lg">&#9733; Trustpilot</span>
     </div>
   </div>
 </section>
+</div>
 <footer>
   <div class="wrap">
     <div class="ft-g">
@@ -1633,7 +1705,7 @@ if(document.getElementById('itable')) itbl('fx');
   Object.keys(CATS).forEach(function(k){
     if(!byCat[k]) return;
     var g=document.createElement('div'); g.className='fq-g'; g.dataset.g=k;
-    g.innerHTML='<button class="gh"><span class="ic" style="background:'+CATS[k].bg+';color:'+CATS[k].c+'"><svg class="i s14"><use href="#'+CATS[k].ic+'"/></svg></span>'+CATS[k].l+
+    g.innerHTML='<button class="gh"><span class="ic"><svg class="i s16"><use href="#'+CATS[k].ic+'"/></svg></span>'+CATS[k].l+
       '<svg class="i s12 chev"><use href="#i-chev"/></svg></button><div class="fq-qs"></div>';
     var qs=g.querySelector('.fq-qs');
     byCat[k].forEach(function(a){
@@ -1646,7 +1718,10 @@ if(document.getElementById('itable')) itbl('fx');
     var art=document.getElementById(id); if(!art) return;
     arts.forEach(function(a){a.classList.toggle('on',a===art)});
     tree.querySelectorAll('.fq-q').forEach(function(b){b.classList.toggle('on',b.dataset.id===id)});
-    tree.querySelectorAll('.fq-g').forEach(function(g){ if(g.dataset.g===art.dataset.g) g.classList.add('open'); });
+    tree.querySelectorAll('.fq-g').forEach(function(g){
+      g.classList.toggle('act',g.dataset.g===art.dataset.g);
+      if(g.dataset.g===art.dataset.g) g.classList.add('open');
+    });
     /* breadcrumb */
     var c=document.getElementById('fqCrumb');
     if(c) c.innerHTML='<span>All FAQ</span><svg class="i"><use href="#i-chev"/></svg><span>'+CATS[art.dataset.g].l+'</span><svg class="i"><use href="#i-chev"/></svg><b>'+art.dataset.t+'</b>';

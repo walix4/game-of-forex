@@ -904,6 +904,49 @@ nav.scrolled{background:rgba(10,10,11,.82);backdrop-filter:blur(12px);border-bot
   .fq-side{position:static;max-height:none;overflow:visible}
 }
 
+/* light content scope — FTMO-style white area between dark nav & footer */
+.flite{background:#fff;color:#111318}
+.flite .fsearch input{background:#fff;border-color:#e3e5ea;color:#111318}
+.flite .fsearch input::placeholder{color:#9aa0ab}
+.flite .fsearch input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(11,132,254,.12)}
+.flite .fsearch .i{color:#9aa0ab}
+.flite .fq-g>button.gh{color:#111318}
+.flite .fq-g>button.gh:hover{background:#f4f5f7}
+.flite .fq-g.act>button.gh{background:#f4f5f7}
+.flite .fq-g .ic{background:none!important;color:#565d68!important;width:20px;height:20px}
+.flite .fq-g .chev{color:#9aa0ab}
+.flite .fq-q{color:#565d68}
+.flite .fq-q:hover{color:#111318;background:#f4f5f7}
+.flite .fq-q.on{color:#111318;background:#eceef2}
+.flite .fq-qs{border-left:1px solid #eceef2;margin-left:10px;padding-left:8px}
+.flite .fq-crumb{color:#9aa0ab}
+.flite .fq-crumb b{color:#565d68}
+.flite .fq-art h1{color:#111318}
+.flite .fq-art p,.flite .fq-art ul{color:#3d434d}
+.flite .fq-art p b{color:#111318}
+.flite .fq-art p a{color:#0b6ef5}
+.flite .fq-rel{border-color:#e6e8ec;background:#fff}
+.flite .fq-rel>button{color:#24272e;border-color:#eef0f2}
+.flite .fq-rel>button:hover{background:#f7f8fa;color:#000}
+.flite .fq-rel .di,.flite .fq-rel .chev{color:#9aa0ab}
+.flite .faq-cta{background:#f7f8fa;border-color:#e6e8ec}
+.flite .faq-cta b{color:#111318}
+.flite .faq-cta span{color:#565d68}
+.flite .btn-o{border-color:#d9dce2;color:#24272e}
+.flite .btn-o:hover{border-color:#b9bec7;background:#f4f5f7}
+.flite .faq-none{color:#565d68}
+.flite .trustbar h3{color:#111318}
+.flite .trustbar .mut{color:#565d68}
+.flite .trustbar .tb-n{padding-left:clamp(18px,3vw,44px);border-left:1px solid #e6e8ec}
+.flite .trustbar .tb-n b{color:#111318}
+.flite .trustbar .tb-n span{color:#565d68}
+.fl-rev{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;padding:clamp(26px,4vw,40px) 0 clamp(40px,6vw,64px);font-size:.86rem;color:#565d68}
+.fl-rev small{font-size:.64rem;font-weight:800;letter-spacing:.14em;color:#9aa0ab;margin-right:8px}
+.fl-rev b{color:#111318;font-weight:700}
+.fl-rev a{text-decoration:underline;color:#565d68}
+.fl-rev .tp-lg{color:var(--tp)}
+@media(max-width:1060px){.flite .trustbar .tb-n{border-left:0;padding-left:0}}
+
 /* rating panel + distribution (reviews) */
 .rate{display:grid;grid-template-columns:auto 1fr;gap:clamp(28px,5vw,64px);align-items:center;border:1px solid var(--line);border-radius:var(--r-lg);background:linear-gradient(165deg,#0f1512,#101014 60%);padding:clamp(26px,4vw,44px)}
 .rate-l{text-align:center}
@@ -1557,7 +1600,7 @@ if(document.getElementById('itable')) itbl('fx');
   Object.keys(CATS).forEach(function(k){
     if(!byCat[k]) return;
     var g=document.createElement('div'); g.className='fq-g'; g.dataset.g=k;
-    g.innerHTML='<button class="gh"><span class="ic" style="background:'+CATS[k].bg+';color:'+CATS[k].c+'"><svg class="i s14"><use href="#'+CATS[k].ic+'"/></svg></span>'+CATS[k].l+
+    g.innerHTML='<button class="gh"><span class="ic"><svg class="i s16"><use href="#'+CATS[k].ic+'"/></svg></span>'+CATS[k].l+
       '<svg class="i s12 chev"><use href="#i-chev"/></svg></button><div class="fq-qs"></div>';
     var qs=g.querySelector('.fq-qs');
     byCat[k].forEach(function(a){
@@ -1570,7 +1613,10 @@ if(document.getElementById('itable')) itbl('fx');
     var art=document.getElementById(id); if(!art) return;
     arts.forEach(function(a){a.classList.toggle('on',a===art)});
     tree.querySelectorAll('.fq-q').forEach(function(b){b.classList.toggle('on',b.dataset.id===id)});
-    tree.querySelectorAll('.fq-g').forEach(function(g){ if(g.dataset.g===art.dataset.g) g.classList.add('open'); });
+    tree.querySelectorAll('.fq-g').forEach(function(g){
+      g.classList.toggle('act',g.dataset.g===art.dataset.g);
+      if(g.dataset.g===art.dataset.g) g.classList.add('open');
+    });
     /* breadcrumb */
     var c=document.getElementById('fqCrumb');
     if(c) c.innerHTML='<span>All FAQ</span><svg class="i"><use href="#i-chev"/></svg><span>'+CATS[art.dataset.g].l+'</span><svg class="i"><use href="#i-chev"/></svg><b>'+art.dataset.t+'</b>';
