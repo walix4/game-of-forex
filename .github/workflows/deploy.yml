@@ -1,5 +1,9 @@
 name: Deploy to GitHub Pages
 
+# Publishes the static EZE Funded site in site/.
+# The Next.js app is still in this repo but is no longer what Pages serves —
+# see git history for the previous npm-build workflow if it needs restoring.
+
 on:
   push:
     branches: [main]
@@ -19,26 +23,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-python@v5
         with:
-          node-version: 20
-          cache: npm
-      - run: npm ci
-      - run: npm run build
-        env:
-          DEPLOY_TARGET: pages
-      - run: touch out/.nojekyll
-      # RSC payloads: the client router may request /path.txt (no trailing
-      # slash) — mirror each dir/index.txt to dir.txt so client-side
-      # navigation never 404s into a full-page reload.
-      - run: |
-          cd out
-          find . -mindepth 2 -name index.txt | while read -r f; do
-            cp "$f" "$(dirname "$f").txt"
-          done
+          python-version: "3.12"
+      # Rebuild from pages/ + partials/ so a committed-but-stale dist/ can
+      # never ship. build.py has no dependencies.
+      - run: python3 build.py
+        working-directory: site
+      - run: touch site/dist/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: out
+          path: site/dist
 
   deploy:
     needs: build
