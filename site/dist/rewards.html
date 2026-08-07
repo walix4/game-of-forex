@@ -830,12 +830,14 @@ nav.scrolled{background:rgba(10,10,11,.82);backdrop-filter:blur(12px);border-bot
 @media(max-width:640px){.lpath{flex-direction:column;gap:8px}.lp-a{transform:rotate(90deg);height:20px}}
 
 /* timeline (about) */
-.tline{max-width:760px;margin:0 auto;position:relative;padding-left:34px}
-.tline::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--blue),#39d573)}
+.tline{max-width:760px;margin:0 auto;position:relative;padding-left:38px}
+.tline::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:4px;border-radius:99px;background:linear-gradient(180deg,var(--blue),#39d573)}
 .tl{position:relative;padding:0 0 34px}
 .tl:last-child{padding-bottom:0}
-.tl::before{content:"";position:absolute;left:-31px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:3px solid var(--blue)}
-.tl:last-child::before{border-color:#39d573}
+.tl::before{content:"";position:absolute;left:-34px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(11,132,254,.2),0 0 0 1.5px var(--bg) inset}
+.tl:last-child::before{background:#39d573;box-shadow:0 0 0 4px rgba(29,185,84,.2),0 0 0 1.5px var(--bg) inset}
+.tline.anim .tl{opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1)}
+.tline.anim .tl.in{opacity:1;transform:none}
 .tl small{font-family:"Plus Jakarta Sans";font-weight:800;font-size:.78rem;color:#5eaeff;letter-spacing:.08em}
 .tl:last-child small{color:#39d573}
 .tl h3{font-size:1.08rem;margin:4px 0 4px}
@@ -1991,6 +1993,16 @@ if(document.getElementById('itable')) itbl('fx');
   var c0=h?document.querySelector('.ac-card[data-v="'+h+'"]'):null;
   if(!c0) c0=document.querySelector('.ac-card');
   if(c0) play(c0.dataset.v,c0.dataset.p,false,false);
+})();
+
+/* about timeline: reveal steps on scroll */
+(function(){
+  var tl=document.querySelector('.tline'); if(!tl||!('IntersectionObserver' in window)) return;
+  tl.classList.add('anim');
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{rootMargin:'-60px 0px'});
+  tl.querySelectorAll('.tl').forEach(function(x){io.observe(x)});
 })();
 
 /* rating distribution bars animate in (reviews) */

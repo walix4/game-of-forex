@@ -538,6 +538,16 @@ if(document.getElementById('itable')) itbl('fx');
   if(c0) play(c0.dataset.v,c0.dataset.p,false,false);
 })();
 
+/* about timeline: reveal steps on scroll */
+(function(){
+  var tl=document.querySelector('.tline'); if(!tl||!('IntersectionObserver' in window)) return;
+  tl.classList.add('anim');
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{rootMargin:'-60px 0px'});
+  tl.querySelectorAll('.tl').forEach(function(x){io.observe(x)});
+})();
+
 /* rating distribution bars animate in (reviews) */
 (function(){
   var r=document.querySelector('.rate'); if(!r) return;
