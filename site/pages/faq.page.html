@@ -2,14 +2,34 @@
 <!--DESC: Answers on EZE Challenge rules, instant payouts, A-Book execution, trading conditions and getting funded. -->
 <!--NAV: faq -->
 
-<header class="hero" style="padding-bottom:8px"><div class="wrap"><span class="badge"><span class="ck"><svg class="i s14"><use href="#i-chat"/></svg></span> Answers in seconds</span><h1>Frequently Asked <span class="grad">Questions</span></h1><p class="sub">Everything about challenges, rules, payouts and A-Book execution. Can't find it? Our team replies in ~3 minutes.</p></div></header>
-<!-- FAQ -->
-<section class="sec" id="faq">
+<header class="page-hero pg-faq" style="padding-bottom:clamp(32px,4vw,52px)">
   <div class="wrap">
-    <div class="sec-t">
-      <h2>Frequently Asked Questions</h2>
-      <p>Find your answers here.</p>
+    <nav class="crumb"><a href="index.html">Home</a><svg class="i"><use href="#i-chev"/></svg><span>FAQ</span></nav>
+    <span class="peye">HELP CENTER</span>
+    <h1>How can <span class="grad">we help?</span></h1>
+    <p class="sub">Search everything about challenges, rules, payouts and A-Book execution. Can't find it? A human replies in ~3 minutes.</p>
+    <div class="fsearch">
+      <svg class="i s18"><use href="#i-eye"/></svg>
+      <input type="search" id="faqSearch" placeholder="Search answers — try &quot;payout&quot; or &quot;news&quot;" aria-label="Search FAQs">
     </div>
+  </div>
+</header>
+
+<!-- POPULAR TOPICS -->
+<section class="sec" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="ftop">
+      <div class="ft-c" data-f="challenge"><span class="ic" style="background:rgba(11,132,254,.12);color:#5eaeff"><svg class="i s18"><use href="#i-rocket"/></svg></span><h3>The Challenge</h3><span>Routes, targets, passing &amp; getting funded</span></div>
+      <div class="ft-c" data-f="payouts"><span class="ic" style="background:rgba(29,185,84,.12);color:#39d573"><svg class="i s18"><use href="#i-dollar"/></svg></span><h3>Payouts</h3><span>Speed, methods, splits &amp; the fee refund</span></div>
+      <div class="ft-c" data-f="rules"><span class="ic" style="background:rgba(245,158,11,.12);color:#ffb04d"><svg class="i s18"><use href="#i-shield"/></svg></span><h3>Trading Rules</h3><span>News, weekends, EAs &amp; loss limits</span></div>
+      <div class="ft-c" data-f="general"><span class="ic" style="background:rgba(139,92,246,.12);color:#b58bff"><svg class="i s18"><use href="#i-info"/></svg></span><h3>General</h3><span>Platforms, A-Book, KYC &amp; countries</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq" style="padding-top:clamp(32px,4vw,48px)">
+  <div class="wrap">
     <div class="faq-tabs" id="faqTabs">
       <button data-f="all" class="on">All</button>
       <button data-f="challenge">Challenge</button>
@@ -26,9 +46,37 @@
         <summary><i>+</i> How do I become an EZE Trader?</summary>
         <div class="fa">Choose a challenge size, complete the Trading Objectives (profit target within the loss limits), and pass verification. Your EZE Account with A-Book routing is issued the same day.</div>
       </details>
+      <details data-cat="challenge">
+        <summary><i>+</i> What's the difference between 2-Step, 1-Step and Instant?</summary>
+        <div class="fa">2-Step has two phases (10% then 5% targets) and the lowest fees. 1-Step has a single 10% target. Instant skips evaluation entirely — you start funded with tighter loss limits and an up-to-90% split. All three end on the same live A-Book account.</div>
+      </details>
+      <details data-cat="challenge">
+        <summary><i>+</i> Is there a time limit or minimum trading days?</summary>
+        <div class="fa">No and no. Take a week or take a year — the account stays open as long as you respect the loss limits. There are no minimum trading days on any route.</div>
+      </details>
+      <details data-cat="challenge">
+        <summary><i>+</i> I have successfully passed, what do I do now?</summary>
+        <div class="fa">Complete KYC (one time, ~5 minutes), verify a payout method, and your EZE Account credentials arrive by email — usually the same day. Your first withdrawal also refunds your challenge fee.</div>
+      </details>
+      <details data-cat="challenge">
+        <summary><i>+</i> What happens if I fail the evaluation?</summary>
+        <div class="fa">The account closes and you can start a fresh challenge whenever you're ready. Failing an evaluation never carries a penalty beyond the fee, and retake discounts appear in your dashboard regularly.</div>
+      </details>
       <details data-cat="payouts">
         <summary><i>+</i> How fast are payouts, really?</summary>
         <div class="fa">Median across all methods in the last 30 days: 3 minutes 40 seconds. E-wallets clear in about 90 seconds; SEPA Instant in a few minutes; SWIFT takes as long as the receiving bank takes. There is no payout calendar and no minimum amount.</div>
+      </details>
+      <details data-cat="payouts">
+        <summary><i>+</i> What's the profit split and how does it grow?</summary>
+        <div class="fa">Funded accounts start at 80% and climb to 95% as you hit scaling milestones. Instant Funding accounts run up to 90%. Once you reach a tier, it never goes back down.</div>
+      </details>
+      <details data-cat="payouts">
+        <summary><i>+</i> When is my challenge fee refunded?</summary>
+        <div class="fa">On evaluation routes (2-Step and 1-Step), the one-time fee is returned in full with your first payout from the funded account. Instant Funding fees aren't refundable — that route skips evaluation entirely.</div>
+      </details>
+      <details data-cat="payouts">
+        <summary><i>+</i> Are there payout fees or minimums?</summary>
+        <div class="fa">No fees on any rail — the amount you request is the amount that arrives — and no minimum withdrawal. Request $50 or $50,000, as often as you like.</div>
       </details>
       <details data-cat="rules">
         <summary><i>+</i> Can I trade news?</summary>
@@ -38,9 +86,21 @@
         <summary><i>+</i> Do I have to close positions overnight or before the weekend?</summary>
         <div class="fa">No. Overnight and weekend holding are both allowed. Swap-free account options are available on request.</div>
       </details>
-      <details data-cat="challenge">
-        <summary><i>+</i> I have successfully passed, what do I do now?</summary>
-        <div class="fa">Complete KYC (one time, ~5 minutes), verify a payout method, and your EZE Account credentials arrive by email — usually the same day. Your first withdrawal also refunds your challenge fee.</div>
+      <details data-cat="rules">
+        <summary><i>+</i> How are the loss limits measured?</summary>
+        <div class="fa">Max daily loss resets at server midnight and is measured against that day's starting balance or equity, whichever is higher. Max overall loss is static from your starting balance — it never trails your profits.</div>
+      </details>
+      <details data-cat="rules">
+        <summary><i>+</i> Are expert advisors and algos allowed?</summary>
+        <div class="fa">Yes — your own EAs and strategies are welcome. What's forbidden is exploiting the environment itself: latency arbitrage, feed manipulation and group copy-exploits end the account.</div>
+      </details>
+      <details data-cat="rules">
+        <summary><i>+</i> What instruments can I trade?</summary>
+        <div class="fa">Forex majors, minors and crosses, gold and metals, major indices and popular crypto pairs — the same list on evaluation and funded accounts. The full symbol list lives in your dashboard.</div>
+      </details>
+      <details data-cat="general">
+        <summary><i>+</i> Which platforms are supported?</summary>
+        <div class="fa">MT5, cTrader, DXtrade and Match-Trader. You pick at checkout, and support can reissue credentials on another platform before your first trade on the account.</div>
       </details>
       <details data-cat="general">
         <summary><i>+</i> Can I modify my platform or account type?</summary>
@@ -50,7 +110,12 @@
         <summary><i>+</i> Is the evaluation also on A-Book?</summary>
         <div class="fa">No — evaluations run in a simulated environment on live pricing, which is what keeps challenge fees affordable. Funded accounts are live A-Book. We state this openly because most firms never route you to the market at all.</div>
       </details>
+      <details data-cat="general">
+        <summary><i>+</i> Which countries do you support?</summary>
+        <div class="fa">Traders in 132 countries use EZE today. A short list of sanctioned jurisdictions is excluded — the checkout will tell you immediately if yours is affected.</div>
+      </details>
     </div>
+    <div class="faq-none" id="faqNone">No answers match that search. Try a different word, or ask us directly below.</div>
     <div class="faq-cta">
       <div><b>Still have questions?</b><span>Our human support team replies in under 3 minutes, 24/7.</span></div>
       <div class="btns"><a href="about.html#support" class="btn btn-b btn-sm"><svg class="i s14"><use href="#i-chat"/></svg> Chat with us</a><a href="mailto:support@ezefunded.com" class="btn btn-o btn-sm"><svg class="i s14"><use href="#i-mail"/></svg> support@ezefunded.com</a></div>

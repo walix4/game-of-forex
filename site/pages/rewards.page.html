@@ -2,41 +2,70 @@
 <!--DESC: No payout days at EZE. Request a reward any time and receive it in minutes via SEPA Instant, e-wallets, card or bank. Keep up to 95% of your profits. -->
 <!--NAV: rewards -->
 
-<header class="hero">
+<header class="page-hero pg-rewards">
   <div class="wrap">
-    <span class="badge"><span class="ck"><svg class="i s14"><use href="#i-zap"/></svg></span> 3m 40s median payout</span>
+    <nav class="crumb"><a href="index.html">Home</a><svg class="i"><use href="#i-chev"/></svg><span>Rewards</span></nav>
+    <span class="peye">INSTANT REWARDS</span>
     <h1>Paid the Minute <span class="grad">You Earn It</span></h1>
     <p class="sub">There's no payout calendar at EZE. Request a withdrawal whenever you like, as often as you like — and watch it clear in minutes, not days.</p>
     <div class="hero-cta">
-      <a href="challenge.html" class="btn btn-b">Start earning</a>
-      <a href="#methods" class="btn btn-o">Payout methods</a>
+      <a href="challenge.html" class="btn btn-b">Get funded</a>
+      <a href="#flow" class="btn btn-o">See how a payout happens</a>
+    </div>
+    <div class="ph-quick">
+      <div><b class="grn" data-count="94213540" data-pre="$" data-suf="+">$0</b><span>Total rewards paid</span></div>
+      <div><b>3m 40s</b><span>Median clear time</span></div>
+      <div><b>99.9%</b><span>Cleared in minutes</span></div>
+      <div><b>$0</b><span>Minimum payout</span></div>
     </div>
   </div>
 </header>
 
-<!-- WITHDRAW CARDS (reused pattern) -->
-<section class="sec" id="methods">
+<!-- PAYOUT TIMELINE -->
+<section class="sec" id="flow">
   <div class="wrap">
-    <div class="sec-t"><h2>Withdraw Your Way. In Minutes.</h2><p>Pick the rail that suits you — every one clears fast.</p></div>
-    <div class="wd">
-      <div class="wd-c blu">
-        <span class="wd-ic"><svg class="i s18"><use href="#i-zap"/></svg></span>
-        <small>INSTANT PAYOUTS</small>
-        <h3>Choose Your Rail</h3>
-        <p>No payout day. The moment your request is signed, funds move on the rail you choose.</p>
-        <div class="wd-list">
-          <div><i><svg class="i s12"><use href="#i-zap"/></svg></i> SEPA Instant <b>~3 min</b></div>
-          <div><i><svg class="i s12"><use href="#i-wallet"/></svg></i> Skrill · Neteller · Wise <b>~90 sec</b></div>
-          <div><i><svg class="i s12"><use href="#i-card"/></svg></i> Visa Direct · MC Send <b>~6 min</b></div>
-          <div><i><svg class="i s12"><use href="#i-bank"/></svg></i> Bank · SWIFT <b>Same day</b></div>
+    <span class="sec-eye">REQUEST → RECEIVED</span>
+    <div class="sec-t"><h2>Anatomy of an EZE payout</h2><p>The clock below is the real median from the last 30 days of rewards.</p></div>
+    <div class="pstep">
+      <div class="ps"><span class="ps-t"><svg class="i s12"><use href="#i-clock"/></svg> 0:00</span><h3>You tap withdraw</h3><p>Any amount, any day. Pick your rail and confirm — that's the whole form.</p></div>
+      <div class="ps"><span class="ps-t"><svg class="i s12"><use href="#i-clock"/></svg> 0:20</span><h3>Risk signs it</h3><p>Automated checks approve the request. No committee, no payout day queue.</p></div>
+      <div class="ps"><span class="ps-t"><svg class="i s12"><use href="#i-clock"/></svg> 0:45</span><h3>Funds leave EZE</h3><p>Your reward is on its rail with a signed certificate attached.</p></div>
+      <div class="ps"><span class="ps-t"><svg class="i s12"><use href="#i-check"/></svg> 3:40</span><h3>It's in your account</h3><p>Median across every method last month. E-wallets are usually faster.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RAILS -->
+<section class="sec" style="background:var(--bg2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <span class="sec-eye">PICK YOUR RAIL</span>
+    <div class="sec-t"><h2>Every method. All fast.</h2><p>Fees on us — the amount you request is the amount that arrives.</p></div>
+    <div class="rails" style="max-width:860px;margin:0 auto">
+      <div class="rail h"><span></span><span>Method</span><span>Typical time</span><span>Fee</span><span></span></div>
+      <div class="rail"><span class="ic"><svg class="i s18"><use href="#i-wallet"/></svg></span><div><b>E-wallets</b><small>Skrill · Neteller · Wise</small></div><span class="tm">~90 sec</span><span class="fee">Free</span><span class="go">FASTEST</span></div>
+      <div class="rail"><span class="ic"><svg class="i s18"><use href="#i-zap"/></svg></span><div><b>SEPA Instant</b><small>EU bank accounts</small></div><span class="tm">~3 min</span><span class="fee">Free</span><span class="go">24/7</span></div>
+      <div class="rail"><span class="ic"><svg class="i s18"><use href="#i-card"/></svg></span><div><b>Card payout</b><small>Visa Direct · Mastercard Send</small></div><span class="tm">~6 min</span><span class="fee">Free</span><span class="go">GLOBAL</span></div>
+      <div class="rail"><span class="ic"><svg class="i s18"><use href="#i-bank"/></svg></span><div><b>Bank transfer</b><small>SWIFT · local rails</small></div><span class="tm">Same day</span><span class="fee">Free</span><span class="go">ANY BANK</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATE -->
+<section class="sec">
+  <div class="wrap">
+    <div class="why-panel">
+      <div class="wp-l">
+        <span class="tp-tag"><svg class="i s12"><use href="#i-diamond"/></svg> SIGNED &amp; CERTIFIED</span>
+        <h3>Every reward ships with proof</h3>
+        <p>Each payout is issued with a signed EZE certificate — the amount, the date and the signature of the officer who cleared it. Traders share them because they clear before the screenshot uploads.</p>
+        <div class="wp-pts">
+          <span><svg class="i s14"><use href="#i-check"/></svg> No payout calendar</span>
+          <span><svg class="i s14"><use href="#i-check"/></svg> No minimum amount</span>
+          <span><svg class="i s14"><use href="#i-check"/></svg> Challenge fee refunded with the first one</span>
         </div>
+        <a href="reviews.html" class="btn btn-b" style="margin-top:24px;align-self:flex-start">See trader proof</a>
       </div>
-      <span class="wd-arrow" style="left:calc(33.33% - 21px)"><svg class="i s14"><use href="#i-route"/></svg></span>
-      <div class="wd-c grn">
-        <span class="wd-ic"><svg class="i s18"><use href="#i-dollar"/></svg></span>
-        <small>EZE REWARD</small>
-        <h3>Signed &amp; Certified</h3>
-        <p>Every reward ships with a signed certificate — proof your profit cleared in minutes.</p>
+      <div style="position:relative;z-index:1">
         <div class="cert-stack">
           <div class="cert">
             <div class="cert-h"><span class="cert-brand"><svg class="i s12"><use href="#i-diamond"/></svg> EZE</span><span class="cert-t">REWARD</span></div>
@@ -50,44 +79,44 @@
           </div>
         </div>
       </div>
-      <span class="wd-arrow" style="left:calc(66.66% - 5px)"><svg class="i s14"><use href="#i-route"/></svg></span>
-      <div class="wd-c org">
-        <span class="wd-ic"><svg class="i s18"><use href="#i-crown"/></svg></span>
-        <small>YOUR SCHEDULE</small>
-        <h3>No Limits. No Waiting.</h3>
-        <p>Request whenever you want, as often as you want — the rules never get in your way.</p>
-        <div class="wd-list">
-          <div><i>1</i> No payout calendar <b><svg class="i s12"><use href="#i-check"/></svg></b></div>
-          <div><i>2</i> No minimum amount <b><svg class="i s12"><use href="#i-check"/></svg></b></div>
-          <div><i>3</i> 3m 40s median clear time <b><svg class="i s12"><use href="#i-check"/></svg></b></div>
-        </div>
-      </div>
-    </div>
-    <div class="tri-cta">
-      <a href="challenge.html" class="btn btn-b">Start EZE Challenge</a>
-      <a href="faq.html" class="btn btn-o">How payouts work</a>
     </div>
   </div>
 </section>
 
-<!-- SPLIT / SCALING -->
+<!-- SPLIT LADDER -->
 <section class="sec" style="background:var(--bg2);border-block:1px solid var(--line)">
   <div class="wrap">
-    <div class="sec-t"><h2>Keep more as you grow</h2><p>Your split starts high and climbs — and your capital can scale to $2M.</p></div>
-    <div class="feat4">
-      <div class="f4" style="--fa:#1db954"><div class="ic"><svg class="i s18"><use href="#i-dollar"/></svg></div><h3>Up to 95% split</h3><p>Start at 80% and climb to 95% as you stay consistent.</p><em class="f4m">Among the highest anywhere</em></div>
-      <div class="f4" style="--fa:#0b84fe"><div class="ic"><svg class="i s18"><use href="#i-route"/></svg></div><h3>Scale to $2M</h3><p>Grow your allocation every time you hit a 10% milestone.</p><em class="f4m">Automatic scaling</em></div>
-      <div class="f4" style="--fa:#f59e0b"><div class="ic"><svg class="i s18"><use href="#i-zap"/></svg></div><h3>Fee refunded</h3><p>Your one-time challenge fee comes back with your first payout.</p><em class="f4m">On evaluation routes</em></div>
-      <div class="f4" style="--fa:#8b5cf6"><div class="ic"><svg class="i s18"><use href="#i-check"/></svg></div><h3>No minimum</h3><p>Withdraw $50 or $50,000 — there's no floor and no cap.</p><em class="f4m">Any amount, any time</em></div>
+    <span class="sec-eye">KEEP MORE AS YOU GROW</span>
+    <div class="sec-t"><h2>Your split climbs. Your capital scales.</h2><p>Stay consistent and both numbers move in your favour — automatically, at every 10% milestone.</p></div>
+    <div class="ladder" style="max-width:760px;margin:0 auto">
+      <div class="lad"><div class="lad-bar"><b>80%</b><span>Split</span></div><small>Day one, every funded trader</small></div>
+      <div class="lad"><div class="lad-bar"><b>85%</b><span>Split</span></div><small>First scaling milestone</small></div>
+      <div class="lad"><div class="lad-bar"><b>90%</b><span>Split</span></div><small>Consistent months</small></div>
+      <div class="lad"><div class="lad-bar"><b>95%</b><span>Split</span></div><small>Scaled — up to $2M capital</small></div>
+    </div>
+    <div class="paccess" style="justify-content:center">
+      <span class="pchip"><svg class="i s12"><use href="#i-check"/></svg> Scaling reviewed automatically</span>
+      <span class="pchip"><svg class="i s12"><use href="#i-check"/></svg> Allocation grows to $2,000,000</span>
+      <span class="pchip"><svg class="i s12"><use href="#i-check"/></svg> Split never goes back down</span>
     </div>
   </div>
 </section>
 
-<section class="sec">
+<!-- END CAP -->
+<section class="sec" style="padding-top:0">
   <div class="wrap">
-    <div class="faq-cta">
-      <div><b>Your profit shouldn't wait in a queue.</b><span>Get funded and experience payouts measured in minutes.</span></div>
-      <div class="btns"><a href="challenge.html" class="btn btn-b btn-sm">Get Funded</a><a href="reviews.html" class="btn btn-o btn-sm">See trader proof</a></div>
+    <div class="cta-band">
+      <h2>Your profit shouldn't wait in a queue.</h2>
+      <p>Get funded and experience payouts measured in minutes — with a certificate to prove it.</p>
+      <div class="btns">
+        <a href="challenge.html#pricing" class="btn btn-w">Start EZE Challenge</a>
+        <a href="reviews.html" class="btn btn-o" style="border-color:rgba(255,255,255,.4);color:#fff">See trader proof</a>
+      </div>
+      <div class="ticks">
+        <span><svg class="i s12"><use href="#i-check"/></svg> 3m 40s median payout</span>
+        <span><svg class="i s12"><use href="#i-check"/></svg> No payout days</span>
+        <span><svg class="i s12"><use href="#i-check"/></svg> Up to 95% yours</span>
+      </div>
     </div>
   </div>
 </section>

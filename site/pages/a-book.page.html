@@ -10,10 +10,10 @@
     <p class="sub">Most prop firms are B-Book — your loss is their revenue. EZE is the opposite. Every funded trade passes straight to tier-1 liquidity, so our only income is volume and commission. No desk. No conflict. No reason to root against you.</p>
     <div class="hero-cta">
       <a href="challenge.html" class="btn btn-b">Get an A-Book account</a>
-      <a href="#how" class="btn btn-o">See how routing works</a>
+      <a href="#route" class="btn btn-o">See how routing works</a>
     </div>
     <div class="ph-quick">
-      <div><b class="grn">100%</b><span>A-Book</span></div>
+      <div><b class="grn">100%</b><span>A-Book funded</span></div>
       <div><b>$94M+</b><span>Paid out</span></div>
       <div><b>0</b><span>B-Book desks</span></div>
       <div><b class="grn">Tier-1</b><span>Liquidity</span></div>
@@ -21,7 +21,50 @@
   </div>
 </header>
 
-<section class="sec" id="how">
+<!-- ROUTING DIAGRAM -->
+<section class="sec" id="route">
+  <div class="wrap">
+    <span class="sec-eye">CLICK TO FILL · MILLISECONDS</span>
+    <div class="sec-t"><h2>Where your order actually goes</h2><p>Watch the path. It never stops at a dealing desk, because there isn't one.</p></div>
+    <div class="rd">
+      <div class="rd-node">
+        <span class="ic"><svg class="i s18"><use href="#i-users"/></svg></span>
+        <small>Step 1 · You</small>
+        <h3>Order placed</h3>
+        <p>Buy or sell on MT5, cTrader, DXtrade or Match-Trader.</p>
+      </div>
+      <div class="rd-flow"></div>
+      <div class="rd-node">
+        <span class="rd-ms">~4 ms</span>
+        <span class="ic"><svg class="i s18"><use href="#i-route"/></svg></span>
+        <small>Step 2 · EZE gateway</small>
+        <h3>Routed straight out</h3>
+        <p>No dealing desk, no internalisation — the order passes through untouched.</p>
+      </div>
+      <div class="rd-flow"></div>
+      <div class="rd-node hot">
+        <span class="rd-ms">~34 ms fill</span>
+        <span class="ic"><svg class="i s18"><use href="#i-diamond"/></svg></span>
+        <small>Step 3 · Tier-1 pool</small>
+        <h3>Filled at the source</h3>
+        <p>Aggregated bank liquidity executes at raw interbank prices.</p>
+        <div class="rd-lps">
+          <span><i></i> Bank LP · London</span>
+          <span><i></i> Bank LP · New York</span>
+          <span><i></i> ECN venue · Tokyo</span>
+        </div>
+      </div>
+    </div>
+    <div class="paccess" style="justify-content:center">
+      <span class="pchip"><svg class="i s12"><use href="#i-zap"/></svg> Raw spreads, zero markup</span>
+      <span class="pchip"><svg class="i s12"><use href="#i-check"/></svg> No requotes</span>
+      <span class="pchip"><svg class="i s12"><use href="#i-check"/></svg> Up to 95% of the result is yours</span>
+    </div>
+  </div>
+</section>
+
+<!-- A VS B -->
+<section class="sec" style="background:var(--bg2);border-block:1px solid var(--line)">
   <div class="wrap">
     <span class="sec-eye">THE CORE DIFFERENCE</span>
     <div class="sec-t"><h2>A-Book vs B-Book</h2><p>It decides one thing: whether the firm is on your side of the trade.</p></div>
@@ -47,22 +90,14 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="sec" style="background:var(--bg2);border-block:1px solid var(--line)">
-  <div class="wrap">
-    <span class="sec-eye">CLICK TO FILL &middot; MILLISECONDS</span>
-    <div class="sec-t"><h2>How your order travels</h2><p>Every funded order takes the same path — straight to the real market.</p></div>
-    <div class="feat4">
-      <div class="f4" style="--fa:#0b84fe"><div class="ic"><svg class="i s18"><use href="#i-zap"/></svg></div><h3>1 &middot; You place it</h3><p>Buy or sell on MT5, cTrader, DXtrade or Match-Trader.</p><em class="f4m">Any supported platform</em></div>
-      <div class="f4" style="--fa:#1db954"><div class="ic"><svg class="i s18"><use href="#i-route"/></svg></div><h3>2 &middot; We route it out</h3><p>The order is passed to our aggregated liquidity pool.</p><em class="f4m">No internal desk</em></div>
-      <div class="f4" style="--fa:#f59e0b"><div class="ic"><svg class="i s18"><use href="#i-diamond"/></svg></div><h3>3 &middot; Tier-1 fills it</h3><p>Top banks and venues execute at raw interbank prices.</p><em class="f4m">Raw spreads &middot; zero markup</em></div>
-      <div class="f4" style="--fa:#8b5cf6"><div class="ic"><svg class="i s18"><use href="#i-check"/></svg></div><h3>4 &middot; You keep it</h3><p>Up to 95% of the result is yours, withdrawn in minutes.</p><em class="f4m">Instant payout</em></div>
+    <div class="ab-note" style="margin-top:12px">
+      <b>Full transparency:</b> evaluation accounts run in a simulated environment on live pricing — this keeps challenge fees low. The moment you're funded, your account switches to live A-Book routing. Most firms never switch at all.
+      <a href="faq.html" class="btn btn-o btn-sm" style="margin-left:auto">Read more in FAQ</a>
     </div>
   </div>
 </section>
 
+<!-- WHY IT MATTERS -->
 <section class="sec">
   <div class="wrap">
     <div class="why-panel">
@@ -86,6 +121,7 @@
   </div>
 </section>
 
+<!-- FAQ -->
 <section class="sec" style="background:var(--bg2);border-block:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-t"><h2>A-Book, answered</h2></div>
@@ -93,15 +129,26 @@
       <details open><summary><span>Is the evaluation also on A-Book?</span><i>+</i></summary><div class="fa">The evaluation runs in a realistic simulated environment so we can assess your risk. Once you're funded, your account trades on live A-Book routing to real liquidity.</div></details>
       <details><summary><span>How does EZE make money then?</span><i>+</i></summary><div class="fa">From trading volume and commission passed through to liquidity providers, plus challenge fees — never from your trading losses.</div></details>
       <details><summary><span>Does A-Book mean slower fills?</span><i>+</i></summary><div class="fa">No. Orders are aggregated across tier-1 venues and filled in milliseconds at raw interbank prices, with no dealing-desk intervention.</div></details>
+      <details><summary><span>Can I verify my orders reached the market?</span><i>+</i></summary><div class="fa">Every funded account's execution report includes venue timestamps and fill IDs. Ask support for your routing log any time — it's your data.</div></details>
     </div>
   </div>
 </section>
 
-<section class="sec">
+<!-- END CAP -->
+<section class="sec" style="padding-top:0">
   <div class="wrap">
-    <div class="faq-cta">
-      <div><b>Trade on the right side of the firm.</b><span>Open a funded A-Book account and feel the difference in execution.</span></div>
-      <div class="btns"><a href="challenge.html" class="btn btn-b btn-sm">Get Funded</a><a href="faq.html" class="btn btn-o btn-sm">Full FAQ</a></div>
+    <div class="cta-band">
+      <h2>Trade on the right side of the firm.</h2>
+      <p>Open a funded A-Book account and feel the difference in execution.</p>
+      <div class="btns">
+        <a href="challenge.html" class="btn btn-w">Get Funded</a>
+        <a href="faq.html" class="btn btn-o" style="border-color:rgba(255,255,255,.4);color:#fff">Full FAQ</a>
+      </div>
+      <div class="ticks">
+        <span><svg class="i s12"><use href="#i-check"/></svg> 100% A-Book funded accounts</span>
+        <span><svg class="i s12"><use href="#i-check"/></svg> Raw interbank pricing</span>
+        <span><svg class="i s12"><use href="#i-check"/></svg> Zero conflict of interest</span>
+      </div>
     </div>
   </div>
 </section>

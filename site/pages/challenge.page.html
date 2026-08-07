@@ -2,63 +2,70 @@
 <!--DESC: Choose your EZE Challenge. Trade up to $200,000 on an A-Book account, keep up to 95% of profits, and withdraw in minutes. No time limit, no minimum days. -->
 <!--NAV: challenge -->
 
-<!-- PAGE HERO -->
-<header class="hero">
+<header class="page-hero pg-challenge">
   <div class="wrap">
-    <span class="badge"><span class="ck"><svg class="i s14"><use href="#i-check"/></svg></span> No time limit · No minimum days</span>
-    <h1>Choose Your <span class="grad">EZE Challenge</span></h1>
-    <p class="sub">Prove your edge on a simulated account, then trade funded on real A-Book liquidity. Three routes — same instant payouts, same up-to-95% split.</p>
+    <nav class="crumb"><a href="index.html">Home</a><svg class="i"><use href="#i-chev"/></svg><span>EZE Challenge</span></nav>
+    <span class="peye">THE EZE CHALLENGE</span>
+    <h1>Your Path to a <span class="grad">Funded Account</span></h1>
+    <p class="sub">Prove your edge on a simulated evaluation, then trade real A-Book capital up to $200,000. No time limit, no minimum days — and every reward clears in minutes.</p>
     <div class="hero-cta">
       <a href="#pricing" class="btn btn-b">See pricing</a>
-      <a href="#compare" class="btn btn-o">Compare routes</a>
+      <a href="#journey" class="btn btn-o">How it works</a>
+    </div>
+    <div class="ph-quick">
+      <div><b>$89</b><span>Fees from</span></div>
+      <div><b>$200K</b><span>Max account</span></div>
+      <div><b class="grn">95%</b><span>Top split</span></div>
+      <div><b>∞</b><span>Time limit</span></div>
     </div>
   </div>
 </header>
 
-<!-- ROUTE CARDS -->
-<section class="sec">
+<!-- THE JOURNEY -->
+<section class="sec" id="journey">
   <div class="wrap">
-    <div class="tri">
-      <div class="tri-c blu">
-        <small><i><svg class="i s12"><use href="#i-zap"/></svg></i> Most Popular</small>
-        <h3>2-Step Evaluation</h3>
-        <p>The classic route. Clear two phases at a relaxed pace, then get funded. Best for consistent traders who want the lowest fee.</p>
-        <div class="tri-list">
-          <div><i><svg class="i s12"><use href="#i-check"/></svg></i> Phase 1 target 10%</div>
-          <div><i><svg class="i s12"><use href="#i-check"/></svg></i> Phase 2 target 5%</div>
-          <div><i><svg class="i s12"><use href="#i-check"/></svg></i> From $89</div>
+    <span class="sec-eye">START TO FUNDED</span>
+    <div class="sec-t"><h2>Three steps. Then you're paid.</h2><p>The classic 2-Step route, mapped out. Prefer fewer steps? 1-Step and Instant routes skip ahead.</p></div>
+    <div class="jour">
+      <div class="jr">
+        <small>Phase 1 · Evaluation</small>
+        <h3>Show your edge</h3>
+        <p>Hit the profit target at your own pace on a simulated account with live pricing.</p>
+        <div class="jr-m">
+          <div><b>10%</b>Profit target</div>
+          <div><b>5%</b>Max daily loss</div>
         </div>
       </div>
-      <div class="tri-c grn">
-        <small><i><svg class="i s12"><use href="#i-rocket"/></svg></i> Faster</small>
-        <h3>1-Step Evaluation</h3>
-        <p>A single phase to funded. One 10% target, no second hurdle — pass in as little as one trading day.</p>
-        <div class="tri-list">
-          <div><i><svg class="i s12"><use href="#i-check"/></svg></i> Single 10% target</div>
-          <div><i><svg class="i s12"><use href="#i-check"/></svg></i> No consistency rule</div>
-          <div><i><svg class="i s12"><use href="#i-check"/></svg></i> From $109</div>
+      <div class="jr-link"><span><svg class="i s12"><use href="#i-chev"/></svg></span></div>
+      <div class="jr">
+        <small>Phase 2 · Verification</small>
+        <h3>Prove it wasn't luck</h3>
+        <p>Half the target, same rules. Consistency is all we're checking for.</p>
+        <div class="jr-m">
+          <div><b>5%</b>Profit target</div>
+          <div><b>10%</b>Max overall loss</div>
         </div>
       </div>
-      <div class="tri-c org">
-        <small><i><svg class="i s12"><use href="#i-diamond"/></svg></i> No Evaluation</small>
-        <h3>Instant Funding</h3>
-        <p>Skip the evaluation entirely. Start on a funded A-Book account today and withdraw your first reward the minute you earn it.</p>
-        <div class="tri-list">
-          <div><i><svg class="i s12"><use href="#i-check"/></svg></i> Straight to funded</div>
-          <div><i><svg class="i s12"><use href="#i-check"/></svg></i> Up to 90% split</div>
-          <div><i><svg class="i s12"><use href="#i-check"/></svg></i> From $99</div>
+      <div class="jr-link"><span><svg class="i s12"><use href="#i-chev"/></svg></span></div>
+      <div class="jr done">
+        <small>Funded · EZE Account</small>
+        <h3>Trade real capital</h3>
+        <p>Live A-Book routing to tier-1 liquidity. Withdraw any profit the minute it lands.</p>
+        <div class="jr-m">
+          <div><b>80→95%</b>Your split</div>
+          <div><b>$2M</b>Scale ceiling</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRICING (reused component) -->
-<section class="sec" id="pricing">
+<!-- PRICING -->
+<section class="sec" id="pricing" style="background:var(--bg2);border-block:1px solid var(--line)">
   <div class="wrap">
     <div class="pr-head">
-      <h2>Pick your account size</h2>
-      <p>One-time refundable fee. Refunded with your first payout on evaluation routes.</p>
+      <h2>Pick your route and size</h2>
+      <p>One-time fee, refunded with your first payout on evaluation routes.</p>
       <div class="seg" id="seg">
         <button data-k="two" class="on"><svg class="i"><use href="#i-zap"/></svg><span class="sgt">2-Step<small>Standard 2-Phase</small></span></button>
         <button data-k="one"><svg class="i"><use href="#i-rocket"/></svg><span class="sgt">1-Step<small>Single step to EZE Account</small></span></button>
@@ -78,14 +85,63 @@
       <span class="pchip"><svg class="i s12"><use href="#i-check"/></svg> 0 minimum days</span>
       <span class="pchip"><svg class="i s12"><use href="#i-check"/></svg> News &amp; weekend holding</span>
       <span class="pchip"><svg class="i s12"><use href="#i-check"/></svg> Fee refunded on first payout</span>
+      <span class="pchip"><svg class="i s12"><use href="#i-check"/></svg> MT5 · cTrader · DXtrade · Match-Trader</span>
     </div>
   </div>
 </section>
 
-<!-- COMPARE TABLE -->
+<!-- REWARD CALCULATOR -->
+<section class="sec">
+  <div class="wrap">
+    <span class="sec-eye">DO THE MATHS</span>
+    <div class="sec-t"><h2>What would you keep?</h2><p>Drag the numbers. See how the split works at every account size.</p></div>
+    <div class="calc">
+      <div class="calc-l">
+        <div class="calc-f">
+          <small>Account size</small>
+          <div class="chips" id="rcSize">
+            <button data-v="10000">$10K</button>
+            <button data-v="25000">$25K</button>
+            <button data-v="50000">$50K</button>
+            <button data-v="100000" class="on">$100K</button>
+            <button data-v="200000">$200K</button>
+          </div>
+        </div>
+        <div class="calc-f">
+          <small>Gain on the account</small>
+          <input type="range" id="rcGain" min="1" max="20" step="0.5" value="6" aria-label="Gain percent">
+          <div class="calc-rv"><span>Gain</span><b id="rcGainV">6%</b></div>
+        </div>
+        <div class="calc-f">
+          <small>Your split tier</small>
+          <div class="chips" id="rcSplit">
+            <button data-v="80">80% · Start</button>
+            <button data-v="90" class="on">90% · Consistent</button>
+            <button data-v="95">95% · Scaled</button>
+          </div>
+        </div>
+      </div>
+      <div class="calc-r">
+        <small>You keep</small>
+        <div class="calc-out" id="rcOut">$5,400</div>
+        <p>of the profit on this example — withdrawable the minute it's closed.</p>
+        <div class="calc-rows">
+          <div><span>Account</span><b id="rcSizeV">$100,000</b></div>
+          <div><span>Profit on the account</span><b id="rcProfit">$6,000</b></div>
+          <div><span>Split tier</span><b id="rcSplitV">90%</b></div>
+          <div><span>EZE share</span><b id="rcFirm">$600</b></div>
+        </div>
+        <p class="calc-disc">Illustrative maths only — not a projection or promise of earnings. Trading involves substantial risk of loss.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
 <section class="sec" id="compare" style="background:var(--bg2);border-block:1px solid var(--line)">
   <div class="wrap">
-    <div class="sec-t"><h2>Which route is right for you?</h2><p>Every route ends the same way — a funded EZE Account on live A-Book routing.</p></div>
+    <span class="sec-eye">SIDE BY SIDE</span>
+    <div class="sec-t"><h2>Which route fits you?</h2><p>Every route ends the same way — a funded EZE Account on live A-Book routing.</p></div>
     <div class="itbl iscroll">
       <table>
         <thead><tr><th>&nbsp;</th><th>2-Step</th><th>1-Step</th><th>Instant</th></tr></thead>
@@ -96,6 +152,7 @@
           <tr><td>Max overall loss</td><td>10%</td><td>6%</td><td>6%</td></tr>
           <tr><td>Reward split</td><td>up to 95%</td><td>up to 95%</td><td>up to 90%</td></tr>
           <tr><td>Fee refund</td><td>Yes</td><td>Yes</td><td>—</td></tr>
+          <tr><td>Fees from</td><td>$89</td><td>$109</td><td>$99</td></tr>
           <tr><td>Best for</td><td>Lowest fee</td><td>Speed</td><td>No evaluation</td></tr>
         </tbody>
       </table>
@@ -103,12 +160,40 @@
   </div>
 </section>
 
-<!-- CTA -->
+<!-- RULEBOOK -->
 <section class="sec">
   <div class="wrap">
-    <div class="faq-cta">
-      <div><b>Ready to get funded?</b><span>Pick a size above, or talk to our team first — real humans, ~3 min reply.</span></div>
-      <div class="btns"><a href="#pricing" class="btn btn-b btn-sm">Start EZE Challenge</a><a href="faq.html" class="btn btn-o btn-sm">Read the rules</a></div>
+    <span class="sec-eye">NO SMALL PRINT</span>
+    <div class="sec-t"><h2>The rulebook, in plain words</h2><p>What's allowed, what breaches — nothing hidden between the lines.</p></div>
+    <div class="rul" style="max-width:860px;margin:0 auto">
+      <div class="rul-r ok"><span class="rul-n"><svg class="i s14"><use href="#i-check"/></svg></span><div><h4>Trade the news</h4><p>NFP, CPI, rate decisions — all allowed on every account, no blackout windows.</p></div><span class="rul-tag">ALLOWED</span></div>
+      <div class="rul-r ok"><span class="rul-n"><svg class="i s14"><use href="#i-check"/></svg></span><div><h4>Hold overnight &amp; weekends</h4><p>Keep positions open as long as your thesis holds. Swap-free options on request.</p></div><span class="rul-tag">ALLOWED</span></div>
+      <div class="rul-r ok"><span class="rul-n"><svg class="i s14"><use href="#i-check"/></svg></span><div><h4>Expert advisors &amp; algos</h4><p>Your own EAs are welcome — it's your edge, run it your way.</p></div><span class="rul-tag">ALLOWED</span></div>
+      <div class="rul-r ok"><span class="rul-n"><svg class="i s14"><use href="#i-check"/></svg></span><div><h4>Take your time</h4><p>No time limit and no minimum trading days on any route.</p></div><span class="rul-tag">ALLOWED</span></div>
+      <div class="rul-r no"><span class="rul-n">✕</span><div><h4>Breach the loss limits</h4><p>Cross the max daily or max overall loss and the account fails — the one hard line.</p></div><span class="rul-tag">BREACH</span></div>
+      <div class="rul-r no"><span class="rul-n">✕</span><div><h4>Exploit the platform</h4><p>Latency arbitrage, feed manipulation and copy-exploits end the account. Real trading only.</p></div><span class="rul-tag">BREACH</span></div>
+    </div>
+    <div class="tri-cta">
+      <a href="faq.html" class="btn btn-o">Full rules in the FAQ</a>
+    </div>
+  </div>
+</section>
+
+<!-- END CAP -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Pick a size. Start today.</h2>
+      <p>Most traders are inside their dashboard within five minutes of checkout.</p>
+      <div class="btns">
+        <a href="#pricing" class="btn btn-w">Start EZE Challenge</a>
+        <a href="a-book.html" class="btn btn-o" style="border-color:rgba(255,255,255,.4);color:#fff">Why A-Book matters</a>
+      </div>
+      <div class="ticks">
+        <span><svg class="i s12"><use href="#i-check"/></svg> Fee refunded on first payout</span>
+        <span><svg class="i s12"><use href="#i-check"/></svg> No time limit</span>
+        <span><svg class="i s12"><use href="#i-check"/></svg> Instant rewards</span>
+      </div>
     </div>
   </div>
 </section>
