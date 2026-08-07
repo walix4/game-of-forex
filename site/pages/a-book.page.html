@@ -24,34 +24,43 @@
 <section class="sec" id="route">
   <div class="wrap">
     <span class="sec-eye">CLICK TO FILL · MILLISECONDS</span>
-    <div class="sec-t"><h2>Where your order actually goes</h2><p>Watch the path. It never stops at a dealing desk, because there isn't one.</p></div>
-    <div class="rd">
-      <div class="rd-node">
-        <span class="ic"><svg class="i s18"><use href="#i-users"/></svg></span>
-        <small>Step 1 · You</small>
-        <h3>Order placed</h3>
-        <p>Buy or sell on MT5, cTrader, DXtrade or Match-Trader.</p>
+    <div class="sec-t"><h2>Where your order actually goes</h2><p>One real order, traced end to end. It never stops at a dealing desk — there isn't one.</p></div>
+    <div class="wire">
+      <div class="wire-top">
+        <span class="wt-live"><i></i> LIVE ROUTING</span>
+        <span>EZE Gateway · Equinix LD4, London</span>
+        <span class="wt-ms">Round trip ~38 ms</span>
       </div>
-      <div class="rd-flow"></div>
-      <div class="rd-node">
-        <span class="rd-ms">~4 ms</span>
-        <span class="ic"><svg class="i s18"><use href="#i-route"/></svg></span>
-        <small>Step 2 · EZE gateway</small>
-        <h3>Routed straight out</h3>
-        <p>No dealing desk, no internalisation — the order passes through untouched.</p>
-      </div>
-      <div class="rd-flow"></div>
-      <div class="rd-node hot">
-        <span class="rd-ms">~34 ms fill</span>
-        <span class="ic"><svg class="i s18"><use href="#i-diamond"/></svg></span>
-        <small>Step 3 · Tier-1 pool</small>
-        <h3>Filled at the source</h3>
-        <p>Aggregated bank liquidity executes at raw interbank prices.</p>
-        <div class="rd-lps">
-          <span><i></i> Bank LP · London</span>
-          <span><i></i> Bank LP · New York</span>
-          <span><i></i> ECN venue · Tokyo</span>
+      <div class="wire-body">
+        <div class="w-ticket">
+          <small>YOUR ORDER · MT5</small>
+          <div class="wt-sym"><span class="sym" style="background:#1c2b4a;color:#7fb2ff">€$</span> EURUSD</div>
+          <div class="wt-rows">
+            <div><span>Side</span><b class="up">BUY</b></div>
+            <div><span>Size</span><b>2.00 lots</b></div>
+            <div><span>Type</span><b>Market</b></div>
+          </div>
         </div>
+        <div class="w-link"><em>~4 ms</em></div>
+        <div class="w-gate">
+          <span class="ic"><svg class="i s20"><use href="#i-route"/></svg></span>
+          <b>EZE Gateway</b>
+          <span>No desk — straight<br>pass-through</span>
+        </div>
+        <div class="w-link"><em>~34 ms</em></div>
+        <div class="w-book">
+          <small>TIER-1 POOL · BEST PRICE WINS</small>
+          <div class="w-lp best"><i></i> Bank LP · London <b>1.08423</b> <span class="fillchip">FILLED</span></div>
+          <div class="w-lp"><i></i> Bank LP · New York <b>1.08425</b></div>
+          <div class="w-lp"><i></i> ECN venue · Tokyo <b>1.08426</b></div>
+        </div>
+      </div>
+      <div class="wire-rcpt">
+        <span class="ok"><svg class="i s12"><use href="#i-check"/></svg> Fill confirmed</span>
+        <span>EURUSD · 2.00 lots @ <b>1.08423</b></span>
+        <span>Slippage <b>0.0 pips</b></span>
+        <span>Markup <b>$0.00</b></span>
+        <span class="fid">Fill #EZ-8842156 · routing log available on request</span>
       </div>
     </div>
     <div class="paccess" style="justify-content:center">
