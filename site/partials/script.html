@@ -439,21 +439,56 @@ if(document.getElementById('itable')) itbl('fx');
   calc();
 })();
 
-/* blog: sidebar category filter */
+/* blog: list <-> readable article detail + category filter */
 (function(){
   var side=document.getElementById('bpSide'); if(!side) return;
+  var listSec=document.getElementById('bpList'), detSec=document.getElementById('bpDetail');
+  var arts=[].slice.call(document.querySelectorAll('.bd-art'));
+  var CATL={stories:'Trader Stories',psychology:'Trading Psychology',tips:'Trading Tips',systems:'Trading Systems',live:'Live Trading',news:'Prop Firm News',challenge:'EZE Challenge',community:'Community'};
+  function cardHTML(x){
+    return '<a class="bp-card" href="#'+x.id+'" data-post="'+x.id+'">'+
+      '<span class="bp-th"><img loading="lazy" src="https://i.ytimg.com/vi/'+x.dataset.v+'/hqdefault.jpg" alt=""><span class="pl"><span></span></span></span>'+
+      '<div class="bp-meta"><span class="bp-tag">'+CATL[x.dataset.c]+'</span><span class="bp-date">&middot; '+x.dataset.d+'</span></div>'+
+      '<h3>'+x.dataset.t+'</h3></a>';
+  }
+  function showList(){
+    listSec.classList.remove('hidsec'); detSec.classList.add('hidsec');
+    if(history.replaceState) history.replaceState(null,'',location.pathname+location.search);
+  }
+  function show(id,scroll){
+    var art=document.getElementById(id); if(!art) return;
+    arts.forEach(function(x){x.classList.toggle('on',x===art)});
+    listSec.classList.add('hidsec'); detSec.classList.remove('hidsec');
+    var c=document.getElementById('bdCrumb');
+    if(c) c.innerHTML='<button class="cb">All posts</button><svg class="i"><use href="#i-chev"/></svg><span>'+CATL[art.dataset.c]+'</span><svg class="i"><use href="#i-chev"/></svg><b>'+art.dataset.t+'</b>';
+    var rel=document.getElementById('bdRel');
+    if(rel){
+      var pool=arts.filter(function(x){return x!==art&&x.dataset.c===art.dataset.c});
+      arts.forEach(function(x){ if(x!==art&&x.dataset.c!==art.dataset.c&&pool.length<3) pool.push(x); });
+      rel.innerHTML=pool.slice(0,3).map(cardHTML).join('');
+    }
+    if(history.replaceState) history.replaceState(null,'','#'+id);
+    if(scroll) window.scrollTo({top:0,behavior:'auto'});
+  }
+  document.addEventListener('click',function(e){
+    var p=e.target.closest('[data-post]');
+    if(p){ e.preventDefault(); show(p.dataset.post,true); return; }
+    if(e.target.closest('#bdCrumb .cb')){ showList(); window.scrollTo({top:0,behavior:'auto'}); }
+  });
   side.addEventListener('click',function(e){
     var b=e.target.closest('.bp-cat'); if(!b) return;
     var c=b.dataset.c;
+    showList();
     side.querySelectorAll('.bp-cat').forEach(function(x){x.classList.toggle('on',x===b)});
-    document.querySelectorAll('.bp-card[data-c]').forEach(function(card){
+    document.querySelectorAll('#bpList .bp-card[data-c]').forEach(function(card){
       card.classList.toggle('hid', c!=='all' && card.dataset.c!==c);
     });
-    /* hide editorial blocks when a specific category is chosen */
     ['bpTop','bpPop','bpCta','bpPag'].forEach(function(id){
       var el=document.getElementById(id); if(el) el.classList.toggle('hidsec', c!=='all');
     });
   });
+  var h=location.hash.replace('#','');
+  if(document.getElementById(h)&&document.getElementById(h).classList.contains('bd-art')) show(h,false);
 })();
 
 /* rating distribution bars animate in (reviews) */
