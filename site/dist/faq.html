@@ -951,6 +951,7 @@ nav.scrolled{background:rgba(10,10,11,.82);backdrop-filter:blur(12px);border-bot
 .fq-hero h1{font-size:clamp(2.3rem,5.6vw,3.8rem);letter-spacing:-.02em}
 .fq-hero .fsearch{max-width:480px;margin:34px auto 0}
 .fq-hero .fsearch input{padding:14px 20px 14px 46px;font-size:.95rem;background:#14161c}
+.fq-hero .sub2{color:var(--mut);margin:18px auto 0;max-width:58ch;font-size:1.03rem;line-height:1.65}
 .fpop-lbl{margin-top:38px;font-size:.88rem;color:var(--dim)}
 .fpop2{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
 .fpop2 button{font-size:.86rem;font-weight:600;color:#d6d6de;background:rgba(23,23,28,.85);border:1px solid var(--line2);border-radius:12px;padding:11px 18px;transition:.15s}
@@ -2186,6 +2187,16 @@ if(document.getElementById('itable')) itbl('fx');
   },{rootMargin:'-60px 0px'});
   tl.querySelectorAll('.tl').forEach(function(x){io.observe(x)});
 })();
+
+/* hero chips proxy clicks to sidebar filters */
+document.querySelectorAll('[data-proxy]').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=document.querySelector(b.dataset.proxy); if(!t) return;
+    t.click();
+    var sc=b.dataset.scroll?document.querySelector(b.dataset.scroll):null;
+    if(sc) sc.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
 
 /* rating distribution bars animate in (reviews) */
 (function(){

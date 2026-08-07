@@ -548,6 +548,16 @@ if(document.getElementById('itable')) itbl('fx');
   tl.querySelectorAll('.tl').forEach(function(x){io.observe(x)});
 })();
 
+/* hero chips proxy clicks to sidebar filters */
+document.querySelectorAll('[data-proxy]').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=document.querySelector(b.dataset.proxy); if(!t) return;
+    t.click();
+    var sc=b.dataset.scroll?document.querySelector(b.dataset.scroll):null;
+    if(sc) sc.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+
 /* rating distribution bars animate in (reviews) */
 (function(){
   var r=document.querySelector('.rate'); if(!r) return;
