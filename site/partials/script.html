@@ -254,49 +254,81 @@ if(document.getElementById('itable')) itbl('fx');
   }
   requestAnimationFrame(frame);
 })();
-/* faq help-center: sidebar categories + live search */
+/* faq help-center — FTMO-style master/detail (sidebar tree + article view) */
 (function(){
-  var main=document.getElementById('fqMain'); if(!main) return;
-  var cat='all', q='';
-  var groups=main.querySelectorAll('.fq-group');
-  /* auto counts in sidebar + group headers */
-  groups.forEach(function(g){
-    var n=g.querySelectorAll('details').length;
-    var side=document.querySelector('.fq-cat[data-f="'+g.dataset.g+'"] em'); if(side) side.textContent=n;
-    var gh=g.querySelector('.fq-gh span'); if(gh) gh.textContent=n+' answers';
+  var body=document.getElementById('fqBody'); if(!body) return;
+  var CATS={
+    new:{l:'New to EZE',ic:'i-spark',bg:'rgba(11,132,254,.12)',c:'#5eaeff'},
+    challenge:{l:'EZE Challenge',ic:'i-rocket',bg:'rgba(245,158,11,.12)',c:'#ffb04d'},
+    rules:{l:'Trading Rules',ic:'i-shield',bg:'rgba(242,54,69,.1)',c:'#ff7a86'},
+    payouts:{l:'Funded & Payouts',ic:'i-dollar',bg:'rgba(29,185,84,.12)',c:'#39d573'},
+    platforms:{l:'Platforms & Tools',ic:'i-activity',bg:'rgba(139,92,246,.12)',c:'#b58bff'},
+    billing:{l:'Billing & Fees',ic:'i-card',bg:'rgba(0,182,122,.12)',c:'#00b67a'}
+  };
+  var arts=[].slice.call(body.querySelectorAll('.fq-art'));
+  var tree=document.getElementById('fqTree');
+  /* build sidebar tree from articles */
+  var byCat={};
+  arts.forEach(function(a){ (byCat[a.dataset.g]=byCat[a.dataset.g]||[]).push(a); });
+  Object.keys(CATS).forEach(function(k){
+    if(!byCat[k]) return;
+    var g=document.createElement('div'); g.className='fq-g'; g.dataset.g=k;
+    g.innerHTML='<button class="gh"><span class="ic" style="background:'+CATS[k].bg+';color:'+CATS[k].c+'"><svg class="i s14"><use href="#'+CATS[k].ic+'"/></svg></span>'+CATS[k].l+
+      '<svg class="i s12 chev"><use href="#i-chev"/></svg></button><div class="fq-qs"></div>';
+    var qs=g.querySelector('.fq-qs');
+    byCat[k].forEach(function(a){
+      var b=document.createElement('button'); b.className='fq-q'; b.dataset.id=a.id;
+      b.textContent=a.dataset.t; qs.appendChild(b);
+    });
+    tree.appendChild(g);
   });
-  var all=document.querySelector('.fq-cat[data-f="all"] em');
-  if(all) all.textContent=main.querySelectorAll('details').length;
-  function apply(){
-    var any=false;
-    groups.forEach(function(g){
-      var gShow=false;
-      g.querySelectorAll('details').forEach(function(d){
-        var ok=(cat==='all'||g.dataset.g===cat) && (!q || d.textContent.toLowerCase().indexOf(q)>-1);
-        d.classList.toggle('hid',!ok);
-        if(ok) gShow=true;
-      });
-      g.classList.toggle('hid',!gShow);
-      if(gShow) any=true;
+  function show(id,scroll){
+    var art=document.getElementById(id); if(!art) return;
+    arts.forEach(function(a){a.classList.toggle('on',a===art)});
+    tree.querySelectorAll('.fq-q').forEach(function(b){b.classList.toggle('on',b.dataset.id===id)});
+    tree.querySelectorAll('.fq-g').forEach(function(g){ if(g.dataset.g===art.dataset.g) g.classList.add('open'); });
+    /* breadcrumb */
+    var c=document.getElementById('fqCrumb');
+    if(c) c.innerHTML='<span>All FAQ</span><svg class="i"><use href="#i-chev"/></svg><span>'+CATS[art.dataset.g].l+'</span><svg class="i"><use href="#i-chev"/></svg><b>'+art.dataset.t+'</b>';
+    /* related: same category first, then others */
+    var rel=document.getElementById('fqRel');
+    if(rel){
+      var pool=byCat[art.dataset.g].filter(function(a){return a!==art});
+      arts.forEach(function(a){ if(a.dataset.g!==art.dataset.g && pool.length<5) pool.push(a); });
+      rel.innerHTML=pool.slice(0,5).map(function(a){
+        return '<button data-id="'+a.id+'"><svg class="i s14 di"><use href="#i-news"/></svg>'+a.dataset.t+'<svg class="i s12 chev"><use href="#i-chev"/></svg></button>';
+      }).join('');
+    }
+    if(history.replaceState) history.replaceState(null,'','#'+id);
+    if(scroll) document.querySelector('.fq-lay').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  tree.addEventListener('click',function(e){
+    var gh=e.target.closest('button.gh');
+    if(gh){ gh.parentElement.classList.toggle('open'); return; }
+    var q=e.target.closest('.fq-q'); if(q) show(q.dataset.id,window.innerWidth<=900);
+  });
+  document.getElementById('fqRel')?.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-id]'); if(b) show(b.dataset.id,true);
+  });
+  /* search filters the tree */
+  var inp=document.getElementById('faqSearch');
+  inp?.addEventListener('input',function(e){
+    var q=e.target.value.trim().toLowerCase(), any=false;
+    tree.querySelectorAll('.fq-q').forEach(function(b){
+      var art=document.getElementById(b.dataset.id);
+      var hit=!q || (b.textContent+' '+art.textContent).toLowerCase().indexOf(q)>-1;
+      b.classList.toggle('hid',!hit); if(hit) any=true;
+    });
+    tree.querySelectorAll('.fq-g').forEach(function(g){
+      var has=g.querySelector('.fq-q:not(.hid)');
+      g.style.display=has?'':'none';
+      if(q&&has) g.classList.add('open');
     });
     var none=document.getElementById('faqNone'); if(none) none.classList.toggle('show',!any);
-  }
-  document.querySelectorAll('.fq-cat').forEach(function(b){
-    b.addEventListener('click',function(){
-      cat=b.dataset.f;
-      document.querySelectorAll('.fq-cat').forEach(function(x){x.classList.toggle('on',x===b)});
-      apply();
-      if(window.innerWidth<=900) main.scrollIntoView({behavior:'smooth',block:'start'});
-    });
   });
-  var inp=document.getElementById('faqSearch');
-  inp?.addEventListener('input',function(e){ q=e.target.value.trim().toLowerCase(); apply(); });
-  /* popular search chips fill the search box */
-  document.querySelectorAll('.fpop button').forEach(function(b){
-    b.addEventListener('click',function(){
-      if(inp){ inp.value=b.textContent; inp.dispatchEvent(new Event('input')); inp.focus(); }
-    });
-  });
+  /* initial: deep link or first article */
+  var h=location.hash.replace('#','');
+  show(document.getElementById(h)&&document.getElementById(h).classList.contains('fq-art')?h:arts[0].id,false);
 })();
 
 /* count-up numbers: <b data-count="94213540" data-pre="$" data-suf="+"> */
