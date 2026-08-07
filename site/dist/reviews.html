@@ -954,17 +954,24 @@ nav.scrolled{background:rgba(10,10,11,.82);backdrop-filter:blur(12px);border-bot
 .fpop2 button{font-size:.86rem;font-weight:600;color:#d6d6de;background:rgba(23,23,28,.85);border:1px solid var(--line2);border-radius:12px;padding:11px 18px;transition:.15s}
 .fpop2 button:hover{border-color:#4a4a53;color:#fff;background:var(--card3)}
 .fhub{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
-.fh-c{background:#fff;border:1px solid #e6e8ec;border-radius:16px;padding:26px 26px 8px;box-shadow:0 1px 2px rgba(16,20,28,.03)}
+.fh-c{background:#fff;border:1px solid #e6e8ec;border-radius:18px;padding:24px 24px 10px;box-shadow:0 1px 2px rgba(16,20,28,.03);position:relative;overflow:hidden;transition:.18s}
+.fh-c::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--fc),color-mix(in srgb,var(--fc) 30%,transparent));opacity:0;transition:.18s}
+.fh-c:hover{transform:translateY(-3px);box-shadow:0 18px 44px -20px rgba(16,20,28,.22);border-color:#dfe2e8}
+.fh-c:hover::before{opacity:1}
 .fh-c.hid{display:none}
-.fh-h{display:flex;gap:14px;align-items:center;margin-bottom:12px}
-.fh-h .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;flex:none}
-.fh-h h2{font-size:1.22rem;color:#111318}
-.fh-q{width:100%;display:flex;gap:11px;align-items:center;text-align:left;padding:15px 2px;border-top:1px solid #eef0f2;font-size:.92rem;font-weight:600;color:#24272e;transition:.13s}
-.fh-q:hover{color:#000}
+.fh-h{display:flex;gap:14px;align-items:center;margin-bottom:14px;padding-bottom:16px;border-bottom:1px solid #eef0f2}
+.fh-h .ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;flex:none;background:linear-gradient(150deg,color-mix(in srgb,var(--fc) 16%,#fff),color-mix(in srgb,var(--fc) 7%,#fff));color:var(--fc);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--fc) 18%,transparent)}
+.fh-h h2{font-size:1.16rem;color:#111318;line-height:1.2}
+.fh-h .sub{font-size:.76rem;color:#7a8089;font-weight:400;margin-top:3px}
+.fh-h .cnt{margin-left:auto;font-size:.68rem;font-weight:700;color:#565d68;background:#f2f3f6;border-radius:99px;padding:5px 11px;white-space:nowrap;flex:none}
+.fh-q{width:100%;display:flex;gap:11px;align-items:center;text-align:left;padding:14px 12px;margin:0 -12px;width:calc(100% + 24px);border-radius:11px;font-size:.9rem;font-weight:600;color:#24272e;transition:.14s;position:relative}
+.fh-q+.fh-q::before{content:"";position:absolute;top:0;left:12px;right:12px;height:1px;background:#f0f2f5}
+.fh-q:hover{background:#f6f7f9;color:#000}
+.fh-q:hover::before,.fh-q:hover+.fh-q::before{opacity:0}
 .fh-q.hid{display:none}
-.fh-q .di{color:#9aa0ab;flex:none}
-.fh-q .chev{margin-left:auto;color:#9aa0ab;flex:none;transform:rotate(-90deg);transition:.15s}
-.fh-q:hover .chev{color:#111318}
+.fh-q .di{color:#b6bbc4;flex:none}
+.fh-q .chev{margin-left:auto;color:#b6bbc4;flex:none;transform:rotate(-90deg);transition:.15s}
+.fh-q:hover .chev{color:var(--fc);transform:rotate(-90deg) translateY(3px)}
 .hidsec{display:none!important}
 .fq-crumb .cb{color:#9aa0ab;cursor:pointer;font:inherit;transition:.13s}
 .fq-crumb .cb:hover{color:#111318;text-decoration:underline}
@@ -1613,12 +1620,12 @@ if(document.getElementById('itable')) itbl('fx');
 (function(){
   var body=document.getElementById('fqBody'); if(!body) return;
   var CATS={
-    new:{l:'New to EZE',ic:'i-spark',bg:'rgba(11,132,254,.12)',c:'#0b6ef5'},
-    challenge:{l:'EZE Challenge',ic:'i-rocket',bg:'rgba(245,158,11,.14)',c:'#d97706'},
-    rules:{l:'Trading Rules',ic:'i-shield',bg:'rgba(242,54,69,.1)',c:'#e11d48'},
-    payouts:{l:'Funded & Payouts',ic:'i-dollar',bg:'rgba(29,185,84,.14)',c:'#15803d'},
-    platforms:{l:'Platforms & Tools',ic:'i-activity',bg:'rgba(139,92,246,.14)',c:'#7c3aed'},
-    billing:{l:'Billing & Fees',ic:'i-card',bg:'rgba(0,182,122,.14)',c:'#0f766e'}
+    new:{l:'New to EZE',d:'Start here — what EZE is and how it works',ic:'i-spark',c:'#0b6ef5'},
+    challenge:{l:'EZE Challenge',d:'Routes, targets and getting funded',ic:'i-rocket',c:'#d97706'},
+    rules:{l:'Trading Rules',d:"What's allowed, what breaches",ic:'i-shield',c:'#e11d48'},
+    payouts:{l:'Funded & Payouts',d:'Splits, speed and scaling',ic:'i-dollar',c:'#15803d'},
+    platforms:{l:'Platforms & Tools',d:'MT5, cTrader and your dashboard',ic:'i-activity',c:'#7c3aed'},
+    billing:{l:'Billing & Fees',d:'Payments, one-time fees and refunds',ic:'i-card',c:'#0f766e'}
   };
   var arts=[].slice.call(body.querySelectorAll('.fq-art'));
   var byCat={};
@@ -1640,9 +1647,10 @@ if(document.getElementById('itable')) itbl('fx');
     tree.appendChild(g);
     if(hub){
       var c=document.createElement('div'); c.className='fh-c'; c.dataset.g=k;
-      c.innerHTML='<div class="fh-h"><span class="ic" style="background:'+CATS[k].bg+';color:'+CATS[k].c+'"><svg class="i s18"><use href="#'+CATS[k].ic+'"/></svg></span><h2>'+CATS[k].l+'</h2></div>'+
+      c.style.setProperty('--fc',CATS[k].c);
+      c.innerHTML='<div class="fh-h"><span class="ic"><svg class="i s20"><use href="#'+CATS[k].ic+'"/></svg></span><div><h2>'+CATS[k].l+'</h2><div class="sub">'+CATS[k].d+'</div></div><span class="cnt">'+byCat[k].length+' answers</span></div>'+
         byCat[k].map(function(a){
-          return '<button class="fh-q" data-id="'+a.id+'"><svg class="i s14 di"><use href="#i-news"/></svg>'+a.dataset.t+'<svg class="i s12 chev"><use href="#i-chev"/></svg></button>';
+          return '<button class="fh-q" data-id="'+a.id+'">'+a.dataset.t+'<svg class="i s12 chev"><use href="#i-chev"/></svg></button>';
         }).join('');
       hub.appendChild(c);
     }

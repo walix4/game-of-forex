@@ -258,12 +258,12 @@ if(document.getElementById('itable')) itbl('fx');
 (function(){
   var body=document.getElementById('fqBody'); if(!body) return;
   var CATS={
-    new:{l:'New to EZE',ic:'i-spark',bg:'rgba(11,132,254,.12)',c:'#0b6ef5'},
-    challenge:{l:'EZE Challenge',ic:'i-rocket',bg:'rgba(245,158,11,.14)',c:'#d97706'},
-    rules:{l:'Trading Rules',ic:'i-shield',bg:'rgba(242,54,69,.1)',c:'#e11d48'},
-    payouts:{l:'Funded & Payouts',ic:'i-dollar',bg:'rgba(29,185,84,.14)',c:'#15803d'},
-    platforms:{l:'Platforms & Tools',ic:'i-activity',bg:'rgba(139,92,246,.14)',c:'#7c3aed'},
-    billing:{l:'Billing & Fees',ic:'i-card',bg:'rgba(0,182,122,.14)',c:'#0f766e'}
+    new:{l:'New to EZE',d:'Start here — what EZE is and how it works',ic:'i-spark',c:'#0b6ef5'},
+    challenge:{l:'EZE Challenge',d:'Routes, targets and getting funded',ic:'i-rocket',c:'#d97706'},
+    rules:{l:'Trading Rules',d:"What's allowed, what breaches",ic:'i-shield',c:'#e11d48'},
+    payouts:{l:'Funded & Payouts',d:'Splits, speed and scaling',ic:'i-dollar',c:'#15803d'},
+    platforms:{l:'Platforms & Tools',d:'MT5, cTrader and your dashboard',ic:'i-activity',c:'#7c3aed'},
+    billing:{l:'Billing & Fees',d:'Payments, one-time fees and refunds',ic:'i-card',c:'#0f766e'}
   };
   var arts=[].slice.call(body.querySelectorAll('.fq-art'));
   var byCat={};
@@ -285,9 +285,10 @@ if(document.getElementById('itable')) itbl('fx');
     tree.appendChild(g);
     if(hub){
       var c=document.createElement('div'); c.className='fh-c'; c.dataset.g=k;
-      c.innerHTML='<div class="fh-h"><span class="ic" style="background:'+CATS[k].bg+';color:'+CATS[k].c+'"><svg class="i s18"><use href="#'+CATS[k].ic+'"/></svg></span><h2>'+CATS[k].l+'</h2></div>'+
+      c.style.setProperty('--fc',CATS[k].c);
+      c.innerHTML='<div class="fh-h"><span class="ic"><svg class="i s20"><use href="#'+CATS[k].ic+'"/></svg></span><div><h2>'+CATS[k].l+'</h2><div class="sub">'+CATS[k].d+'</div></div><span class="cnt">'+byCat[k].length+' answers</span></div>'+
         byCat[k].map(function(a){
-          return '<button class="fh-q" data-id="'+a.id+'"><svg class="i s14 di"><use href="#i-news"/></svg>'+a.dataset.t+'<svg class="i s12 chev"><use href="#i-chev"/></svg></button>';
+          return '<button class="fh-q" data-id="'+a.id+'">'+a.dataset.t+'<svg class="i s12 chev"><use href="#i-chev"/></svg></button>';
         }).join('');
       hub.appendChild(c);
     }
