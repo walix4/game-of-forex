@@ -439,6 +439,23 @@ if(document.getElementById('itable')) itbl('fx');
   calc();
 })();
 
+/* blog: sidebar category filter */
+(function(){
+  var side=document.getElementById('bpSide'); if(!side) return;
+  side.addEventListener('click',function(e){
+    var b=e.target.closest('.bp-cat'); if(!b) return;
+    var c=b.dataset.c;
+    side.querySelectorAll('.bp-cat').forEach(function(x){x.classList.toggle('on',x===b)});
+    document.querySelectorAll('.bp-card[data-c]').forEach(function(card){
+      card.classList.toggle('hid', c!=='all' && card.dataset.c!==c);
+    });
+    /* hide editorial blocks when a specific category is chosen */
+    ['bpTop','bpPop','bpCta','bpPag'].forEach(function(id){
+      var el=document.getElementById(id); if(el) el.classList.toggle('hidsec', c!=='all');
+    });
+  });
+})();
+
 /* rating distribution bars animate in (reviews) */
 (function(){
   var r=document.querySelector('.rate'); if(!r) return;
