@@ -505,12 +505,13 @@ if(document.getElementById('itable')) itbl('fx');
     document.getElementById('acTitle').textContent=cards[idx].dataset.t;
     document.getElementById('acMeta').innerHTML='<span class="bp-tag">'+name+'</span><span class="bp-date">&middot; Lesson '+(idx+1)+' of '+cards.length+'</span>';
     document.getElementById('acPlName').textContent=name;
-    document.getElementById('acPlCount').textContent=cards.length+' lessons &middot; plays in order';
+    document.getElementById('acPlCount').textContent=cards.length+' lessons \u00b7 plays in order';
     var list=document.getElementById('acList');
     list.innerHTML=cards.map(function(c,i){
       return '<button class="ac-l'+(i===idx?' on':'')+'" data-v="'+c.dataset.v+'" data-p="'+pid+'">'+
-        '<em>'+('0'+(i+1)).slice(-2)+'</em><span>'+c.dataset.t+'</span>'+
-        '<svg class="i s12 eq"><use href="#i-play"/></svg></button>';
+        '<em>'+('0'+(i+1)).slice(-2)+'</em>'+
+        '<span class="lth"><img loading="lazy" src="https://i.ytimg.com/vi/'+c.dataset.v+'/mqdefault.jpg" alt=""><i class="lp"><svg class="i s12"><use href="#i-play"/></svg></i></span>'+
+        '<span class="lt">'+c.dataset.t+'</span></button>';
     }).join('');
     var on=list.querySelector('.ac-l.on'); if(on) on.scrollIntoView({block:'nearest'});
     document.querySelectorAll('.ac-card').forEach(function(c){ c.classList.toggle('on',c.dataset.v===v&&c.dataset.p===pid); });
