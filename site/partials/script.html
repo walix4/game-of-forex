@@ -501,6 +501,8 @@ if(document.getElementById('itable')) itbl('fx');
     var cards=cardsOf(pid), idx=0;
     cards.forEach(function(c,i){ if(c.dataset.v===v) idx=i; });
     frame.src='https://www.youtube-nocookie.com/embed/'+v+'?list='+pid+'&rel=0'+(auto?'&autoplay=1':'');
+    var fr=document.querySelector('.ac-frame');
+    if(fr){ fr.style.backgroundImage='url(https://i.ytimg.com/vi/'+v+'/maxresdefault.jpg)'; fr.style.backgroundSize='cover'; fr.style.backgroundPosition='center'; }
     var sec=secOf(pid), name=sec?sec.dataset.name:'';
     document.getElementById('acTitle').textContent=cards[idx].dataset.t;
     document.getElementById('acMeta').innerHTML='<span class="bp-tag">'+name+'</span><span class="bp-date">&middot; Lesson '+(idx+1)+' of '+cards.length+'</span>';
@@ -563,6 +565,34 @@ document.querySelectorAll('[data-proxy]').forEach(function(b){
   var r=document.querySelector('.rate'); if(!r) return;
   if(!('IntersectionObserver' in window)){ r.classList.add('in'); return; }
   new IntersectionObserver(function(e,io){ if(e[0].isIntersecting){ r.classList.add('in'); io.disconnect(); } },{rootMargin:'-60px'}).observe(r);
+})();
+
+/* design-tool friendliness: inline every <use> icon into real paths so
+   HTML->Figma importers (which don't resolve sprite refs) capture icons.
+   A MutationObserver keeps JS-rebuilt lists inlined too. */
+(function(){
+  var SYM={};
+  document.querySelectorAll('symbol[id]').forEach(function(sm){SYM[sm.id]=sm});
+  function inline(root){
+    (root.querySelectorAll?root:document).querySelectorAll('svg use').forEach(function(u){
+      var id=(u.getAttribute('href')||u.getAttributeNS('http://www.w3.org/1999/xlink','href')||'').replace('#','');
+      var sym=SYM[id]; if(!sym) return;
+      var svg=u.closest('svg'); if(!svg) return;
+      if(!svg.getAttribute('viewBox')&&sym.getAttribute('viewBox')) svg.setAttribute('viewBox',sym.getAttribute('viewBox'));
+      [].slice.call(sym.childNodes).forEach(function(n){ if(n.cloneNode) svg.insertBefore(n.cloneNode(true),u); });
+      u.parentNode.removeChild(u);
+    });
+  }
+  inline(document);
+  if('MutationObserver' in window){
+    new MutationObserver(function(ms){
+      ms.forEach(function(m){ [].slice.call(m.addedNodes).forEach(function(n){ if(n.nodeType===1) inline(n); }); });
+    }).observe(document.body,{childList:true,subtree:true});
+  }
+  /* ?figma — force-load lazy images before importing */
+  if(location.search.indexOf('figma')>-1){
+    document.querySelectorAll('img[loading="lazy"]').forEach(function(i){ i.loading='eager'; if(i.dataset.src) i.src=i.dataset.src; });
+  }
 })();
 })();
 </script>
