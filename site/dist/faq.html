@@ -874,8 +874,8 @@ nav.scrolled{background:rgba(10,10,11,.82);backdrop-filter:blur(12px);border-bot
 .fq-g>button.gh{width:100%;display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:11px;font-size:.86rem;font-weight:700;color:var(--txt);transition:.15s;text-align:left}
 .fq-g>button.gh:hover{background:var(--card)}
 .fq-g .ic{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;flex:none}
-.fq-g .chev{margin-left:auto;color:var(--dim);transition:.2s;flex:none}
-.fq-g.open .chev{transform:rotate(90deg)}
+.fq-g .chev{margin-left:auto;color:var(--dim);transition:.2s;flex:none;transform:rotate(-90deg)}
+.fq-g.open .chev{transform:rotate(0)}
 .fq-qs{display:none;flex-direction:column;gap:2px;padding:2px 0 8px 14px}
 .fq-g.open .fq-qs{display:flex}
 .fq-q{display:block;text-align:left;font-size:.82rem;color:var(--mut);padding:8px 12px;border-radius:9px;transition:.13s;line-height:1.45}
@@ -940,6 +940,8 @@ nav.scrolled{background:rgba(10,10,11,.82);backdrop-filter:blur(12px);border-bot
 .flite .trustbar .tb-n{padding-left:clamp(18px,3vw,44px);border-left:1px solid #e6e8ec}
 .flite .trustbar .tb-n b{color:#111318}
 .flite .trustbar .tb-n span{color:#565d68}
+.flite .cta{color:#fff}
+.flite .cta-mock{color:var(--txt)}
 .fl-rev{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;padding:clamp(26px,4vw,40px) 0 clamp(40px,6vw,64px);font-size:.86rem;color:#565d68}
 .fl-rev small{font-size:.64rem;font-weight:800;letter-spacing:.14em;color:#9aa0ab;margin-right:8px}
 .fl-rev b{color:#111318;font-weight:700}
@@ -1071,13 +1073,13 @@ nav.scrolled{background:rgba(10,10,11,.82);backdrop-filter:blur(12px);border-bot
           <svg class="i s14"><use href="#i-eye"/></svg>
           <input type="search" id="faqSearch" placeholder="Search the FAQ" aria-label="Search FAQs">
         </div>
-        <nav class="fq-tree" id="fqTree" aria-label="FAQ categories"></nav>
+        <div class="fq-tree" id="fqTree" role="navigation" aria-label="FAQ categories"></div>
         <div class="faq-none" id="faqNone">No matches — try another word.</div>
       </aside>
 
       <!-- ARTICLE -->
       <div class="fq-doc">
-        <nav class="fq-crumb" id="fqCrumb"></nav>
+        <div class="fq-crumb" id="fqCrumb"></div>
         <div id="fqBody">
 
           <!-- NEW TO EZE -->
